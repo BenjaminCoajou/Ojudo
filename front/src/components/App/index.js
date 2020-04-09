@@ -20,13 +20,6 @@ const App = () => (
   <div className="app">
     <Header />
     <Home />
-    <Presentation />
-    <News />
-    <Article />
-    <Events />
-    <Contact />
-    <Login />
-    <Sponsors />
     <Footer />
   </div>
 );
