@@ -1,28 +1,36 @@
 .header {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: lightgray;
 
-    &__title {
+    &__top {
         display: flex;
-        justify-content: center;
-        font-size: 1.7em;
-        padding: 15px
-    }
+        justify-content: space-between;
+        align-items: stretch;
+        height: 8em;
+        
 
-    &__navbar {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 15px
+        &__title {
+            display: flex;
+            justify-content: center;
+            font-size: 5em;
+            padding: 15px;
+        }
+   
+        &__ffjudo {
+            display: flex;
+            
+        }
     }
 
     &__nav {
-        cursor: pointer;
+        justify-content: space-evenly;
     }
+}
+
+.test {
+    color: white;
+    background-color: #212529;
     
-    &__nav:hover {
-        color: white;
-        text-decoration: underline;
-    }
 }
