@@ -12,8 +12,9 @@ const Header = () => (
             <p className="header__nav">Evénements</p>
             <p className="header__nav">Contact</p>
             <p className="header__nav">Sponsors</p>
+            <p>lorem ipsum</p>
         </nav>
     </header>
 );
 
-export default Header;
+export default Header;git 
