@@ -2,18 +2,67 @@
 
 namespace App\Controller\Admin;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Repository\UserRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class UserController extends AbstractController
-{
-    /**
-     * @Route("/user", name="user")
+/**
+     * @Route("api/admin", name="api_admin_")
      */
-    public function index()
+class UserController extends AbstractController
+{   /**
+    * @Route("/users", name="users_browse", methods={"GET"})
+    */
+    public function browse(UserRepository $userRepository, SerializerInterface $serializer)
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        
+        $users = $userRepository->findAll();
+
+        // On utilise le Serializer pour normaliser notre objet users
+        $data = $serializer->normalize($users, null, ['groups' => 'admin']);
+
+        return $this->json($data);
     }
+
+    /**
+     * @Route("/users/{id}", name="users_read", methods={"GET"}, requirements={"id": "\d+"})
+     */
+    public function read(User $user, SerializerInterface $serializer)
+    {   
+        return $this->json($serializer->normalize(
+            $user,
+            null, ['groups' => ['admin']]
+        ));
+        }
+        
+        /**
+     * @Route("users/edit", name="users_edit", methods={"PATCH"})
+     */
+    public function edit()
+    {
+       
+        }
+        
+
+    /**
+     * @Route("/users/add", name="users_add", methods={"POST"})
+     */
+    public function add()
+    {
+       
+        }
+
+        /**
+     * @Route("/users/{id}/delete", name="users_delete", requirements={"id": "\d+"}, methods={"DELETE"})
+     */
+    public function delete()
+    {
+       
+        }
+        
+        
+
+    
 }
