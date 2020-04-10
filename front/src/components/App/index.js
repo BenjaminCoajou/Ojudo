@@ -2,16 +2,25 @@
 import React from 'react';
 
 // == Import
-import Counter from 'src/containers/Counter';
-import reactLogo from './react-logo.svg';
+import Header from '../Header';
+import Home from '../Home';
+import Presentation from '../Presentation';
+import News from '../News';
+import Article from '../Article';
+import Events from '../Events';
+import Contact from '../Contact';
+import Login from '../Login';
+import Sponsors from '../Sponsors';
+import Footer from '../Footer';
+
 import './styles.css';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-    <Counter />
+    <Header />
+    <Home />
+    <Footer />
   </div>
 );
 
