@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
@@ -15,31 +16,37 @@ class Event
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("admin")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("admin")
      */
     private $title;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups("admin")
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("admin")
      */
     private $place;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("admin")
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("admin")
      */
     private $createdAt;
 
@@ -50,6 +57,7 @@ class Event
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Categorie", mappedBy="event")
+     * @Groups("admin")
      */
     private $categories;
 
