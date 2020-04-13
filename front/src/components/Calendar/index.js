@@ -19,7 +19,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
 
     // nom des jours de la semaine
     const weekDayName = (
-        moment.weekdays());
+        moment.weekdaysShort());
 
     // premier jour du mois
     const firstDayOfMonth = () => (
