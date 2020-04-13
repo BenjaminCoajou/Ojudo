@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
+ * @ApiResource
  */
 class Event
 {
@@ -15,31 +18,37 @@ class Event
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("admin")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("admin")
      */
     private $title;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups("admin")
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("admin")
      */
     private $place;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("admin")
      */
     private $content;
-
+    
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("admin")
      */
     private $createdAt;
 
@@ -50,8 +59,14 @@ class Event
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Categorie", mappedBy="event")
+     * @Groups("admin")
      */
     private $categories;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
 
     public function __construct()
     {
@@ -159,6 +174,18 @@ class Event
             $this->categories->removeElement($category);
             $category->removeEvent($this);
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
