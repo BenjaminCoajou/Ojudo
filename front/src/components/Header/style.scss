@@ -14,7 +14,7 @@
         &__title {
             display: flex;
             justify-content: center;
-            font-size: 5em;
+            font-size: 4em;
             padding: 15px;
         }
    
@@ -33,4 +33,8 @@
     color: white;
     background-color: #212529;
     
+}
+
+.d-sm-flex {
+    font-size: 4em;
 }
