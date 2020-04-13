@@ -1,4 +1,5 @@
 import React from 'react';
+import Calendar from '../../containers/Calendar';
 
 import './style.scss';
 
@@ -21,7 +22,7 @@ const Home = () => (
                 </p>
             </div>
         </div>
-        <div className="home__calendar">Calendrier</div>
+        <div className="home__calendar"><Calendar/></div>
     </div>
 );
 
