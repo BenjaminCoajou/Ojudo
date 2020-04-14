@@ -59,6 +59,7 @@
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
+    "react-icons": "^3.9.0",
     "react-redux": "*",
     "redux": "*"
   }

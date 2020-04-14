@@ -93,3 +93,10 @@ tbody {
 .week-day {
   text-transform: uppercase;
 }
+
+.event {
+  width: 10px;
+  height: 10px;
+  border: solid green 15px;
+  border-radius: 50%;
+}

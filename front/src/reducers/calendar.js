@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY } from '../actions/calendar';
+import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY, DISPLAY_EVENT } from '../actions/calendar';
 
 
 moment.locale('fr');
@@ -9,6 +9,21 @@ const initialState = {
     allmonths: moment.months(),
     monthIsDisplayed: false,
     yearIsDisplayed: false,
+    eventInfos: '',
+    events: [
+        {
+            date: '106',
+            name: 'compétion',
+        },
+        {
+            date: '110',
+            name: 'BBQ',
+        },
+        {
+            date: '140',
+            name: 'pizza',
+        }
+    ],
     
 };
 
@@ -41,6 +56,11 @@ export default (state = initialState, action = {}) => {
             ...state,
             dayPick: action.payload,
         };
+        case DISPLAY_EVENT:
+                return {
+                    ...state,
+                    eventInfos: action.payload === undefined ? "" :action.payload.name,
+                };
         default:
             return state;
     }

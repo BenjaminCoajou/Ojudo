@@ -1,13 +1,14 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import moment from 'moment';
+import { MdEvent } from "react-icons/md";
 
 import Months from '../../containers/Months';
 import Years from '../../containers/Years';
 
 import './style.css';
 
-const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, showYear, handleDayClick }) => {
+const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, showYear, handleDayClick, events, selectEvent, eventInfos }) => {
     
     moment.locale('fr');
 
@@ -39,9 +40,13 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     const daysInMonth = [];
     for (let day = 1; day <= dateObject.daysInMonth(); day++) {
         let today = day == currentDay() ? "today" : "";
-        let selectedDay = moment(`${dateObject.format('MM')}-${day}-${year()}`).format('DD-MM-YY');
+        let selectedDay = moment(`${dateObject.format('MM')}-${day}-${year()}`).dayOfYear();
+        let allEvent = events.map((evt) => (evt.date));
+        let findEvent = allEvent.find(evt => evt == selectedDay);
+        let eventInfos = events.find(evt => evt.date == selectedDay);
+        let nextEvent = () => (selectedDay == findEvent ? <MdEvent/> : "");
         daysInMonth.push(
-            <td key={day} className={`calendar-day ${today}`} onClick={() => {handleDayClick(selectedDay)}} >{day}</td>,
+            <td key={day} className={`calendar-day ${today}`} onClick={() => {handleDayClick(selectedDay), selectEvent(eventInfos)}} ><span>{nextEvent()}</span> {day}</td>,
         );
     };
 
@@ -67,6 +72,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     ));
 
     return (
+        <div>
         <div className="tail-datetime-calendar" >
             <div className="calendar-navi" >
                 <span className="calendar-label" onClick={showMonth} > {month()} </span>
@@ -91,6 +97,8 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
                 </table>
             </div>
         </div>
+        <div>{eventInfos ? eventInfos : ""}</div>
+        </div>
     )
 };
 
@@ -101,6 +109,10 @@ Calendar.propTypes = {
     yearIsDisplayed: Proptypes.bool.isRequired,
     showYear: Proptypes.func.isRequired,
     handleDayClick: Proptypes.func.isRequired,
+    events: Proptypes.array.isRequired,
+    selectEvent: Proptypes.func.isRequired,
+    eventInfos: Proptypes.object.isRequired,
+
 };
 
 
