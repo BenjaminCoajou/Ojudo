@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR} from '../actions/calendar';
+import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY } from '../actions/calendar';
 
 
 moment.locale('fr');
@@ -36,6 +36,11 @@ export default (state = initialState, action = {}) => {
                 dateObject: state.dateObject.year(action.payload),
                 yearIsDisplayed: !state.yearIsDisplayed,
             };
+        case SELECT_DAY:
+        return {
+            ...state,
+            dayPick: action.payload,
+        };
         default:
             return state;
     }
