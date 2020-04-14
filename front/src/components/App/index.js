@@ -13,13 +13,15 @@ import Login from '../Login';
 import Sponsors from '../Sponsors';
 import Footer from '../Footer';
 
+import slugify from 'slugify';
+
 import './styles.css';
 
 // == Composant
 const App = () => (
   <div className="app">
     <Header />
-    <Home />
+    <Presentation />
     <Footer />
   </div>
 );
