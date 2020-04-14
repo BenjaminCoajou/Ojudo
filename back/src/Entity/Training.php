@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrainingRepository")
+ * @ApiResource
  */
 class Training
 {
@@ -13,26 +16,31 @@ class Training
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups("admin")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @groups("admin")
      */
     private $title;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @groups("admin")
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
+     * @groups("admin")
      */
     private $content;
 
     /**
      * @ORM\Column(type="time")
+     * @groups("admin")
      */
     private $duration;
 

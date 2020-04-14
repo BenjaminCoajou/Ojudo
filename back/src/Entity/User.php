@@ -2,70 +2,84 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ApiResource
  */
 class User
 {
-    /**
+    /** 
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups("admin")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @groups("admin")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=90)
+     * @groups("admin")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups("admin")
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups("admin")
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @groups("admin")
      */
     private $phone_number;
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @groups("admin")
      */
     private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @groups("admin")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=35, nullable=true)
+     * @groups("admin")
      */
     private $license;
 
     /**
      * @ORM\Column(type="boolean")
+     * @groups("admin")
      */
     private $status;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
+     * @groups("admin")
      */
     private $categorie;
 
@@ -77,6 +91,7 @@ class User
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
+     * @groups("admin")
      */
     private $role;
 

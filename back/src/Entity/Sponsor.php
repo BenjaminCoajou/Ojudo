@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SponsorRepository")
+ * @ApiResource
  */
 class Sponsor
 {
@@ -13,31 +16,37 @@ class Sponsor
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups("admin")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=160)
+     * @groups("admin")
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @groups("admin")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @groups("admin")
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=160)
+     * @groups("admin")
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @groups("admin")
      */
     private $phone_number;
 
