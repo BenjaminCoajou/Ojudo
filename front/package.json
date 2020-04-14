@@ -60,6 +60,8 @@
     "react": "*",
     "react-dom": "*",
     "react-redux": "*",
-    "redux": "*"
+    "react-router-dom": "^5.1.2",
+    "redux": "*",
+    "slugify": "^1.4.0"
   }
 }
