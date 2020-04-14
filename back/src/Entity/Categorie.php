@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategorieRepository")
+ * @ApiResource
  */
 class Categorie
 {
@@ -15,21 +18,25 @@ class Categorie
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("admin")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @Groups("admin")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @Groups("admin")
      */
     private $weight;
 
     /**
      * @ORM\Column(type="string", length=12)
+     * @Groups("admin")
      */
     private $gender;
 
