@@ -1,0 +1,28 @@
+.news {
+    border: 2px solid black;
+
+    &__title {
+        text-transform: uppercase;
+        padding: 10px;
+    }
+
+    &__nav-search {
+
+        &__nav {
+            width: 180px;
+            height: 20px;
+            
+            &__tag {
+               width: 30px;
+               height: 10px;
+               background-color: lightgrey;
+
+
+            }   
+        }
+
+        &__search {
+            
+        } 
+    }
+}
