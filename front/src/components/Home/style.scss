@@ -5,8 +5,10 @@
         
 
         &__content {
-            margin: 8px;
+            margin: 8px 8px 50px 8px;
             background-color: lightgray;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px 3px #9b9b9b;
 
             &__title {
                 text-transform: uppercase;
