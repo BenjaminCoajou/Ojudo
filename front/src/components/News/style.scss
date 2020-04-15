@@ -1,0 +1,107 @@
+.news {
+    width: 80%;
+    margin: auto ;
+    height: 1000px;
+    padding: 30px;
+
+    &__title {
+        text-transform: uppercase;
+        padding: 10px;
+    }
+
+    &__container {
+        border: 2px solid black;
+        width: 90%;
+        margin: auto;
+
+        &__navsearch {
+            display: flex;
+            justify-content: space-between;
+
+            &__nav {
+                display: flex;
+                justify-content: space-evenly;
+                width: 30%;
+                height: 40px;
+                padding: 5px;
+                
+                &__button {
+                    width: 100px;
+                    height: 30px;
+                    background-color: lightgrey;
+                }   
+            }
+
+            &__search {
+                width: 20%;
+                height: 40px;
+                margin-right: 60px;
+
+                &__form {
+                    height: 100%;
+                    &__input {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            } 
+        }
+    }  
+    
+    &__container__articles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        
+
+        &__article {
+            width: 500px;
+            height: 360px;
+            border: 2px solid black;
+            margin: 20px;
+            
+
+            &__image {
+                width: 100%;
+                height: 50%;
+            }
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                
+                &__tag {
+                    width: 50px;
+                    height: 30px;
+                    background-color: #5382bd;
+                }
+
+                &__title {
+                    margin: auto;
+                    padding: 10px;
+                }
+
+                &__paragraph {
+                    margin: auto;
+                    padding: 10px;
+                }
+
+                &__date {
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    &__container__prevnext {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        &__button {
+            width: 300px;
+            height: 40px;  
+            margin-bottom: 10px;      
+        }
+    }
+}

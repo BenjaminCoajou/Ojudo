@@ -3,6 +3,7 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 30px;
+    height: 1000px;
 
     &__story {
         border: 2px solid black;
@@ -11,6 +12,7 @@
 
         &__content {
             margin: 8px;
+            
             &__title {
                 text-transform: uppercase;
                 padding: 10px;
