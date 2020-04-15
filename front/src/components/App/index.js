@@ -21,7 +21,7 @@ import './styles.css';
 const App = () => (
   <div className="app">
     <Header />
-    <Presentation />
+    <Home />
     <Footer />
   </div>
 );

@@ -1,0 +1,30 @@
+.article {
+    width: 80%;
+    margin: auto ;
+    height: 1000px;
+    padding: 30px;
+    border: 2px solid black;
+    &__image {
+        width: 50%;
+        height: 50%;
+    }
+
+    &__text {
+
+        &__tag {
+
+        }
+
+        &__title {
+
+        }
+
+        &__paragraph {
+
+        }
+
+        &__authorDate {
+            
+        }
+    }
+}
