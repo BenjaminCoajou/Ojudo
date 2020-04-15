@@ -1,28 +1,58 @@
 .news {
     border: 2px solid black;
+    width: 80%;
+    margin: auto;
 
     &__title {
         text-transform: uppercase;
         padding: 10px;
     }
 
-    &__nav-search {
+    &__container {
+        width: 90%;
+        margin: auto;
+        border: 2px solid black;
 
-        &__nav {
-            width: 180px;
-            height: 20px;
-            
-            &__tag {
-               width: 30px;
-               height: 10px;
-               background-color: lightgrey;
+        &__navsearch {
+            display: flex;
+            justify-content: space-between;
 
+            &__nav {
+                display: flex;
+                justify-content: space-evenly;
+                width: 30%;
+                height: 40px;
+                background-color: aqua;
+                padding: 5px;
+                
+                &__button {
+                    width: 100px;
+                    height: 30px;
+                    background-color: lightgrey;
+                }   
+            }
 
-            }   
+            &__search {
+                width: 20%;
+                height: 40px;
+                background-color: bisque;
+
+                &__form {
+                    height: 100%;
+                    &__input {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            } 
         }
+    }  
+    
+    &__container__articles {
 
-        &__search {
-            
-        } 
+    }
+
+    &__container__prevnext {
+        
     }
 }
