@@ -1,10 +1,11 @@
 import React from 'react';
+import Calendar from '../../containers/Calendar';
 
 import './style.scss';
 
 const Home = () => (
-    <div className="home">
-        <div className="home__info">
+    <div className="home d-md-flex flex-md-column">
+        <div className="home__info d-md-flex justify-content-md-around">
             <div className="home__info__content">
                 <h2 className="home__info__content__title">Présentation du club</h2>
                 <p className="home__info__content__text">Saraceni tamen nec amici nobis umquam nec hostes optandi, ultro citroque discursantes quicquid inveniri poterat momento temporis parvi vastabant milvorum rapacium similes, qui si praedam dispexerint celsius, volatu rapiunt celeri, aut nisi impetraverint, non inmorantur.
@@ -21,7 +22,7 @@ const Home = () => (
                 </p>
             </div>
         </div>
-        <div className="home__calendar">Calendrier</div>
+        <div className="home__calendar"><Calendar/></div>
     </div>
 );
 
