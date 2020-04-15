@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import ffjudo from './logo-ffjudo.png';
 import './style.scss';
@@ -10,7 +11,6 @@ const Header = () => (
             <img className="header__top__ffjudo" src={ffjudo} />
         </div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#"></a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -18,22 +18,22 @@ const Header = () => (
             <div className="collapse navbar-collapse d-lg-flex justify-content-lg-around" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Accueil</a>
+                        <NavLink className="nav-link" to="/" >Accueil</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Présentation</a>
+                        <NavLink className="nav-link" to="/presentation" >Présentation</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Actualité</a>
+                        <NavLink className="nav-link" to="/actualite" >Actualité</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Evénements</a>
+                        <NavLink className="nav-link" to="/evenements" >Evénements</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Contact</a>
+                        <NavLink className="nav-link" to="/contact" >Contact</NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Connexion</a>
+                        <NavLink className="nav-link" to="/connexion" >Connexion</NavLink>
                     </li>
 
                 </ul>
