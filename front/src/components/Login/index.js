@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin }) => (
+const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
     <div className="loginPage">
-        {error && <div class="alert alert-danger loginPage__alert" role="alert">                            
+        {error && <div className="alert alert-danger loginPage__alert" role="alert">                            
             {error}
         </div>}
-       {loggedMessage && <div class="alert alert-success" role="alert">
+       {loggedMessage && <div className="alert alert-success" role="alert">
             {loggedMessage}
         </div>}
         { !isLogged && <form className="loginPage__form" onSubmit={(evt) => { evt.preventDefault(); handleLogin() }}>
@@ -34,7 +34,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
             </div>
             <button type="submit" className="btn btn-primary">Se Connecter</button>
         </form> }
-        { isLogged && <button type="submit" className="btn btn-primary">Se Déconnecter</button> }
+        { isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button> }
     </div>
 
 );

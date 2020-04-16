@@ -5,15 +5,17 @@ const loginMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case SUBMIT_LOGIN:
             axios({
-                url:'http://localhost:8001/api/login_check',
+                url:'http://54.166.4.90/projet-judo/back/public/index.php/api/login_check',
                 method: 'post',
-                withCredentials: true,
-                data: store.getState().login.form,
-                
+                withCredentials: false,        
+                data: {
+                    username: store.getState().login.form.email,
+                    password: store.getState().login.form.password,
+                }                
             })
             .then((response) => {
                 console.log('coucou', response);
-                //store.dispatch(loginSuccess(response.data.info));
+                store.dispatch(loginSuccess(response.data.token));
             })
             .catch((error) => {
                 console.log(store.getState().login.form.email);

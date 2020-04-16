@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from '../components/Login';
-import { settingsChange, submitLogin } from '../actions/login';
+import { settingsChange, submitLogin, submitLogout } from '../actions/login';
 
 const mapStateToProps = ({login}) => ({
     email: login.form.email,
@@ -17,6 +17,9 @@ const mapStateToDispatch = (dispatch) => ({
     handleLogin: () => {
         dispatch(submitLogin());
     },
+    handleLogout: () => {
+        dispatch(submitLogout());
+    }
 });
 
 export default connect(mapStateToProps, mapStateToDispatch)(Login);

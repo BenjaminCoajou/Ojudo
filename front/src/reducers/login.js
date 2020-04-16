@@ -1,4 +1,5 @@
-import { LOGIN_SUCCESS, LOGIN_ERROR, SETTINGS_CHANGE } from '../actions/login';
+import { LOGIN_SUCCESS, LOGIN_ERROR, SETTINGS_CHANGE, SUBMIT_LOGOUT } from '../actions/login';
+
 
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
         email: '',
         password: '',
     },
+    tokken: '',
 };
 
 export default (state = initialState, action = {}) => {
@@ -19,6 +21,7 @@ export default (state = initialState, action = {}) => {
                 loggedMessage: 'Vous êtes connecté',
                 isLogged : true,
                 error: '',
+                tokken: action.payload,
             };
         
         case LOGIN_ERROR:
@@ -36,7 +39,18 @@ export default (state = initialState, action = {}) => {
                     ...action.payload,
                 }
             };
-
+        case SUBMIT_LOGOUT: 
+        return {
+            ...state,
+            form: {
+                email: '',
+                password: '',
+            },
+            tokken: '',
+            isLogged: false,
+            error: '',
+            loggedMessage: '',
+        };
         default:
             return state;
     }
