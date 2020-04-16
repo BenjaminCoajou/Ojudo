@@ -7,13 +7,15 @@ import './style.scss';
 
 const Footer = () => (
     <footer>
-        <Link to="/sponsors" className="sponsors">
+        <div className="sponsors">
+        <Link to="/sponsors" >
             <h2 className="sponsors__title">Sponsors</h2>
         </Link>
             <div className="sponsors__div-sponsors">
                 <a className="sponsors__sponsor" href="#"><img className="img-fluid" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
                 <a className="sponsors__sponsor" href="#"><img className="img-fluid" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
                 <a className="sponsors__sponsor" href="#"><img className="img-fluid" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
+            </div>
             </div>
         <div className="networks">
             <div className="networks__div-icons">
