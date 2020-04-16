@@ -5,20 +5,18 @@ const loginMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case SUBMIT_LOGIN:
             axios({
-                url:'https:www.googl.cdm',
+                url:'http://localhost:8001/api/login_check',
                 method: 'post',
                 withCredentials: true,
-                data: {
-                    email: store.getState().login.form.email,
-                    password: store.getState().login.form.password,
-                },
+                data: store.getState().login.form,
+                
             })
             .then((response) => {
-                console.log(response);
-                store.dispatch(loginSuccess(response.data.info));
+                console.log('coucou', response);
+                //store.dispatch(loginSuccess(response.data.info));
             })
             .catch((error) => {
-                console.log(error);
+                console.log(store.getState().login.form.email);
                 store.dispatch(loginError())
             });
             break;
