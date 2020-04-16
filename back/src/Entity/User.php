@@ -85,7 +85,7 @@ class User implements UserInterface
     private $address;
 
     /**
-     * @ORM\Column(type="integer", length=10, nullable=true)
+     * @ORM\Column(type="string", length=10, nullable=true)
      * @groups({"user_read"})
      */
     private $phone_number;
@@ -271,12 +271,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getPhoneNumber(): ?string
     {
         return $this->phone_number;
     }
 
-    public function setPhoneNumber(int $phone_number): self
+    public function setPhoneNumber(string $phone_number): self
     {
         $this->phone_number = $phone_number;
 
