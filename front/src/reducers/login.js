@@ -18,6 +18,7 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 loggedMessage: 'Vous êtes connecté',
                 isLogged : true,
+                error: '',
             };
         
         case LOGIN_ERROR:
