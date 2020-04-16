@@ -5,7 +5,9 @@ import kimono from './kimono.jpg'
 
 const Article = () => (
     <div className="article">
-        <img className="article__image" src={kimono}/>
+        <div className="article__div">
+        <img className="article__div__image" src={kimono}/>
+        </div>
         <div className="article__text">
             <div className="article__text__tag">Tag</div>
             <h2 className="article__text__title">Titre article</h2>
