@@ -1,0 +1,15 @@
+.loginPage {
+    width: 50%;
+    margin:  50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &__alert {
+        width: 25%;
+    }
+
+    &__form {
+        width: 100%;
+    }
+}
