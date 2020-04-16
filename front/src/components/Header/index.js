@@ -18,7 +18,7 @@ const Header = () => (
             <div className="collapse navbar-collapse d-lg-flex justify-content-lg-around" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/" >Accueil</NavLink>
+                        <NavLink className="nav-link" exact to="/" >Accueil</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/presentation" >Présentation</NavLink>

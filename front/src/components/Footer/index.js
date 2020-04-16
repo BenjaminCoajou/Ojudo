@@ -1,29 +1,32 @@
 import React from 'react';
+import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
 const Footer = () => (
-<footer>   
-    <div className="sponsors">
-    <h2 className="sponsors__title">Sponsors</h2>
-        <div className="sponsors__div-sponsors">
-            <div className="sponsors__sponsor"><a href=""><img src="https://img.icons8.com/officel/100/000000/facebook.png"/></a></div>
-            <div className="sponsors__sponsor"><a href=""><img src="https://img.icons8.com/officel/100/000000/facebook.png"/></a></div>
-            <div className="sponsors__sponsor"><a href=""><img src="https://img.icons8.com/officel/100/000000/facebook.png"/></a></div>
+    <footer>
+        <Link to="/sponsors" className="sponsors">
+            <h2 className="sponsors__title">Sponsors</h2>
+            <div className="sponsors__div-sponsors">
+                <a className="sponsors__sponsor" href=""><img className="img-fluid rounded" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
+                <a className="sponsors__sponsor" href=""><img className="img-fluid rounded" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
+                <a className="sponsors__sponsor" href=""><img className="img-fluid rounded" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
+            </div>
+        </Link>
+        <div className="networks">
+            <div className="networks__div-icons">
+                <a className="networks__icon" href="">{<FaFacebookSquare />}</a>
+                <a className="networks__icon" href="">{<FaTwitterSquare />}</a>
+                <a className="networks__icon" href="">{<FaInstagram />}</a>
+                <Link to="/contact" className="networks__icon" href="">{<MdEmail />}</Link>
+            </div>
+            <div className="networks__div-links">
+                <a href="">Mentions Légales</a>
+            </div>
         </div>
-    </div>
-    <div className="networks">
-        <div className="networks__div-icons">          
-            <div className="networks__icon"><a href=""><img src="https://img.icons8.com/officel/50/000000/facebook.png"/></a></div>
-            <div className="networks__icon"><a href=""><img src="https://img.icons8.com/color/50/000000/twitter-squared.png"/></a></div>
-            <div className="networks__icon"><a href=""><img src="https://img.icons8.com/color/50/000000/instagram-new.png"/></a></div>
-            <div className="networks__icon"><a href=""><img src="https://img.icons8.com/ios-filled/50/000000/important-mail.png"/></a></div>
-        </div>
-        <div className="networks__div-links">
-        <a href="">Mentions Légales</a>
-        </div>
-    </div>
-</footer>     
+    </footer>
 );
 
 export default Footer;
