@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"article_read"}})
  */
 class Article
 {
@@ -18,44 +18,44 @@ class Article
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("admin")
+     * @groups({"article_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("admin")
+     * @groups({"article_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups("admin")
+     * @groups({"article_read"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups("admin")
+     * @groups({"article_read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @Groups("admin")
+     * @groups({"article_read"})
      */
     private $updatedAt;
 
     /**
      * @ORM\Column(type="string", length=160, nullable=true)
-     * @Groups("admin")
+     * @groups({"article_read"})
      */
     private $picture;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("admin")
+     * 
      */
     private $user;
 
