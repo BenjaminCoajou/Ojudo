@@ -8,10 +8,26 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"user_read"}},
+ *  itemOperations={
+ *      "get",
+ *      "delete",
+ *      "put"={"route_name"="api_users_put"}
+ *  }, collectionOperations={
+ *      "get",
+ *      "post"={"route_name"="api_users_post"}
+ *  })
+ * @UniqueEntity("email")
+ * 
+ *  
  */
 class User implements UserInterface
 {
@@ -19,63 +35,76 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups("admin")
+     * @groups({"user_read"})
      */
     private $id;
     /**
-     * @ORM\Column(type="string", nullable=true)
-     * @groups("admin")
+     * @ORM\Column(type="date", nullable=true)
+     * @groups({"user_read"})
      */
     private $birthday;
-/**
-     * @ORM\Column(type="string", length=60)
-     * @groups("admin")
+    /**
+     * @ORM\Column(type="string", length=60, nullable=true)
+     * @groups({"user_read"})
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Assert\Length(min=3, minMessage="Le prénom doit faire entre 3 et 60 caractères", max=60, maxMessage="Le prénom doit faire entre 3 et 60 caractères")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=90)
-     * @groups("admin")
+     * @groups({"user_read"})
+     * @Assert\NotBlank(message="Le nom est obligatoire")
+     * @Assert\Length(min=3, minMessage="Le nom doit faire entre 3 et 90 caractères", max=90, maxMessage="Le nom doit faire entre 3 et 90 caractères")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @groups("admin")
+     * @groups({"user_read"})
+     * @Assert\Image(
+     *      minWidth="50",
+     *      maxWidth="250",
+     *      minWidth="La largeur de l'image est trop petite ({{width}}px). La largeur minimale attendue est de {{min_width}}px.",
+     *      maxWidthMessage="La largeur de l'image est trop grande ({{width}}px). La largeur maximale autorisée est de {{max_width}} px.",
+     *      minHeight="50",
+     *      maxHeight="250",
+     *      minHeight="La hauteur de l'image est trop petite ({{heigth}}px). La hauteur minimale attendue est de {{min_heigth}}px.",
+     *      maxHeightMessage="La hauteur de l'image est trop grande ({{heigth}}px). La hauteur maximale autorisée est de {{max_heigth}} px.",
+     *      mimeTypesMessage = "Uniquement .jpeg .png .jpg and .gif est valide"
+     * )
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups("admin")
+     * @groups({"user_read"})
+     * @Assert\NotBlank(message="l'adresse est obligatoire")
+     * @Assert\Length(max=255, maxMessage="le nombre de caractère maximal est dépassé")
      */
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=10)
-     * @groups("admin")
+     * @ORM\Column(type="integer", length=10, nullable=true)
+     * @groups({"user_read"})
      */
     private $phone_number;
 
     /**
-     * @ORM\Column(type="string", length=120)
-     * @groups("admin")
-     */
-  /**
      * @ORM\Column(type="string", length=35, nullable=true)
-     * @groups("admin")
+     * @groups({"user_read"})
      */
     private $license;
 
     /**
      * @ORM\Column(type="boolean")
-     * @groups("admin")
+     * @groups({"user_read"})
      */
     private $status;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      * @groups("admin")
      */
     private $categorie;
@@ -86,22 +115,30 @@ class User implements UserInterface
     private $article;
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @groups("admin")
+     * @groups({"user_read"})
+     * @Assert\Email
+     * @Assert\NotBlank(message="l'adresse est obligatoire")
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
-     * @groups("admin")
+     * @groups({"user_read"})
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @groups("admin")
      */
     private $password;
+
+    /**
+     * @groups({"user_read"})
+     * @SerializedName("password")
+     */
+    private $plainPassword;
+
 
     public function __construct()
     {
@@ -184,7 +221,7 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->plainPassword = null;
     }
     public function getFirstname(): ?string
     {
@@ -234,12 +271,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    public function getPhoneNumber(): ?int
     {
         return $this->phone_number;
     }
 
-    public function setPhoneNumber(string $phone_number): self
+    public function setPhoneNumber(int $phone_number): self
     {
         $this->phone_number = $phone_number;
 
@@ -319,6 +356,15 @@ class User implements UserInterface
     {
         $this->birthday = $birthday;
 
+        return $this;
+    }
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
         return $this;
     }
 }

@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"event_read"}})
  */
 class Event
 {
@@ -18,48 +18,49 @@ class Event
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $place;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $content;
     
     /**
      * @ORM\Column(type="datetime")
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @groups({"event_read"})
      */
     private $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Categorie", mappedBy="event")
-     * @Groups("admin")
+     * @groups({"event_read"})
      */
     private $categories;
 
