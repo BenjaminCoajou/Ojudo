@@ -10,7 +10,7 @@ import News from '../News';
 import Article from '../Article';
 import Events from '../Events';
 import Contact from '../Contact';
-import Login from '../Login';
+import Login from '../../containers/Login';
 import Sponsors from '../Sponsors';
 import Footer from '../Footer';
 
