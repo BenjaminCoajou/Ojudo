@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 // == Import
 import Header from '../Header';
@@ -21,7 +22,16 @@ import './styles.css';
 const App = () => (
   <div className="app">
     <Header />
-    <Article />
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/presentation" component={Presentation}/>
+      <Route exact path="/actualite" component={News}/>
+      <Route exact path="/actualite/article" component={Article}/>
+      <Route exact path="/evenements" component={Events}/>
+      <Route exact path="/contact" component={Contact}/>
+      <Route exact path="/connexion" component={Login}/>
+      <Route exact path="/sponsors" component={Sponsors}/>
+    </Switch>
     <Footer />
   </div>
 );
