@@ -18,7 +18,7 @@ const loginMiddleware = (store) => (next) => (action) => {
                 store.dispatch(loginSuccess(response.data.token));
             })
             .catch((error) => {
-                console.log(store.getState().login.form.email);
+                console.log(error);
                 store.dispatch(loginError())
             });
             break;

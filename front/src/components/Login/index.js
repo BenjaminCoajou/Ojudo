@@ -45,7 +45,9 @@ Login.propTypes = {
     isLogged: PropTypes.bool.isRequired,
     loggedMessage: PropTypes.string.isRequired,
     error: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    inputChange: PropTypes.func.isRequired,
+    handleLogin: PropTypes.func.isRequired,
+    handleLogout: PropTypes.func.isRequired,
 }
 
 export default Login;

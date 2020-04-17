@@ -10,7 +10,7 @@ const initialState = {
         email: '',
         password: '',
     },
-    tokken: '',
+    token: '',
 };
 
 export default (state = initialState, action = {}) => {
@@ -21,7 +21,7 @@ export default (state = initialState, action = {}) => {
                 loggedMessage: 'Vous êtes connecté',
                 isLogged : true,
                 error: '',
-                tokken: action.payload,
+                token: action.payload,
             };
         
         case LOGIN_ERROR:
@@ -46,7 +46,7 @@ export default (state = initialState, action = {}) => {
                 email: '',
                 password: '',
             },
-            tokken: '',
+            token: '',
             isLogged: false,
             error: '',
             loggedMessage: '',
