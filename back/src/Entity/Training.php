@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrainingRepository")
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"training_read"}})
  */
 class Training
 {
@@ -16,31 +16,31 @@ class Training
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups("admin")
+     * @groups({"training_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=60)
-     * @groups("admin")
+     * @groups({"training_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @groups("admin")
+     * @groups({"training_read"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
-     * @groups("admin")
+     * @groups({"training_read"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="time")
-     * @groups("admin")
+     * @groups({"training_read"})
      */
     private $duration;
 

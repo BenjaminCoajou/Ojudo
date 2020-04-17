@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller\Admin;
 
 use App\Entity\User;
@@ -7,6 +6,7 @@ use App\Repository\UserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
      * @Route("api/admin", name="api_admin_")

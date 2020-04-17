@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"tag_read"}})
  */
 class Tag
 {
@@ -18,13 +18,13 @@ class Tag
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("admin")
+     * @groups({"tag_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=20)
-     * @Groups("admin")
+     * @groups({"tag_read"})
      */
     private $name;
 

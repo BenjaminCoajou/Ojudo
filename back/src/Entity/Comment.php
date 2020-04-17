@@ -4,10 +4,11 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"comment_read"}})
  */
 class Comment
 {
@@ -15,11 +16,13 @@ class Comment
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"comment_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="text")
+     * @groups({"comment_read"})
      */
     private $body;
 
