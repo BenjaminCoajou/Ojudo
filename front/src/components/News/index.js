@@ -1,9 +1,14 @@
 import React from 'react';
 
+import Header from '../Header';
+import Footer from '../Footer';
+
 import './style.scss';
 import logo from './logo-ffjudo.png';
 
 const News = () => (
+    <div>
+        <Header/>
         <div className="news">
             <div className="news__container">
             <h2 className="news__title"> Les Actualités</h2>
@@ -81,6 +86,8 @@ const News = () => (
                 </div>
             </div>
         </div>
+        <Footer/>
+    </div>
 );
 
 export default News;

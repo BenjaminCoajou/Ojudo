@@ -1,9 +1,13 @@
 import React from 'react';
 import Calendar from '../../containers/Calendar';
+import Header from '../Header';
+import Footer from '../Footer';
 
 import './style.scss';
 
 const Home = () => (
+    <div>
+        <Header/>
     <div className="home d-md-flex flex-md-column">
         <div className="home__info d-md-flex justify-content-md-around">
             <div className="home__info__content">
@@ -23,6 +27,8 @@ const Home = () => (
             </div>
         </div>
         <div className="home__calendar"><Calendar/></div>
+    </div>
+    <Footer/>
     </div>
 );
 

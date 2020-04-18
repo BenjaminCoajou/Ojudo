@@ -1,9 +1,9 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // == Import
-import Header from '../Header';
+
 import Home from '../Home';
 import Presentation from '../Presentation';
 import News from '../News';
@@ -12,16 +12,28 @@ import Events from '../Events';
 import Contact from '../Contact';
 import Login from '../../containers/Login';
 import Sponsors from '../Sponsors';
-import Footer from '../Footer';
-
-import slugify from 'slugify';
 
 import './styles.css';
 
+import Admin from '../Admin';
+import Dashboard from '../Admin/Dashboard';
+import Categories from '../Admin/Categories';
+import Woman from '../Admin/Categories/Woman';
+import Man from '../Admin/Categories/Man';
+import UsersList from '../Admin/Users/UsersList';
+import Users from '../Admin/Users';
+import UsersDetails from '../Admin/Users/UsersDetails';
+import EventAdmin from '../Admin/Event';
+import SponsorsAdmin from '../Admin/Sponsors';
+import ArticleAdmin from '../Admin/Article';
+
+
+
 // == Composant
-const App = () => (
+const App = ({fetchUser}) => {
+  useEffect(fetchUser, []);
+  return (
   <div className="app">
-    <Header />
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route exact path="/presentation" component={Presentation}/>
@@ -31,10 +43,20 @@ const App = () => (
       <Route exact path="/contact" component={Contact}/>
       <Route exact path="/connexion" component={Login}/>
       <Route exact path="/sponsors" component={Sponsors}/>
+      <Admin/>
+      <Route exact path="/admin" component={Dashboard} />
+      <Route exact path="/admin/categorie" component={Categories} />
+      <Route exact path="/admin/categorie/feminin" component={Woman} />
+      <Route exact path="/admin/categorie/masculin" component={Man} />
+      <Route exact path="/admin/event" component={EventAdmin} />
+      <Route exact path="/admin/article" component={ArticleAdmin} />
+      <Route exact path="/admin/sponsors" component={SponsorsAdmin} />
+      <Route exact path="/admin/userlist" component={UsersList} />
+      <Route exact path="/admin/user" component={Users} />
+      <Route exact path="/admin/user/detail" component={UsersDetails} />
     </Switch>
-    <Footer />
   </div>
-);
+)};
 
 // == Export
 export default App;

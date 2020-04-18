@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Header from '../Header';
+import Footer from '../Footer';
+
 import './style.scss';
 
 const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
+    <div>
+        <Header/>
     <div className="loginPage">
         {error && <div className="alert alert-danger loginPage__alert" role="alert">                            
             {error}
@@ -20,7 +25,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                     name="email"
                     value={email}
                     onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }}
-                />
+                    />
             </div>
             <div className="form-group">
                 <label htmlFor="InputPassword">Mot de Passe</label>
@@ -30,11 +35,13 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                     name="password"
                     value={password}
                     onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }}
-                />
+                    />
             </div>
             <button type="submit" className="btn btn-primary">Se Connecter</button>
         </form> }
         { isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button> }
+    </div>
+    <Footer/>
     </div>
 
 );

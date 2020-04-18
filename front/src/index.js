@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 // == Import : local
 // Composants
-import App from 'src/components/App';
+import App from 'src/containers/App';
 // Store
 import store from 'src/store';
 
@@ -17,7 +17,7 @@ import store from 'src/store';
 const rootComponent = (
   <Provider store={store}>
     <Router>
-    <App />
+     <App/>
     </Router>
   </Provider>
 );
