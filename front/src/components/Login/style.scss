@@ -63,7 +63,7 @@ body {
  
   top: -20px;
   left: 0;
-  color: #03e9f4;
+  color: #ff00ff;
   font-size: 12px;
 }
 
@@ -71,7 +71,7 @@ body {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: #ff00ff;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -85,10 +85,10 @@ body {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px #ff00ff,
+              0 0 25px #ff00ff,
+              0 0 50px #ff00ff,
+              0 0 100px #ff00ff;
 }
 
 .login-box button span {

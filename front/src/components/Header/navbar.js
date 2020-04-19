@@ -1,52 +1,52 @@
-import { gsap, TweenLite, TweenMax, TimelineLite, TimelineMax } from "gsap";
+document.addEventListener("DOMContentLoaded", () => {
+  
+var $menu = document.querySelector(".menu");
+var $menuUl = document.querySelector(".menu ul");
+var $menuTitle = document.querySelector(".menuTitle");
+var $menuContainer = document.querySelector(".menuContainer");
+var count = 0;
+var click = true;
+  $menuTitle.addEventListener("click", function (event) {
+    if (click) {
+      click = false;
+      $menuTitle.style.zIndex = 9;
 
-const menu = document.getElementByClassName("menu");
-const wholeMenu = document.getElementByClassName('menu, menuTitle');
-const menuUl = document.getElementByClassName('menu ul');
-const menuTitle = document.getElementByClassName('menuTitle');
-const menuContainer = document.getElementByClassName('menuContainer');
-const count = 0;
-const click = true;
+      var tl = new TimelineLite();
 
-wholeMenu.click(function () {
-  if (click) {
-    click = false;
-    menuTitle.css({ "z-index": 9 });
+      tl.to($menu, 0.4, {
+        css: {
+          width: 750,
+          background: "#000",
+          borderRadius: 0,
+          borderTop: "1px solid #D8D8D8",
+        },
+        ease: Expo.easeInOut,
+      });
+      tl.to($menuTitle, 0.25, { x: 0, y: -110, color: "#fff" });
 
-    const tl = new TimelineLite();
+      /*setTimeout(function(){
+      $menuUl.fadeIn();
+    }, 250);*/
+      $menuUl.style.display = "block";
+    } else {
+      click = true;
+      $menuTitle.style.zIndex = 11;
+      event.target.style.borderRadius = "100%";
 
-    tl.to(menu, 0.4, {
-      css: {
-        width: 750,
-        background: "#000",
-        borderRadius: 0,
-        borderTop: "1px solid #D8D8D8"
-      },
-      ease: Expo.easeInOut
-    });
-    tl.to(menuTitle, 0.25, { x: 0, y: -110, color: "#fff" });
+      var tl = new TimelineLite();
 
-    setTimeout(function () {
-      menuUl.fadeIn();
-    }, 250);
-  } else {
-    click = true;
-    menuTitle.css({ "z-index": 11 });
-    (this).css({ borderRadius: "100%" });
+      tl.to($menu, 0.25, {
+        css: {
+          width: 150,
+          background: "#FFF",
+          borderRadius: "100%",
+          borderTop: "1px solid #D8D8D8",
+        },
+        ease: Expo.easeInOut,
+      });
+      tl.to($menuTitle, 0.25, { x: 0, y: 0, color: "#000" });
 
-    const tl = new TimelineLite();
-
-    tl.to(menu, 0.25, {
-      css: {
-        width: 150,
-        background: "#FFF",
-        borderRadius: "100%",
-        borderTop: "1px solid #D8D8D8"
-      },
-      ease: Expo.easeInOut
-    });
-    tl.to(menuTitle, 0.25, { x: 0, y: 0, color: "#000" });
-
-    menuUl.hide();
-  }
+      $menuUl.style.display = "none";
+    }
+  });
 });
