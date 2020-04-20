@@ -66,6 +66,7 @@
     "gsap": "^3.2.6",
     "jquery": "^3.5.0",
     "material-table": "^1.57.2",
+    "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.24.0",
     "path-to-regexp": "^6.1.0",
     "prop-types": "*",

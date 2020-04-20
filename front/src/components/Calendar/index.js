@@ -6,7 +6,7 @@ import { MdEvent } from "react-icons/md";
 import Months from '../../containers/Months';
 import Years from '../../containers/Years';
 
-import './style.css';
+import './style.scss';
 
 const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, showYear, handleDayClick, events, selectEvent, eventInfos }) => {
     
@@ -121,4 +121,4 @@ Calendar.propTypes = {
 };
 
 
-export default Calendar;
+export default Calendar; 
