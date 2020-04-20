@@ -7,9 +7,9 @@ import Footer from '../Footer';
 import './style.scss';
 
 const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
-    <div>
+    <div className="login-container">
     <Header />
-    <div class="login-box">
+    <div className="login-box">
         <h2>Login</h2>
         {error && <div className="alert alert-danger loginPage__alert" role="alert">
             {error}
@@ -19,7 +19,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
         </div>}
         {!isLogged && <form className="loginPage__form" onSubmit={(evt) => { evt.preventDefault(); handleLogin() }}>
 
-            <div class="user-box">
+            <div className="user-box">
                 <input type="email"
                     className="form-control"
                     id="InputEmail"
@@ -28,7 +28,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                     onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
                 <label htmlFor="InputEmail">Email</label>
             </div>
-            <div class="user-box">
+            <div className="user-box">
                 <input type="password"
                     className="form-control"
                     id="InputPassword"
