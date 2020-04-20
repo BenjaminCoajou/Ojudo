@@ -85,12 +85,14 @@ class User implements UserInterface
     private $address;
 
     /**
-     * @ORM\Column(type="integer", length=10)
+     * @ORM\Column(type="string", length=10)
      * @groups({"user_read"})
-     * @Assert\Length(min=10, minMessage="votre numéro est incorrect. veuillez saisir un numéro valide", max=10, maxMessage="votre numéro est incorrect. veuillez saisir un numéro valide")
-     * @Assert\Regex(pattern="/^\(0\)[0-9]*$", message="number_only") 
+     * @Assert\Regex(
+     *     pattern="/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/")
+     * @Assert\NotBlank()
+     * @Assert\Length(min=10, minMessage="Votre numéro de téléphone est incorrect", max=10, maxMessage="Votre numéro de téléphone est incorrect" )
      */
-    private $phone_number;
+    private $telephone;
 
     /**
      * @ORM\Column(type="string", length=35, nullable=true)
@@ -274,14 +276,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getTelephone(): ?string
     {
-        return $this->phone_number;
+        return $this->telephone;
     }
 
-    public function setPhoneNumber(int $phone_number): self
+    public function setTelephone(string $telephone): self
     {
-        $this->phone_number = $phone_number;
+        $this->telephone = $telephone;
 
         return $this;
     }

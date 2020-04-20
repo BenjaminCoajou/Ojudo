@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -25,12 +26,14 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      * @groups({"article_read"})
+     * @Assert\NotBlank(message="Le titre est obligatoire")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
      * @groups({"article_read"})
+     * @Assert\NotBlank(message="Le contenu est obligatoire")
      */
     private $content;
 
@@ -49,6 +52,17 @@ class Article
     /**
      * @ORM\Column(type="string", length=160, nullable=true)
      * @groups({"article_read"})
+     * @Assert\Image(
+     *      minWidth="50",
+     *      maxWidth="250",
+     *      minWidth="La largeur de l'image est trop petite ({{width}}px). La largeur minimale attendue est de {{min_width}}px.",
+     *      maxWidthMessage="La largeur de l'image est trop grande ({{width}}px). La largeur maximale autorisée est de {{max_width}} px.",
+     *      minHeight="50",
+     *      maxHeight="250",
+     *      minHeight="La hauteur de l'image est trop petite ({{heigth}}px). La hauteur minimale attendue est de {{min_heigth}}px.",
+     *      maxHeightMessage="La hauteur de l'image est trop grande ({{heigth}}px). La hauteur maximale autorisée est de {{max_heigth}} px.",
+     *      mimeTypesMessage = "Uniquement .jpeg .png .jpg and .gif est valide"
+     * )
      */
     private $picture;
 
