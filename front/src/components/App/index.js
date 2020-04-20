@@ -31,8 +31,9 @@ import Mentions from '../Mentions légales/mentions'
 
 
 // == Composant
-const App = ({fetchUser}) => {
+const App = ({fetchUser, fetchArticle}) => {
   useEffect(fetchUser, []);
+  useEffect(fetchArticle, []);
   return (
   <div className="app">
     <Switch>

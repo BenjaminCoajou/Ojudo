@@ -1,131 +1,74 @@
 import React from 'react';
-import MaterialTable from 'material-table';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import {Link} from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
-}));
 
-const extrait = 'Vituperandae si nullo illa Epicureum quae nullo se nullo dissentias cum rem cum philosophia potest ille vituperandae inter cum illa rem probes non indignae potest enim rem potest non esset eius quid non cum contumeliae reprehensiones quid cum mihi eius disputando maledicta non inquam ludus ob philosophia iracundiae praesertim quid pertinaces diceret dissentientium non probes ob contentiones ludus concertationesque pacto tum ut esset non iracundiae si Triari contumeliae quo illa esset pacto probes sunt dissentias tum si maledicta non diceret nullo quae iracundiae tum reprehensiones nullo mihi mihi in diceret iracundiae perdiscere concertationesque me quid perdiscere non non nullo esset.';
+const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+  
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.background.default,
+      },
+    },
+  }))(TableRow);
+  
 
-const ArticleTable = ({users}) => {
-  const classes = useStyles();
+  
+const useStyles = makeStyles({
+    table: {
+      minWidth: 700,
+    },
+  });
+  
+const ArticleTable = ({list}) => {
+    const classes = useStyles();
+  
+    return (
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Id</StyledTableCell>
+              <StyledTableCell>titre</StyledTableCell>
+              <StyledTableCell>Contenu</StyledTableCell>
+              <StyledTableCell>Photo</StyledTableCell>
+              <StyledTableCell>date de création</StyledTableCell>
+              <StyledTableCell>date de mise à jour</StyledTableCell>
+              <StyledTableCell>Utilisateur</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {list.map((articles) => (
+              <StyledTableRow key={articles.id}>
+                <StyledTableCell>{articles.id}</StyledTableCell>
+                <StyledTableCell>{articles.title}</StyledTableCell>
+                <StyledTableCell>{`${articles.content.substring(0, 40)}...`}</StyledTableCell>
+                <StyledTableCell>{articles.picture}</StyledTableCell>
+                <StyledTableCell>{articles.createdAt}</StyledTableCell>
+                <StyledTableCell>{articles.updatedAt}</StyledTableCell>
+                <StyledTableCell>{articles.user.firstname}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
+  }
 
-  return (
-    <Grid container className={classes.root} spacing={4}>
-      <Grid item xs={12} sm={6}>
-    <MaterialTable
-      title="Liste des articles"
-
-      columns={[
-        { title: 'Noms des articles', field: 'article_name', filtering: false },
-        { title: 'Contenu des articles', field: 'article_content',  filtering: false },
-        { title: 'Date de création', field: 'article_date', type: 'date', filtering: false },
-        { title: 'Auteurs', field: 'article_author',  filtering: false},
-        { 
-          title: 'Tags', 
-          field: 'article_tag',
-          lookup: { monde: 'Monde', club: 'Club', event: 'Event', competition: 'Compétition' },
-        },
-      ]}
-
-      data={[
-        { article_name: 'Un article', article_content: `${extrait.substring(0, 50)}...`, article_date: '2017-10-11', article_author:'Toto',article_tag: 'monde'},
-        { article_name: 'Toto et tata font leur première compétition', article_content: `${extrait.substring(0, 50)}...`, article_date: '2017-12-12', article_author:'Paul', article_tag: 'club'},
-        { article_name: 'Pourquoi t\'es nul au judo', article_content: `${extrait.substring(0, 50)}...`, article_date: '2017-12-12', article_author:'Paul', article_tag: 'competition'},
-        { article_name: 'Le projet o\'judo', article_content: `${extrait.substring(0, 50)}...`, article_date: '2017-12-12', article_author:'Pierre', article_tag: 'club'},
-        { article_name: 'ABCDEFGH', article_content: `${extrait.substring(0, 50)}...`, article_date: '2017-12-31', article_author:'Dan', article_tag: 'event'},
-    
-      ]}
-
-      detailPanel={rowData => {
-        return (
-            // Le bouton sert à afficher tout le contenu qui est dans cette div
-            <div>
-            {rowData.article_content}
-            </div>
-
-        )
-      }}
-
-      actions={[
-        {
-          icon: 'edit',
-          tooltip: 'Éditer l\'article',
-          onClick: (event, rowData) => alert("You saved " + rowData.article_name)
-        },
-        rowData => ({
-          icon: 'delete',
-          tooltip: 'Supprimer l\'article ',
-          onClick: (event, rowData) => confirm("You want to delete " + rowData.article_name),
-         
-        }),
-        {
-          icon: 'add',
-          tooltip: 'Ajout d\'un article',
-          isFreeAction: true,
-          onClick: (event) => alert("You want to add a new row")
-        }
-        
-      ]}
-      options={{
-        actionsColumnIndex: -1,
-        filtering: true,
-      }}
-    /> 
-    </Grid>
-
-    <Grid item xs={12} sm={6}>
-    <MaterialTable
-      title="Liste des tags"
-
-      columns={[
-        { title: 'Tag', field: 'tag', },
-      ]}
-
-      data={[
-        { tag: 'Monde'},
-        { tag: 'Club'},
-        { tag: 'Event'},
-        { tag: 'Compétiton'},
-      ]}
-
-      actions={[
-        {
-          icon: 'edit',
-          tooltip: 'Éditer un tag',
-          onClick: (event, rowData) => alert("You saved " + rowData.article_name)
-        },
-        rowData => ({
-          icon: 'delete',
-          tooltip: 'Supprimer un tag ',
-          onClick: (event, rowData) => confirm("You want to delete " + rowData.article_name),
-         
-        }),
-        {
-          icon: 'add',
-          tooltip: 'Ajout d\'un tag',
-          isFreeAction: true,
-          onClick: (event) => alert("You want to add a new row")
-        }
-        
-      ]}
-      options={{
-        actionsColumnIndex: -1,
-      }}
-    />   
-    </Grid>
-    </Grid>  
-  )
-}
 export default ArticleTable;
