@@ -44,7 +44,7 @@ class User implements UserInterface
      */
     private $birthday;
     /**
-     * @ORM\Column(type="string", length=60, nullable=true)
+     * @ORM\Column(type="string", length=60)
      * @groups({"user_read"})
      * @Assert\NotBlank(message="Le prénom est obligatoire")
      * @Assert\Length(min=3, minMessage="Le prénom doit faire entre 3 et 60 caractères", max=60, maxMessage="Le prénom doit faire entre 3 et 60 caractères")
@@ -80,13 +80,15 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @groups({"user_read"})
      * @Assert\NotBlank(message="l'adresse est obligatoire")
-     * @Assert\Length(max=255, maxMessage="le nombre de caractère maximal est dépassé")
+     * @Assert\Length(max=255, maxMessage="le nombre de caractère maximal est dépassé", min=10, minMessage="le nombre de caractère est trop minime" )
      */
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
+     * @ORM\Column(type="integer", length=10)
      * @groups({"user_read"})
+     * @Assert\Length(min=10, minMessage="votre numéro est incorrect. veuillez saisir un numéro valide", max=10, maxMessage="votre numéro est incorrect. veuillez saisir un numéro valide")
+     * @Assert\Regex(pattern="/^\(0\)[0-9]*$", message="number_only") 
      */
     private $phone_number;
 
@@ -97,7 +99,7 @@ class User implements UserInterface
     private $license;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":true})
      * @groups({"user_read"})
      */
     private $status;
@@ -142,6 +144,7 @@ class User implements UserInterface
 
     public function __construct()
     {
+        $this->status = true;
         $this->article = new ArrayCollection();
     }
 
@@ -271,12 +274,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    public function getPhoneNumber(): ?int
     {
         return $this->phone_number;
     }
 
-    public function setPhoneNumber(string $phone_number): self
+    public function setPhoneNumber(int $phone_number): self
     {
         $this->phone_number = $phone_number;
 
