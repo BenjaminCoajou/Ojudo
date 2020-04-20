@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_USERS, fetchUsersSuccess, fetchUsersError } from '../actions/presentation';
 
-const userMiddleware = (store) => (next) => (action) => {
+export default (store) => (next) => (action) => {
   // Je veux examiner le type de l'action
   // pour savoir si je la laisse passer
   // Ou si je l'intercepte pour lancer une requête ajax
@@ -16,7 +16,7 @@ const userMiddleware = (store) => (next) => (action) => {
         // Je veux donc dispatch une action de succes.
       axios.get('http://54.166.4.90/projet-judo/back/public/index.php/api/users')
       .then((response) => {
-        store.dispatch(fetchUsersSucces(response.data));
+        store.dispatch(fetchUsersSuccess(response.data["hydra:member"]));
       })
       .catch((error) => {
         console.log(error);
@@ -30,4 +30,3 @@ const userMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default userMiddleware;
