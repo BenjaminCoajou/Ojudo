@@ -40,7 +40,7 @@ class User implements UserInterface
     private $id;
     /**
      * @ORM\Column(type="date", nullable=true)
-     * @groups({"user_read"})
+     * @groups({"user_read","article_read"})
      */
     private $birthday;
     /**
