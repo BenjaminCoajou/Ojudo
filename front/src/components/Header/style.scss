@@ -29,16 +29,17 @@
         
     } 
 }
+
 * {
     & li {
       list-style: none;
     }
-    & a {
-      text-decoration: none;
-      color:white;
-    }
+    
   }
-  
+  .nav-link {
+    text-decoration: none;
+    color:white;
+  }
   .menuContainer {
     display: block;
     position: relative;
