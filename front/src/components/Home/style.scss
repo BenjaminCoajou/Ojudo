@@ -26,4 +26,13 @@
             }
         }
     }
+
+    &__spinner {
+        
+        &__border {
+            width: 7rem;
+            height: 7rem;
+            color: #e53f00;
+        }
+    }
 }

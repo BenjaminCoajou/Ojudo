@@ -30,7 +30,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     // zone de vide pour le début du mois
     const blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
-        blanks.push(<td className="calendar-day empty" >{""}</td>);
+        blanks.push(<td key={i*100} className="calendar-day empty" >{""}</td>);
     };
 
     // jour actuel
@@ -40,10 +40,10 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     const daysInMonth = [];
     for (let day = 1; day <= dateObject.daysInMonth(); day++) {
         let today = day == currentDay() ? "today" : "";
-        let selectedDay = moment(`${dateObject.format('MM')}-${day}-${year()}`).dayOfYear();
-        let allEvent = events.map((evt) => (evt.date));
+        let selectedDay = dateObject.format(`MM-${day}-${year()}`);
+        let allEvent = events.map((evt) => (moment(evt.date).format('MM-D-YYYY')));
         let findEvent = allEvent.find(evt => evt == selectedDay);
-        let eventInfos = events.find(evt => evt.date == selectedDay);
+        let eventInfos = events.find(evt => moment(evt.date).format('MM-D-YYYY') == selectedDay);
         let nextEvent = () => (selectedDay == findEvent ? <MdEvent/> : "");
         daysInMonth.push(
             <td key={day} className={`calendar-day ${today}`} onClick={() => {handleDayClick(selectedDay), selectEvent(eventInfos)}} ><span>{nextEvent()}</span> {day}</td>,
@@ -68,7 +68,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     });
 
     const allDaysInMonth = rows.map((day) => (
-        <tr>{day}</tr> // possible probleme de key
+        <tr>{day}</tr> // probleme de key
     ));
 
     return (
@@ -97,7 +97,12 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
                 </table>
             </div>
         </div>
-        <div>{eventInfos ? eventInfos : ""}</div>
+        {eventInfos ? <div className="calendar-info">
+        <h3>{eventInfos.title}</h3>
+        <p>{eventInfos.place}</p>
+        <p>{eventInfos.content}</p>
+        </div>
+        : ""}
         </div>
     )
 };
