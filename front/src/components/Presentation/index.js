@@ -1,9 +1,9 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './style.scss';
 import dojo from './Dojo.jpg';
 
-const Presentation = () => (
+const Presentation = ({list}) => (
     <div className="presentation">
         <div className="presentation__story">
             <div className="presentation__story__content">
@@ -19,38 +19,18 @@ const Presentation = () => (
             <div className="presentation__member__container">
                 <h2 className="presentation__member__container__title">Nos Licenciés</h2>
                 <div className="presentation__member__container__list">
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>                                        
+                    {
+                        list.map((mem) => (
+                            <div key={mem.id} className="presentation__member__container__list__card">
+                                <img className="presentation__member__container__list__card__avatar img-fluid" src={mem.picture}/>
+                                <div className="presentation__member__container__list__card__info">
+                                    <p className="presentation__member__container__list__card__info__text">Nom : {mem.firstname}</p> 
+                                    <p className="presentation__member__container__list__card__info__text">Prénom : {mem.lastname}</p> 
+                                    <p className="presentation__member__container__list__card__info__text">Détails : {mem.email}</p>  
+                                </div>
+                            </div>
+                        ))
+                    }                                     
                 </div>                
             </div>
             <div className="presentation__member__container">
@@ -93,5 +73,16 @@ const Presentation = () => (
         </div>
     </div>
 );
+
+Presentation.propTypes = {
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        firstname: PropTypes.string.isRequired,
+        lastname: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+  };
 
 export default Presentation;
