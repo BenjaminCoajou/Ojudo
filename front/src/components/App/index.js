@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 // == Import
 
-import Home from '../Home';
+import Home from '../../containers/Home';
 import Presentation from '../Presentation';
 import News from '../News';
 import Article from '../Article';
@@ -31,8 +31,9 @@ import Mentions from '../Mentions légales/mentions'
 
 
 // == Composant
-const App = ({fetchUser}) => {
+const App = ({fetchUser, fetchEvents}) => {
   useEffect(fetchUser, []);
+  useEffect(fetchEvents, []);
   return (
   <div className="app">
     <Switch>

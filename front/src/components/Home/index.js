@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Calendar from '../../containers/Calendar';
 import Header from '../Header';
 import Footer from '../Footer';
 
 import './style.scss';
 
-const Home = () => (
+const Home = ({isLoading}) => (
     <div>
         <Header/>
     <div className="home d-md-flex flex-md-column">
@@ -26,10 +28,20 @@ const Home = () => (
                 </p>
             </div>
         </div>
-        <div className="home__calendar"><Calendar/></div>
+        { isLoading ?
+        <div class="d-flex justify-content-center home__spinner">
+            <div class="spinner-border home__spinner__border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div> 
+        : <div className="home__calendar"><Calendar /></div> }
     </div>
     <Footer/>
     </div>
 );
+
+Home.propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+}
 
 export default Home;

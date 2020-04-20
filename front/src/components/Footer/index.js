@@ -76,7 +76,7 @@ const Footer = () => (
                                     <h5  className="footer-title">Email Us</h5>
                                     <div  className="textwidget">
                                         <div role="form"  className="wpcf7" id="wpcf7-f4-o1" lang="en-US" dir="ltr">
-                                            <form method="post"  className="wpcf7-form" novalidate="novalidate">
+                                            <form method="post"  className="wpcf7-form" noValidate="novalidate">
                                                 <div  className="contact-form-footer">
                                                     <p>
                                                         <span  className="wpcf7-form-control-wrap your-first-name">
