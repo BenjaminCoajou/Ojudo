@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -23,6 +24,7 @@ class Comment
     /**
      * @ORM\Column(type="text")
      * @groups({"comment_read"})
+     * @Assert\NotBlank(message="Veuillez ajouter du contenu")
      */
     private $body;
 

@@ -116,6 +116,12 @@
     "fzaninotto/faker": {
         "version": "v1.9.1"
     },
+    "giggsey/libphonenumber-for-php": {
+        "version": "8.12.1"
+    },
+    "giggsey/locale": {
+        "version": "1.8"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -187,7 +193,7 @@
         "version": "2.7.0"
     },
     "php": {
-        "version": "7.4"
+        "version": "7.2"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
