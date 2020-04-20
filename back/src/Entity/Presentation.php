@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PresentationRepository")
+ * @ApiResource(normalizationContext={"groups"={"presentation_read"}})
  */
 class Presentation
 {
@@ -17,23 +18,27 @@ class Presentation
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @groups({"presentation_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank(message="le titre est obligatoire")
+     * @groups({"presentation_read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="le contenu est obligatoire")
+     * @groups({"presentation_read"})
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"presentation_read"})
      *  @Assert\Image(
      *      minWidth="50",
      *      maxWidth="250",

@@ -30,6 +30,7 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="comment")
+     * @groups({"comment_read"})
      */
     private $article;
 

@@ -32,6 +32,7 @@ class Tag
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="tag")
+     * @groups({"tag_read"})
      */
     private $articles;
 

@@ -40,7 +40,7 @@ class User implements UserInterface
     private $id;
     /**
      * @ORM\Column(type="date", nullable=true)
-     * @groups({"user_read","article_read"})
+     * @groups({"user_read"})
      */
     private $birthday;
     /**
@@ -115,6 +115,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="user")
+     * @groups({"user_read"})
      */
     private $article;
     /**
