@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
+
+import UserCard from './UserCard';
 import dojo from './Dojo.jpg';
 
-const Presentation = ({list}) => (
+const Presentation = ({ list }) => (
     <div className="presentation">
         <div className="presentation__story">
             <div className="presentation__story__content">
@@ -20,15 +22,8 @@ const Presentation = ({list}) => (
                 <h2 className="presentation__member__container__title">Nos Licenciés</h2>
                 <div className="presentation__member__container__list">
                     {
-                        list.map((mem) => (
-                            <div key={mem.id} className="presentation__member__container__list__card">
-                                <img className="presentation__member__container__list__card__avatar img-fluid" src={mem.picture}/>
-                                <div className="presentation__member__container__list__card__info">
-                                    <p className="presentation__member__container__list__card__info__text">Nom : {mem.firstname}</p> 
-                                    <p className="presentation__member__container__list__card__info__text">Prénom : {mem.lastname}</p> 
-                                    <p className="presentation__member__container__list__card__info__text">Détails : {mem.email}</p>  
-                                </div>
-                            </div>
+                        list.map((card) => (
+                            <UserCard key={card.id} {...card} />
                         ))
                     }                                     
                 </div>                
@@ -78,9 +73,6 @@ Presentation.propTypes = {
     list: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        firstname: PropTypes.string.isRequired,
-        lastname: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
       }),
     ).isRequired,
   };
