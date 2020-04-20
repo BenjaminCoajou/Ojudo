@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -39,7 +40,7 @@ class Presentation
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @groups({"presentation_read"})
-     *  @Assert\Image(
+     * @Assert\Image(
      *      minWidth="50",
      *      maxWidth="250",
      *      minWidth="La largeur de l'image est trop petite ({{width}}px). La largeur minimale attendue est de {{min_width}}px.",
