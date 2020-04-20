@@ -10,24 +10,31 @@ var click = true;
     if (click) {
       click = false;
       $menuTitle.style.zIndex = 9;
+      //$menuUl.style.display = "none";
 
       var tl = new TimelineLite();
 
-      tl.to($menu, 0.4, {
+      tl.to($menuTitle, 0.25, { x: 0, y: 0, color: "#fff" });
+      tl.to($menuContainer, 0.25, {css: {height: 225}});
+      tl.to($menu, 0.25, {
         css: {
-          width: 750,
+          width: 1000,
+          height: 75,
+          x: 0,
+          y: 150,
           background: "#000",
           borderRadius: 0,
           borderTop: "1px solid #D8D8D8",
+          color: "#fff",
         },
-        ease: Expo.easeInOut,
+        ease: Expo.easeOut, 
       });
-      tl.to($menuTitle, 0.25, { x: 0, y: -110, color: "#fff" });
+      tl.to($menuUl, 0.1, {css: {display: "block"}});
 
       /*setTimeout(function(){
       $menuUl.fadeIn();
     }, 250);*/
-      $menuUl.style.display = "block";
+
     } else {
       click = true;
       $menuTitle.style.zIndex = 11;
@@ -38,14 +45,16 @@ var click = true;
       tl.to($menu, 0.25, {
         css: {
           width: 150,
+          height: 150,
           background: "#FFF",
           borderRadius: "100%",
           borderTop: "1px solid #D8D8D8",
         },
-        ease: Expo.easeInOut,
+        ease: Expo.easeOut,
       });
-      tl.to($menuTitle, 0.25, { x: 0, y: 0, color: "#000" });
-
+      tl.to($menu, 0.2, { x: 0, y: 0, color: "#fff" });
+      tl.to($menuTitle, 0.2, { x: 0, y: 0, color: "#000" });
+      tl.to($menuContainer, 0.1, {css: {height: 150}});
       $menuUl.style.display = "none";
     }
   });

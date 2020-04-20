@@ -19,27 +19,27 @@ const Header = () => (
         <ul>
           <li>
             {" "}
-            <a href="#">Accueil</a>
+            <NavLink className="nav-link" exact to="/" >Accueil</NavLink>
           </li>
           <li>
             {" "}
-            <a href="#">Présentation</a>
+            <NavLink className="nav-link" to="/presentation" >Présentation</NavLink>
           </li>
           <li>
             {" "}
-            <a href="#">Actualité</a>
+            <NavLink className="nav-link" to="/actualite" >Actualité</NavLink>
           </li>
           <li>
             {" "}
-            <a href="#">Evénements</a>
+            <NavLink className="nav-link" to="/evenements" >Evénements</NavLink>
           </li>
           <li>
             {" "}
-            <a href="#">Contact</a>
+            <NavLink className="nav-link" to="/contact" >Contact</NavLink>
           </li>
           <li>
             {" "}
-            <a href="#">Connexion</a>
+            <NavLink className="nav-link" to="/connexion" >Connexion</NavLink>
           </li>
         </ul>
       </div>
