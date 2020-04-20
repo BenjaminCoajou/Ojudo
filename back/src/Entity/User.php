@@ -45,7 +45,7 @@ class User implements UserInterface
     private $birthday;
     /**
      * @ORM\Column(type="string", length=60)
-     * @groups({"user_read"})
+     * @groups({"user_read","article_read"})
      * @Assert\NotBlank(message="Le prénom est obligatoire")
      * @Assert\Length(min=3, minMessage="Le prénom doit faire entre 3 et 60 caractères", max=60, maxMessage="Le prénom doit faire entre 3 et 60 caractères")
      */
