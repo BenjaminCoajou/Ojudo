@@ -116,7 +116,7 @@ Calendar.propTypes = {
     handleDayClick: Proptypes.func.isRequired,
     events: Proptypes.array.isRequired,
     selectEvent: Proptypes.func.isRequired,
-    eventInfos: Proptypes.object.isRequired,
+    eventInfos: Proptypes.string.isRequired,
 
 };
 
