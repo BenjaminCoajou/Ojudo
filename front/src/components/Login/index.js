@@ -48,7 +48,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
     { isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button> }
   
 </div>
-    
+<Footer/>
 </div>
    
 

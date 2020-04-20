@@ -26,6 +26,7 @@ import UsersDetails from '../Admin/Users/UsersDetails';
 import EventAdmin from '../Admin/Event';
 import SponsorsAdmin from '../Admin/Sponsors';
 import ArticleAdmin from '../Admin/Article';
+import Mentions from '../Mentions légales/mentions'
 
 
 
@@ -43,6 +44,7 @@ const App = ({fetchUser}) => {
       <Route exact path="/contact" component={Contact}/>
       <Route exact path="/connexion" component={Login}/>
       <Route exact path="/sponsors" component={Sponsors}/>
+      <Route exact path="/mentions-legales" component={Mentions}/>
       <Admin/>
       <Route exact path="/admin" component={Dashboard} />
       <Route exact path="/admin/categorie" component={Categories} />

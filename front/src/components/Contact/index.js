@@ -65,7 +65,7 @@ CONTACT PAGE RIGHT
   </div>
 </section>
 
-     
+<Footer/>
     </div>
 );
 
