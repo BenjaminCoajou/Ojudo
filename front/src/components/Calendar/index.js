@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import Proptypes from 'prop-types';
 import moment from 'moment';
 import { MdEvent } from "react-icons/md";
@@ -121,4 +121,4 @@ Calendar.propTypes = {
 };
 
 
-export default Calendar; 
+export default Calendar;  
