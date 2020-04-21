@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import Presentation from '../components/Presentation';
-import { getListFromUser } from '../reducers/presentation';
 
 const mapStateToProps = (state) => ({
-    list: getListFromUser(state),
+    list: state.users.list,
 });
 
 const mapStateToDispatch = {};

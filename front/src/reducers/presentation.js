@@ -24,10 +24,3 @@ export default (state = initialState, action) => {
     }
 };
 
-export const getListFromUser = (state) => state.users.list.map((member) => ({              
-    id: member.id,                                         // (id=)l"id" de datas (:=)devient (recette.id=)l"id" de "recette"
-    firstname: member.firstname,
-    lastname: member.lastname,
-    picture: member.picture,
-    email: member.email,
-})); 
