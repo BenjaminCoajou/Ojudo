@@ -38,7 +38,7 @@ const useStyles = makeStyles({
     },
   });
   
-const ArticleTable = ({list}) => {
+const ArticleTable = ({list, deleteArticle, submitDelete}) => {
     const classes = useStyles();
   
     return (
@@ -66,10 +66,10 @@ const ArticleTable = ({list}) => {
                 <StyledTableCell>{articles.picture}</StyledTableCell>
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
-                <StyledTableCell>{articles.user.firstname}</StyledTableCell>
+                <StyledTableCell>{''}</StyledTableCell>
 
                 <StyledTableCell> <EditIcon/></StyledTableCell>
-                <StyledTableCell><DeleteIcon/> </StyledTableCell>
+                <StyledTableCell><DeleteIcon onClick={() => {deleteArticle(articles.id), submitDelete()}} /> </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

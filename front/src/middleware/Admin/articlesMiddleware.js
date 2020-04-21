@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE, fetchArticleSuccess, SUBMIT_ARTICLE } from '../../actions/Admin/articles';
+import { FETCH_ARTICLE, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT } from '../../actions/Admin/articles';
 import axios from 'axios';
 
 export default (store) => (next) => (action) => {
@@ -32,6 +32,19 @@ export default (store) => (next) => (action) => {
                 console.log('erreur de l\'envoie de l\'article',error )
             });
             break;
+            case DELETE_ARTICLE_SUBMIT:
+                axios({
+                    url: `http://54.166.4.90/projet-judo/back/public/index.php/api/articles/${store.getState().articles.articleToDelete}`,
+                    method: 'delete',
+                    withCredentials: false,                    
+                })
+                .then((response) => {
+                    console.log('article supprimé', response)
+                })
+                .catch((error) => {
+                    console.log('erreur de la suppression')
+                })
+                break;
 
         default:
             next(action);
