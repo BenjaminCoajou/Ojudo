@@ -103,13 +103,22 @@ const Home = ({ isLoading, events, dateObject }) => {
           </div>
         </div>
       </div>
-
+      </div>
       <div class="card_present">
-        
+      <div class="blog-card spring-fever">
+  <div class="title-content">
+    <h3>Notre club</h3>
+    <hr />
+    <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+  </div>
+  <div class="card-info">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+  </div>
       </div>
       </div>
       <Footer />
     </div>
+    
   );
 };
 
