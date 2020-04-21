@@ -7,7 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Link} from 'react-router-dom';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -51,6 +53,8 @@ const ArticleTable = ({list}) => {
               <StyledTableCell>date de création</StyledTableCell>
               <StyledTableCell>date de mise à jour</StyledTableCell>
               <StyledTableCell>Utilisateur</StyledTableCell>
+              <StyledTableCell>Modifier</StyledTableCell>
+              <StyledTableCell>Supprimer</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -63,6 +67,9 @@ const ArticleTable = ({list}) => {
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
                 <StyledTableCell>{articles.user.firstname}</StyledTableCell>
+
+                <StyledTableCell> <EditIcon/></StyledTableCell>
+                <StyledTableCell><DeleteIcon/> </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

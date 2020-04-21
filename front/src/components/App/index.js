@@ -26,6 +26,7 @@ import UsersDetails from '../Admin/Users/UsersDetails';
 import EventAdmin from '../Admin/Event';
 import SponsorsAdmin from '../Admin/Sponsors';
 import ArticleAdmin from '../Admin/Article';
+import AddArticle from '../Admin/Article/AddArticle';
 import Mentions from '../Mentions légales/mentions'
 
 

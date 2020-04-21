@@ -23,6 +23,7 @@ import Woman from './Categories/Woman';
 import Man from './Categories/Man';
 import Event from './Event';
 import Article from './Article';
+import AddArticle from '../../containers/Admin/AddArticle';
 import Sponsors from './Sponsors';
 import UsersList from './Users/UsersList';
 import Users from './Users';
@@ -123,7 +124,7 @@ const Admin = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
+
 
   return (
     <div className={classes.root}>
@@ -139,7 +140,7 @@ const Admin = () => {
           >
             <MenuIcon />
             <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-           O'judo
+              O'judo
           </Typography>
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
@@ -161,33 +162,34 @@ const Admin = () => {
         open={open}
       >
         <div className={classes.toolbarIcon}>
-        <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-           O'judo
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            O'judo
           </Typography>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
         </div>
         <Divider />
-        <List><ListItems/></List>
+        <List><ListItems /></List>
       </Drawer>
       <main className={classes.content} >
-      <div className={classes.appBarSpacer} />
-          <Switch>
-              <Route exact path="/admin" component={Dashboard} />
-              <Route exact path="/admin/categorie" component={Categories} />
-              <Route exact path="/admin/categorie/feminin" component={Woman} />
-              <Route exact path="/admin/categorie/masculin" component={Man} />
-              <Route exact path="/admin/event" component={Event} />
-              <Route exact path="/admin/article" component={Article} />
-              <Route exact path="/admin/sponsors" component={Sponsors} />
-              <Route exact path="/admin/userlist" component={UsersList} />
-              <Route exact path="/admin/user" component={Users} />
-              <Route exact path="/admin/user/detail" component={UsersDetails} />
-          </Switch>
+        <div className={classes.appBarSpacer} />
+        <Switch>
+          <Route exact path="/admin" component={Dashboard} />
+          <Route exact path="/admin/categorie" component={Categories} />
+          <Route exact path="/admin/categorie/feminin" component={Woman} />
+          <Route exact path="/admin/categorie/masculin" component={Man} />
+          <Route exact path="/admin/event" component={Event} />
+          <Route exact path="/admin/article" component={Article} />
+          <Route exact path="/admin/sponsors" component={Sponsors} />
+          <Route exact path="/admin/userlist" component={UsersList} />
+          <Route exact path="/admin/user" component={Users} />
+          <Route exact path="/admin/user/detail" component={UsersDetails} />
+          <Route exact path="/actualite/article/add" component={AddArticle} />
+        </Switch>
       </main>
-      
-      
+
+
     </div>
   );
 }
