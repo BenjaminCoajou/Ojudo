@@ -88,7 +88,7 @@ const Home = ({ isLoading, events, dateObject }) => {
           <div class="demo-card-event mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title mdl-card--expand">
               <h4>
-                Prochaine événement:<br/>
+                Prochain événement:<br/>
                 May 24, 2016<br/>
                 7-11pm
               </h4>

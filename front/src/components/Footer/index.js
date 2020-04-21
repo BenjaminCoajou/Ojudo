@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 import "./style.scss";
-//import "./raindrop.js";
+import "./raindrop.js";
 const Footer = () => (
 
     <div className="page-wrapper">

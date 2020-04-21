@@ -6,14 +6,16 @@ var _requestAnimationFrame = window.webkitRequestAnimationFrame ||
   function(callback) {
     window.setTimeout(callback, 1000/60)
   };
-  var canvas = document.getElementById("waves"),
+  document.addEventListener('DOMContentLoaded', () =>{
+  var canvas = document.createElement("canvas"),
       ctx    = canvas.getContext('2d');
+      document.getElementById('waterdrop').appendChild(canvas);
 
   var springs = [],
       MAX_SPRINGS = 250;
 
   canvas.width = window.innerWidth;
-  canvas.height = 350;
+  canvas.height = 50;
 
 ctx.fillStyle = '#247b95';
 
@@ -97,3 +99,4 @@ function tick()
 }
 
 tick();
+});
