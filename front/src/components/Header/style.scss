@@ -1,8 +1,9 @@
 .header {
     width: 100%;
+    height: 150px;
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
+    background: linear-gradient(black, #141e30);
 
     &__top {
         display: flex;
@@ -16,6 +17,7 @@
             justify-content: center;
             font-size: 4em;
             padding: 15px;
+            color: white
         }
    
         &__ffjudo {
@@ -29,16 +31,17 @@
         
     } 
 }
+
 * {
     & li {
       list-style: none;
     }
-    & a {
-      text-decoration: none;
-      color:white;
-    }
+    
   }
-  
+  .nav-link {
+    text-decoration: none;
+    color:white;
+  }
   .menuContainer {
     display: block;
     position: relative;
