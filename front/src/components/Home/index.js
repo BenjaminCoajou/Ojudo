@@ -20,102 +20,113 @@ const Home = ({ isLoading, events, dateObject }) => {
   return (
     <div>
       <Header />
-
-      <div class="wrap_articles">
-        <div>
-          <h2>Les derniers articles</h2>
-        </div>
-
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-              prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-              prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1458668383970-8ddd3927deed?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1004&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-              prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1422393462206-207b0fbd8d6b?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-              prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap_events">
-        <div className="calendarContainer">
-          <Calendar />
-        </div>
-        <div class="organizerContainer">
-          <div class="demo-card-image mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title mdl-card--expand"></div>
-          </div>
-          <div class="demo-card-event mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title mdl-card--expand">
-              <h4>
-                Prochain événement:<br/>
-                May 24, 2016<br/>
-                7-11pm
-              </h4>
+      <div className="up"> 
+        <div className="up__container">
+          <div class="card_present">
+            <div class="blog-card spring-fever">
+              <div class="title-content">
+                <h3>Notre club</h3>
+                <hr />
+                <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+              </div>
+              <div class="card-info">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+              </div>
             </div>
-          <div class="mdl-card__actions mdl-card--border">
-           <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-               ajouter un evénement
-            </a>
-          <div class="mdl-layout-spacer"></div>
-            <i class="material-icons">event</i>
-        
+          </div>
+          <div class="wrap_events">
+            <div className="calendarContainer">
+              <Calendar />
+            </div>
+            <div class="organizerContainer">
+              <div class="demo-card-image mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand"></div>
+              </div>
+              <div class="demo-card-event mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h4>
+                    Prochain événement:<br/>
+                    May 24, 2016<br/>
+                    7-11pm
+                  </h4>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                      ajouter un evénement
+                  </a>
+                  <div class="mdl-layout-spacer"></div>
+                  <i class="material-icons">event</i>
+              
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      </div>
-      <div class="card_present">
-      <div class="blog-card spring-fever">
-  <div class="title-content">
-    <h3>Notre club</h3>
-    <hr />
-    <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
-  </div>
-  <div class="card-info">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
-  </div>
-      </div>
-      </div>
+        <div class="wrap_articles">
+          <div>
+            <h2>Les derniers articles</h2>
+          </div>
+
+          <div class="tile">
+            <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
+            <div class="text">
+              <h1>Lorem ipsum.</h1>
+              <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+              <p class="animate-text">
+                Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
+                bresaola pork chicken meatloaf. Flank sirloin strip steak
+                prosciutto kevin turducken.{" "}
+              </p>
+            </div>
+          </div>
+          <div class="tile">
+            <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
+            <div class="text">
+              <h1>Lorem ipsum.</h1>
+              <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+              <p class="animate-text">
+                Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
+                bresaola pork chicken meatloaf. Flank sirloin strip steak
+                prosciutto kevin turducken.{" "}
+              </p>
+            </div>
+          </div>
+         
+
+          <div class="tile">
+            <img src="https://images.unsplash.com/photo-1458668383970-8ddd3927deed?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1004&q=80" />
+            <div class="text">
+              <h1>Lorem ipsum.</h1>
+              <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+              <p class="animate-text">
+                Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
+                bresaola pork chicken meatloaf. Flank sirloin strip steak
+                prosciutto kevin turducken.{" "}
+              </p>
+            </div>
+          </div>
+
+          <div class="tile">
+            <img src="https://images.unsplash.com/photo-1422393462206-207b0fbd8d6b?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80" />
+            <div class="text">
+              <h1>Lorem ipsum.</h1>
+              <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+              <p class="animate-text">
+                Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
+                bresaola pork chicken meatloaf. Flank sirloin strip steak
+                prosciutto kevin turducken.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        
+
+
+
+
+
       <Footer />
     </div>
     

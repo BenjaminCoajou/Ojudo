@@ -17,7 +17,7 @@ var _requestAnimationFrame = window.webkitRequestAnimationFrame ||
   canvas.width = window.innerWidth;
   canvas.height = 50;
 
-ctx.fillStyle = '#247b95';
+ctx.fillStyle = '#1C1F2F';
 
 for (var i=0; i<MAX_SPRINGS; i++)
 {

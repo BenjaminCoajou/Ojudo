@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import ffjudo from "./logo-ffjudo.png";
+//import ffjudo from "./logo-ffjudo.png";
 import "./style.scss";
 import "./navbar.js";
+import "./logo.js";
 
 const Header = () => (
   <header className="header">
@@ -53,7 +54,17 @@ const Header = () => (
           </ul>
         </div>
       </div>
-      <img className="header__top__ffjudo" src={ffjudo} />
+          <div class="body_logo">
+      <div class="view">
+  <div class="mat">
+    <a><img src="https://vgy.me/raR1xG.png"/></a>
+    <a><img src="https://vgy.me/eek83g.png"/></a>
+    <a><img src="https://vgy.me/kpVjd0.png"/></a>
+    <a><img src="https://vgy.me/wT4qTx.png"/></a>
+  </div>
+</div>
+</div>
+     
     </div>
   </header>
 
