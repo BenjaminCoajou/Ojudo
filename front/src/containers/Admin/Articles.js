@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
 import articleTable from '../../components/Admin/Article/ArticleTable';
-import { deleteArticle, deleteArticleSubmit} from '../../actions/Admin/articles';
+import { deleteArticle, deleteArticleSubmit, modifyArticle, modifyArticleChange, modifyArticleSubmit} from '../../actions/Admin/articles';
 
 const mapStateToProps = (state) => ({
     list: state.articles.list,
+    edit: state.articles.edit,
+    articleId: state.articles.articleToEdit.id,
+    editTitle: state.articles.articleToEdit.title,
+    editContent: state.articles.articleToEdit.content,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,6 +16,15 @@ const mapDispatchToProps = (dispatch) => ({
     },
     submitDelete: () => {
         dispatch(deleteArticleSubmit());
+    },
+    editArticle: (payload) => {
+        dispatch(modifyArticle(payload));
+    },
+    editArticleChange: (payload) => {
+        dispatch(modifyArticleChange(payload));
+    },
+    submitEdit: () => {
+        dispatch(modifyArticleSubmit());
     }
 })
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
     },
   });
   
-const ArticleTable = ({list, deleteArticle, submitDelete}) => {
+const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, articleId, editArticleChange, editTitle, editContent, submitEdit}) => {
     const classes = useStyles();
   
     return (
@@ -61,14 +62,34 @@ const ArticleTable = ({list, deleteArticle, submitDelete}) => {
             {list.map((articles) => (
               <StyledTableRow key={articles.id}>
                 <StyledTableCell>{articles.id}</StyledTableCell>
-                <StyledTableCell>{articles.title}</StyledTableCell>
-                <StyledTableCell>{`${articles.content.substring(0, 40)}...`}</StyledTableCell>
+                <StyledTableCell>
+                  {edit && articleId == articles.id ? 
+                  <form onSubmit={(evt) => { evt.preventDefault(); submitEdit() }}>
+                    <input 
+                  type='text'
+                 name='title' 
+                 placeholder={articles.title}
+                 value={editTitle}
+                 onChange={(evt) => editArticleChange({ [evt.target.name]: evt.target.value})} />
+                 </form> : <p>{articles.title}</p> }
+                 </StyledTableCell>
+                <StyledTableCell>
+                  {edit && articleId == articles.id ?
+                  <form onSubmit={(evt) => { evt.preventDefault(); submitEdit() }} >
+                    <input 
+                    type='text' 
+                    name='content' 
+                    placeholder={articles.content}
+                    value={editContent}
+                    onChange={(evt) => editArticleChange({ [evt.target.name]: evt.target.value})} />
+                  </form> : <p>{`${articles.content.substring(0, 40)}...`}</p>}
+                  </StyledTableCell>
                 <StyledTableCell>{articles.picture}</StyledTableCell>
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
                 <StyledTableCell>{''}</StyledTableCell>
 
-                <StyledTableCell> <EditIcon/></StyledTableCell>
+                <StyledTableCell> <EditIcon onClick = {() => editArticle(articles)} /></StyledTableCell>
                 <StyledTableCell><DeleteIcon onClick={() => {deleteArticle(articles.id), submitDelete()}} /> </StyledTableCell>
               </StyledTableRow>
             ))}
@@ -77,5 +98,11 @@ const ArticleTable = ({list, deleteArticle, submitDelete}) => {
       </TableContainer>
     );
   }
+
+ArticleTable.propTypes = {
+  list: PropTypes.array.isRequired,
+  deleteArticle: PropTypes.func.isRequired,
+  submitDelete: PropTypes.func.isRequired,
+}
 
 export default ArticleTable;

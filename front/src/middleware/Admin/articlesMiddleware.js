@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT } from '../../actions/Admin/articles';
+import { FETCH_ARTICLE, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT, MODIFY_ARTICLE_SUBMIT } from '../../actions/Admin/articles';
 import axios from 'axios';
 
 export default (store) => (next) => (action) => {
@@ -43,6 +43,23 @@ export default (store) => (next) => (action) => {
                 })
                 .catch((error) => {
                     console.log('erreur de la suppression')
+                })
+                break;
+            case MODIFY_ARTICLE_SUBMIT:
+                axios({
+                    url: `http://54.166.4.90/projet-judo/back/public/index.php/api/articles/${store.getState().articles.articleToEdit.id}`,
+                    method: 'put',
+                    withCredentials: false,
+                    data:  {
+                        title: store.getState().articles.articleToEdit.title,
+                        content: store.getState().articles.articleToEdit.content,
+                    },                    
+                })
+                .then((response) => {
+                    console.log('article modifié', response)
+                })
+                .catch((error) => {
+                    console.log('erreur de la modification')
                 })
                 break;
 
