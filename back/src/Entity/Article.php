@@ -68,7 +68,7 @@ class Article
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      * @groups({"article_read"})
      */
     private $user;
@@ -87,6 +87,9 @@ class Article
     {
         $this->comment = new ArrayCollection();
         $this->tag = new ArrayCollection();
+        $this->createdAt = new \DateTime;
+        
+        
     }
 
     public function getId(): ?int
@@ -153,7 +156,7 @@ class Article
 
         return $this;
     }
-
+ 
     public function getUser(): ?User
     {
         return $this->user;
@@ -164,8 +167,8 @@ class Article
         $this->user = $user;
 
         return $this;
-    }
-
+    } 
+    
     /**
      * @return Collection|Comment[]
      */
