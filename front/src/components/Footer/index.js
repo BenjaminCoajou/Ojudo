@@ -4,10 +4,12 @@ import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 import "./style.scss";
-
+//import "./raindrop.js";
 const Footer = () => (
+
     <div className="page-wrapper">
-        <div id="waterdrop"></div>
+        <div id="waterdrop">
+       </div>
         <footer>
             <div className="footer-top">
                 <div className="pt-exebar"></div>
@@ -210,7 +212,8 @@ const Footer = () => (
         </footer>
 
     </div>
-
+    
+    
 
 );
 
