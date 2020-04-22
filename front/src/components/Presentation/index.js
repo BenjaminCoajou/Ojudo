@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import UserCard from './UserCard';
+import UserCardStaff from './UserCardStaff';
 
 import './style.scss';
 import dojo from './Dojo.jpg';
@@ -36,7 +37,7 @@ const Presentation = ({ list }) => {
                 <div className="presentation__member__container__list">
                     {
                         list.map((card) => (
-                            <UserCard key={card.id} {...card} />
+                            <UserCardStaff key={card.id} {...card} />
                         ))
                     }                                    
                 </div>   
