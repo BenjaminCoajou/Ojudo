@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass="App\Repository\RolesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\RoleRepository")
  * @ApiResource(normalizationContext={"groups"={"role_read"}})
  */
 class Role

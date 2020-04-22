@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\RoleRepository;
 
 /**
  * @Route("/api")
@@ -25,8 +26,11 @@ class SecurityController extends AbstractController
      *     }
      * )
      */
-    public function postAction(User $data, UserPasswordEncoderInterface $encoder): User
+    public function postAction(User $data, UserPasswordEncoderInterface $encoder, RoleRepository $roleRepository): User
     {
+
+        $role = $roleRepository->findOneByRoleString('ROLE_USER');
+        $data->setRole($role);
         return $this->encodePassword($data, $encoder);
     }
 
