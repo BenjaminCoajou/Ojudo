@@ -35,7 +35,7 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"user_read","article_read"})
+     * @groups({"user_read","article_read", "role_read"})
      */
     private $id;
     /**
@@ -149,6 +149,7 @@ class User implements UserInterface
     {
         $this->status = true;
         $this->article = new ArrayCollection();
+        $this->role = 3;
     }
 
 
