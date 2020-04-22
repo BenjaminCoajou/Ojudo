@@ -127,12 +127,6 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
-     * @groups({"user_read"})
-     */
-    private $roles = [];
-
-    /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
@@ -144,6 +138,12 @@ class User implements UserInterface
      */
     private $plainPassword;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role")
+     * @ORM\JoinColumn(nullable=true)
+     * @groups({"user_read"})
+     */
+    private $role;
 
     public function __construct()
     {
@@ -179,23 +179,9 @@ class User implements UserInterface
         return (string) $this->email;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
+    public function getRoles()
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
+        return array($this->getRole()->getRoleString());
     }
 
     /**
@@ -371,6 +357,18 @@ class User implements UserInterface
     public function setPlainPassword(string $plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+        return $this;
+    }
+
+    public function getRole(): ?Role
+    {
+        return $this->role;
+    }
+
+    public function setRole(?Role $role): self
+    {
+        $this->role = $role;
+
         return $this;
     }
 }
