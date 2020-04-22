@@ -2,15 +2,23 @@
   width: 100%;
   padding: 5px;
   line-height: 25px;
+  background-color: #4b6289;
+}
+.calendar-months-selector {
+  padding: 1rem;
+  background-color: white;
 }
 
 .calendar-month {
   width: 33%;
-  text-transform: uppercase;
+  margin: 5px 0;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 5px;
 }
 
 
 .calendar-month:hover {
-  color: #cd283c;
-  font-weight: bold;
+ background-color: lightgrey;
+ cursor: pointer;
 }

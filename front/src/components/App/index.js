@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import
 
@@ -31,9 +32,10 @@ import Mentions from '../Mentions légales/mentions'
 
 
 // == Composant
-const App = ({fetchUser, fetchEvents}) => {
+const App = ({fetchUser, fetchEvents, fetchPresentation}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
+  useEffect(fetchPresentation, []);
   return (
   <div className="app">
     <Switch>
@@ -60,6 +62,12 @@ const App = ({fetchUser, fetchEvents}) => {
     </Switch>
   </div>
 )};
+
+App.propTypes = {
+  fetchUser: PropTypes.func.isRequired,
+  fetchEvents: PropTypes.func.isRequired,
+  fetchPresentation: PropTypes.func.isRequired,
+}
 
 // == Export
 export default App;
