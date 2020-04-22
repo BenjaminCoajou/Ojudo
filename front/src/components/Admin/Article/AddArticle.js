@@ -3,9 +3,16 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
+import './style.scss'; 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        '& .MuiTextField-root': {
+            margin: theme.spacing(4),
+            width: '25ch',
+            background: 'white',
+        },
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -13,42 +20,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddArticle = ({title, content, inputChange, handleSubmit}) => {
+const AddArticle = ({ title, content, inputChange, handleSubmit }) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <form onSubmit={(evt) => { evt.preventDefault(); handleSubmit() }}>
-                <div className={`${classes.container} form-group`}>
-                    <label htmlFor="InputTitle">Titre</label>
-                    <input 
-                    type="text" 
-                    className="form-control" 
-                    id="InputTitle" 
-                    name="title"
-                    value={title}
-                    onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}}/>
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="inputContent">Contenu</label>
-                    <input type="text" 
-                    className="form-control" 
-                    id="inputContent"
-                    name="content"
-                    value={content}
-                    onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}}
-                    />
-                </div>
-                    <button type="submit"
+        <form className="form_article" onSubmit={(evt) => { evt.preventDefault(); handleSubmit() }}>
+            <input name="title" placeholder="Entrer un titre" className="input_title" value={title} onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required /> 
+            <textarea rows="4" cols="50" name="content" placeholder="Entrer votre contenu" className="message" value={content}
+                    onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required></textarea>
+
+            <div class="button-wrapper">
+                <span class="label">
+                    ajouter une image
+                </span>
+
+                <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" accept="image/png, image/jpeg"/>
+  
+            </div>
+            <button type="submit"
                      className="btn btn-primary" 
                      onClick={(evt) => { evt.preventDefault(); handleSubmit() }}>
                         <Link to="/admin/article">
-                         Submit
+                         Ajouter l'article
                 </Link>
                          </button>
-            </form>
-        </div>
+            
+                </form>
     )
 }
 
