@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     },
   });
   
-const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, articleId, editArticleChange, editTitle, editContent, submitEdit}) => {
+const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, articleId, editArticleChange, editTitle, editContent, submitEdit, isLoad}) => {
     const classes = useStyles();
   
     return (
@@ -87,7 +87,7 @@ const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, art
                 <StyledTableCell>{articles.picture}</StyledTableCell>
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
-                <StyledTableCell>{''}</StyledTableCell>
+                  <StyledTableCell>{isLoad || articles.user.firstname == undefined ? 'undefined user' : articles.user.firstname}</StyledTableCell>
 
                 <StyledTableCell> <EditIcon onClick = {() => editArticle(articles)} /></StyledTableCell>
                 <StyledTableCell><DeleteIcon onClick={() => {deleteArticle(articles.id), submitDelete()}} /> </StyledTableCell>

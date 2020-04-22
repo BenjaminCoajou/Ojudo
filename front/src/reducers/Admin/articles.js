@@ -9,6 +9,7 @@ const initialState = {
     articleToDelete: '',
     articleToEdit: {},
     edit: false,
+    isLoad: false,
 };
 
 const articles = (state = initialState, action = {}) => {
@@ -17,6 +18,7 @@ const articles = (state = initialState, action = {}) => {
      return {
          ...state,
          list: [...action.payload],
+         isLoad: !state.isLoad,
      }
      case INPUT_CHANGE:
        return {

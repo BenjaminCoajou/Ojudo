@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
     articleId: state.articles.articleToEdit.id,
     editTitle: state.articles.articleToEdit.title,
     editContent: state.articles.articleToEdit.content,
+    isLoad: state.articles.isLoad,
 });
 
 const mapDispatchToProps = (dispatch) => ({
