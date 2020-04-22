@@ -13,6 +13,7 @@ App\Entity\User:
         status: '1'
         categorie: '@categorie_*'
         picture: '<imageUrl(100, 100)>'
+        
 
 App\Entity\Presentation:
     presentation_{1}:
@@ -20,7 +21,12 @@ App\Entity\Presentation:
         content: '<text(120)>'
         picture: '<imageUrl(100, 100)>'
 
-        
+
+App\Entity\Role:
+    role_{1}:
+        name: 'utilisateur'
+        roleString: 'ROLE_USER'
+                
 
         
 App\Entity\Event:

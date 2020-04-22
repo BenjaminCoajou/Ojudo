@@ -109,7 +109,7 @@ class User implements UserInterface
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="users")
      * @ORM\JoinColumn(nullable=true)
-     * @groups("admin")
+     * @groups("user_read")
      */
     private $categorie;
 
@@ -143,13 +143,12 @@ class User implements UserInterface
      * @ORM\JoinColumn(nullable=true)
      * @groups({"user_read"})
      */
-    private $role = array();
+    private $role;
 
     public function __construct()
     {
         $this->status = true;
         $this->article = new ArrayCollection();
-        $this->role = "ROLE_USER";
     }
 
 
@@ -180,7 +179,9 @@ class User implements UserInterface
         return (string) $this->email;
     }
 
-    
+    public function getRoles(){
+        return array($this->getRole()->getRoleString());
+    }
 
     /**
      * @see UserInterface
@@ -337,6 +338,7 @@ class User implements UserInterface
 
         return $this;
     }
+
     public function getBirthday(): ?\DateTimeInterface
     {
         return $this->birthday;
@@ -361,12 +363,9 @@ class User implements UserInterface
     public function getRole(): ?Role
     {
         return $this->role;
-        $role[] = 'ROLE_USER';
-
-    return array_unique($role);
     }
 
-    public function setRole(array $role): self
+    public function setRole(?Role $role): self
     {
         $this->role = $role;
 
