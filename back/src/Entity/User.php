@@ -149,7 +149,6 @@ class User implements UserInterface
     {
         $this->status = true;
         $this->article = new ArrayCollection();
-        $this->role = "ROLE_USER";
     }
 
 
