@@ -87,7 +87,7 @@ const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, art
                 <StyledTableCell>{articles.picture}</StyledTableCell>
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
-                  <StyledTableCell>{ ""}</StyledTableCell>
+                  <StyledTableCell>{articles.firstname}</StyledTableCell>
 
                 <StyledTableCell> <EditIcon onClick = {() => editArticle(articles)} /></StyledTableCell>
                 <StyledTableCell><DeleteIcon onClick={() => {deleteArticle(articles.id), submitDelete()}} /> </StyledTableCell>
