@@ -61,7 +61,7 @@ const Years = ({  handleSelectYear }) => {
         <table className="calendar-years">
             <thead>
             <tr>
-                <th colSpan="4">Choisir une année</th>
+                <th className="calendar-years-selector" colSpan="4">Choisir une année</th>
             </tr>
             </thead>
             <tbody>{yearlist}</tbody>

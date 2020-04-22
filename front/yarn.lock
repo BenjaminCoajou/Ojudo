@@ -6825,6 +6825,11 @@ material-table@^1.57.2:
     react-beautiful-dnd "11.0.3"
     react-double-scrollbar "0.0.15"
 
+materialize-css@^1.0.0-rc.2:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0.tgz#8d5db1c4a81c6d65f3b2e2ca83a8e08daa24d1be"
+  integrity sha512-4/oecXl8y/1i8RDZvyvwAICyqwNoKU4or5uf8uoAd74k76KzZ0Llym4zhJ5lLNUskcqjO0AuMcvNyDkpz8Z6zw==
+
 math-expression-evaluator@^1.2.14:
   version "1.2.22"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.22.tgz#c14dcb3d8b4d150e5dcea9c68c8dad80309b0d5e"

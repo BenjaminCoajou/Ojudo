@@ -21,7 +21,7 @@ var click = true;
           width: 1000,
           height: 75,
           x: 0,
-          y: 150,
+          y: 100,
           background: "#000",
           borderRadius: 0,
           borderTop: "1px solid #D8D8D8",
