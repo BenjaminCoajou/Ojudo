@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import Proptypes from 'prop-types';
 import moment from 'moment';
 import { MdEvent } from "react-icons/md";
@@ -9,7 +9,7 @@ import Years from '../../containers/Years';
 import './style.scss';
 
 const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, showYear, handleDayClick, events, selectEvent, eventInfos }) => {
-    
+
     moment.locale('fr');
 
     // mois
@@ -30,7 +30,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     // zone de vide pour le début du mois
     const blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
-        blanks.push(<td key={i*100} className="calendar-day empty" >{""}</td>);
+        blanks.push(<td key={i * 100} className="calendar-day empty" >{""}</td>);
     };
 
     // jour actuel
@@ -44,9 +44,9 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
         let allEvent = events.map((evt) => (moment(evt.date).format('MM-D-YYYY')));
         let findEvent = allEvent.find(evt => evt == selectedDay);
         let eventInfos = events.find(evt => moment(evt.date).format('MM-D-YYYY') == selectedDay);
-        let nextEvent = () => (selectedDay == findEvent ? <MdEvent/> : "");
+        let nextEvent = () => (selectedDay == findEvent ? <MdEvent /> : "");
         daysInMonth.push(
-            <td key={day} className={`calendar-day ${today}`} onClick={() => {handleDayClick(selectedDay), selectEvent(eventInfos)}} ><span>{nextEvent()}</span> {day}</td>,
+            <td key={day} className={`calendar-day ${today}`} onClick={() => { handleDayClick(selectedDay), selectEvent(eventInfos) }} ><span>{nextEvent()}</span> {day}</td>,
         );
     };
 
@@ -67,42 +67,56 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
         }
     });
 
+
     const allDaysInMonth = rows.map((day) => (
-        <tr>{day}</tr> // probleme de key
+        <tr className="calendar-table-body-row">{day}</tr> // probleme de key
     ));
 
     return (
         <div>
-        <div className="tail-datetime-calendar" >
-            <div className="calendar-navi" >
-                <span className="calendar-label" onClick={showMonth} > {month()} </span>
-                <span className="calendar-label" onClick={showYear}> {year()} </span>
-            </div>            
+            <div className="calendar-container" >
+                <div className="calendar-header1" >
+                    <div className="calendar-header-title">
+                        <div className="calendar-header-title-text">
+                            <div className="calendar-month-year">
+                                <span className="calendar-month-hover" onClick={showMonth} > {month()} </span>
+                                <span className="calendar-year-hover" onClick={showYear}> {year()} </span>
+                            </div>
+                            <span className="calendar-today">{moment(dateObject).format('dddd DD MMMM')}</span>
+                        </div>
+                    </div>
+                </div>
                 {monthIsDisplayed && <Months />}
                 {yearIsDisplayed && <Years />}
-            <div className="calendar-date" >
-                <table className="calendar-days" >
-                    <thead>
-                        <tr>
-                            {
-                                weekDayName.map(day => (
-                                    <th key={day} className="week-day" > {day} </th>
-                                ))
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {allDaysInMonth}
-                    </tbody>
-                </table>
+                <div className="calendar-content1" >
+                    <table className="calendar-table1" >
+                        <thead className="calendar-table-header">
+                            <tr className="calendar-table-header-row">
+                                {
+                                    weekDayName.map(day => (
+                                        <th key={day} className="calendar-table-header-col" > {day} </th>
+                                    ))
+                                }
+                            </tr>
+                        </thead>
+                        <tbody className="calendar-table-body">
+                            {allDaysInMonth}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        {eventInfos ? <div className="calendar-info">
-        <h3>{eventInfos.title}</h3>
-        <p>{eventInfos.place}</p>
-        <p>{eventInfos.content}</p>
-        </div>
-        : ""}
+            {eventInfos ? <div className="calendar-footer">
+            <div className="calendar-footer-title">
+                <h4 className="calendar-footer-title-text">{eventInfos.title}</h4>
+                <p className="calendar-footer-text" >{eventInfos.place}</p>
+                <p className="calendar-footer-text" >{eventInfos.content}</p>
+                </div>
+            </div>
+                : <div className="calendar-footer">
+                    <div className="calendar-footer-title">
+                        <h4 className="calendar-footer-title-text">Aucun événement à ce jour</h4>
+                    </div>
+                </div>}
         </div>
     )
 };

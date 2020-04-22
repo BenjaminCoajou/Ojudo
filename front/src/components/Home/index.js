@@ -38,6 +38,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo }) => {
             <div className="calendarContainer">
               <Calendar />
             </div>
+          </div>
             <div class="organizerContainer">
               <div class="demo-card-image mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title mdl-card--expand"></div>
@@ -53,7 +54,6 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo }) => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>: ""}
       <div class="wrap_articles">
