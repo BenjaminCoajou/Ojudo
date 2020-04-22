@@ -54,9 +54,9 @@ const Header = () => (
           </ul>
         </div>
       </div>
-          <div class="body_logo">
-      <div class="view">
-  <div class="mat">
+          <div className="body_logo">
+      <div className="view">
+  <div className="mat">
     <a><img src="https://vgy.me/raR1xG.png"/></a>
     <a><img src="https://vgy.me/eek83g.png"/></a>
     <a><img src="https://vgy.me/kpVjd0.png"/></a>

@@ -5,6 +5,8 @@ const mapStateToProps = (state) => ({
     isLoading: state.calendar.isLoading,
     dateObject: state.calendar.dateObject,
     events: state.calendar.events,
+    presIsLoaded: state.presentation.isLoaded,
+    presInfo: state.presentation.info,
 });
 
 const mapDispatchToProps = {};
