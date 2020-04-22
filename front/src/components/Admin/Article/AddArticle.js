@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,7 +40,13 @@ const AddArticle = ({title, content, inputChange, handleSubmit}) => {
                     onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit"
+                     className="btn btn-primary" 
+                     onClick={(evt) => { evt.preventDefault(); handleSubmit() }}>
+                        <Link to="/admin/article">
+                         Submit
+                </Link>
+                         </button>
             </form>
         </div>
     )

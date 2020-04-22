@@ -82,7 +82,7 @@ const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, art
                     placeholder={articles.content}
                     value={editContent}
                     onChange={(evt) => editArticleChange({ [evt.target.name]: evt.target.value})} />
-                  </form> : <p>{`${articles.content.substring(0, 40)}...`}</p>}
+                  </form> : <p>{articles.content.length > 40 ? articles.content.substring(0, 40)+'...' : articles.content}</p>}
                   </StyledTableCell>
                 <StyledTableCell>{articles.picture}</StyledTableCell>
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>

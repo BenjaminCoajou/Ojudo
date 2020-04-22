@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE_SUCCESS, INPUT_CHANGE, DELETE_ARTICLE, MODIFY_ARTICLE, MODIFY_ARTICLE_CHANGE } from '../../actions/Admin/articles';
+import { FETCH_ARTICLE_SUCCESS, INPUT_CHANGE, DELETE_ARTICLE, MODIFY_ARTICLE, MODIFY_ARTICLE_CHANGE, MODIFY_ARTICLE_SUCCESS } from '../../actions/Admin/articles';
 
 const initialState = {
     list: [],
@@ -46,6 +46,11 @@ const articles = (state = initialState, action = {}) => {
             ...state.articleToEdit,
             ...action.payload,
           }
+        }
+      case MODIFY_ARTICLE_SUCCESS:
+        return {
+          ...state,
+          edit: !state.edit,
         }
     default:
       return state;

@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT, MODIFY_ARTICLE_SUBMIT } from '../../actions/Admin/articles';
+import { FETCH_ARTICLE, fetchArticle, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT, MODIFY_ARTICLE_SUBMIT, modifyArticleSuccess } from '../../actions/Admin/articles';
 import axios from 'axios';
 
 export default (store) => (next) => (action) => {
@@ -26,7 +26,8 @@ export default (store) => (next) => (action) => {
                 },
             })
             .then((response) => {
-                console.log('nouveau article', response);
+                console.log('nouveau article', response),
+                store.dispatch(fetchArticle())
             })
             .catch((error) => {
                 console.log('erreur de l\'envoie de l\'article',error )
@@ -39,7 +40,8 @@ export default (store) => (next) => (action) => {
                     withCredentials: false,                    
                 })
                 .then((response) => {
-                    console.log('article supprimé', response)
+                    console.log('article supprimé', response),
+                    store.dispatch(fetchArticle())
                 })
                 .catch((error) => {
                     console.log('erreur de la suppression')
@@ -56,7 +58,9 @@ export default (store) => (next) => (action) => {
                     },                    
                 })
                 .then((response) => {
-                    console.log('article modifié', response)
+                    console.log('article modifié', response),
+                    store.dispatch(fetchArticle()),
+                    store.dispatch(modifyArticleSuccess())
                 })
                 .catch((error) => {
                     console.log('erreur de la modification')

@@ -7,6 +7,7 @@ export const DELETE_ARTICLE_SUBMIT = 'DELETE_ARTICLE_SUBMIT';
 export const MODIFY_ARTICLE = 'MODIFY_ARTICLE';
 export const MODIFY_ARTICLE_SUBMIT = 'MODIFY_ARTICLE_SUBMIT';
 export const MODIFY_ARTICLE_CHANGE = 'MODIFY_ARTICLE_CHANGE';
+export const MODIFY_ARTICLE_SUCCESS = 'MODIFY_ARTICLE_SUCCESS';
 
 export const fetchArticle = () => ({
     type: FETCH_ARTICLE
@@ -35,9 +36,12 @@ export const modifyArticle = (payload) => ({
 });
 export const modifyArticleSubmit = () => ({
     type: MODIFY_ARTICLE_SUBMIT,
-})
+});
 
 export const modifyArticleChange = (payload) => ({
     type: MODIFY_ARTICLE_CHANGE,
     payload,
-})
+});
+export const modifyArticleSuccess = () => ({
+    type: MODIFY_ARTICLE_SUCCESS,
+});
