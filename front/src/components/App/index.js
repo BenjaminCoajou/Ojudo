@@ -27,16 +27,21 @@ import UsersDetails from '../Admin/Users/UsersDetails';
 import EventAdmin from '../Admin/Event';
 import SponsorsAdmin from '../Admin/Sponsors';
 import ArticleAdmin from '../Admin/Article';
+import AddArticle from '../Admin/Article/AddArticle';
 import Mentions from '../Mentions légales/mentions'
 
 
 
 // == Composant
-const App = ({fetchUser, fetchEvents, fetchPresentation}) => {
+
+
+
+const App = ({fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
+  useEffect(fetchArticle, []);
   useEffect(fetchPresentation, []);
-  return (
+ front  return (
   <div className="app">
     <Switch>
       <Route exact path="/" component={Home}/>

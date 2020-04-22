@@ -10,6 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import test from '../../../../../assets/images/test.jpg';
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+
+
 
 
 
@@ -74,7 +78,7 @@ const Details = () => {
         variant="contained"
         color="primary"
         className={classes.button}
-        endIcon={<Icon>edit</Icon>}
+        endIcon={<EditIcon/>}
       >
         Editer
       </Button>
@@ -82,7 +86,7 @@ const Details = () => {
         variant="contained"
         color="primary"
         className={classes.button}
-        endIcon={<Icon>delete</Icon>}
+        endIcon={<DeleteIcon/>}
       >
         Supprimer
       </Button>
