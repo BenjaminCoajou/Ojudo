@@ -41,7 +41,7 @@ const App = ({fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
   useEffect(fetchEvents, []);
   useEffect(fetchArticle, []);
   useEffect(fetchPresentation, []);
- front  return (
+   return (
   <div className="app">
     <Switch>
       <Route exact path="/" component={Home}/>
