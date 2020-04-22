@@ -23,7 +23,7 @@ class Role
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"role_read"})
+     * @groups({"role_read", "user_read"})
      */
     private $name;
 
