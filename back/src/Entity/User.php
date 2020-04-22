@@ -143,7 +143,7 @@ class User implements UserInterface
      * @ORM\JoinColumn(nullable=true)
      * @groups({"user_read"})
      */
-    private $role;
+    private $role = array();
 
     public function __construct()
     {
@@ -180,10 +180,7 @@ class User implements UserInterface
         return (string) $this->email;
     }
 
-    public function getRoles()
-    {
-        return array($this->getRole()->getRoleString());
-    }
+    
 
     /**
      * @see UserInterface
@@ -364,9 +361,12 @@ class User implements UserInterface
     public function getRole(): ?Role
     {
         return $this->role;
+        $roles[] = 'ROLE_USER';
+
+    return array_unique($roles);
     }
 
-    public function setRole(?Role $role): self
+    public function setRole(array $roles): self
     {
         $this->role = $role;
 
