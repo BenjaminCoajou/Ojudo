@@ -100,16 +100,6 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
             </div>))}
             </div>
         </div> : ""}
-
-
-
-
-
-
-
-
-
-
       <Footer />
       </div>
   );
