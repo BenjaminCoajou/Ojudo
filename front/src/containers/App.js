@@ -4,7 +4,7 @@ import App from '../components/App';
 import { fetchUser } from '../actions/Admin/users';
 import { fetchArticle } from '../actions/Admin/articles';
 import { fetchEvents } from '../actions/calendar';
-import { fetchPresentation } from '../actions/presentation';
+import { fetchUsers } from '../actions/presentation';
 
 const mapStateToProps = null;
 
@@ -22,10 +22,10 @@ const mapDispatchToProps = (dispatch) => ({
         console.log('je vais chercher les events');
         dispatch(fetchEvents());
     },
-    fetchPresentation: () => {
-        console.log('je vais chercher la préssentation');
-        dispatch(fetchPresentation());
-    }
+
+    fetchUsers: () => {
+        dispatch(fetchUsers());
+    },     
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

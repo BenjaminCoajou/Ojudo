@@ -30,11 +30,11 @@ import AddArticle from '../Admin/Article/AddArticle';
 import Mentions from '../Mentions légales/mentions'
 
 // == Composant
-const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
+const App = ({ fetchUser, fetchEvents, fetchUsers, fetchArticle}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
+  useEffect(fetchUsers, []);
   useEffect(fetchArticle, []);
-  useEffect(fetchPresentation, []);
    return (
   <div className="app">
     <Switch>
@@ -65,7 +65,7 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
 App.propTypes = {
   fetchUser: PropTypes.func.isRequired,
   fetchEvents: PropTypes.func.isRequired,
-  fetchPresentation: PropTypes.func.isRequired,
+  fetchUsers: PropTypes.func.isRequired,
 }
 
 // == Export
