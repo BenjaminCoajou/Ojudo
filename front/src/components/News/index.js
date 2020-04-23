@@ -14,7 +14,7 @@ const News = () => {
     <div>
         <Header/>
         <div className="body_news">
-        <div className="container">
+        <div className="news-container">
   <div className="card-column column-0">
     <div className="card card-color-0">
       <div className="border"></div>

@@ -20,6 +20,10 @@ footer p, footer strong, footer b, footer {
     background-color: #1C1F2F;
 }
 
+.pt-exebar {
+    height: 20px;
+}
+
 .footer-bottom {
     padding: 15px 0;
     border-top: 1px solid #313646;
@@ -66,6 +70,11 @@ footer p, footer strong, footer b, footer {
     line-height: 1;
 }
 
+.row-footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
 
 #footer-navigation, #footer-navigation li a, .custom-footer, .custom-footer li a {
     color: #99a9b5;

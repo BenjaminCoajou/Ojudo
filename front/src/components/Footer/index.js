@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="pt-exebar"></div>
                 <div className="footer-container">
-                    <div className="row">
+                    <div className="row-footer">
                         <div className="col-lg-3 col-md-12 col-sm-12 footer-col-3">
                             <div className="widget footer_widget">
                                 <h5 className="footer-title">Address</h5>
@@ -42,7 +42,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="col-12 col-lg-6 col-md-6 col-sm-12">
-                            <div className="row">
+                            <div className="row-footer">
                                 <div className="col-6 col-lg-6 col-md-6 col-sm-6">
                                     <div className="widget footer_widget">
                                         <h5 className="footer-title">Recent News</h5>
@@ -165,7 +165,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <div className="footer-container">
-                    <div className="row">
+                    <div className="row-footer">
                         <div className="col-md-3">
                             <div className="footer-site-info">2020 �
                             <a href="#" target="_blank"> </a>

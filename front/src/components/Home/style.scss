@@ -3,15 +3,30 @@ body
   background-color:#22273d;
   overflow-x: hidden;
 }
+h1{
+  text-transform: capitalize;
+}
+
 h2 {
    display: inline-block;
    color: #fff;
 }
 
+.presandarticle {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
 
+.articles-title-div {
+  width: 100%;
+}
+.articles-content-div {
+
+}
 
 .organizerContainer{
-  margin-top: 10px;
+  margin-top: 200px;
   padding-left: 70px;
 }
 
@@ -60,8 +75,8 @@ h2 {
 
 .tile
 {
-  width:300px;
-  height:300px;
+  width:200px;
+  height:365px;
   margin:10px;
   background-color:#99aeff;
   display:inline-block;
@@ -73,6 +88,7 @@ h2 {
   overflow:hidden;
   color:white;
   font-family:'Roboto';
+  margin: 9px;
   
 }
 .tile img
@@ -157,20 +173,17 @@ box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
 
 
 .up {
-  max-width: 1200px;
+  max-width: 1350px;
   margin: 50px auto;
   &__container{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
   }
 }
 
 /* div Notre club*/
 
 .blog-card {
-  width: 550px;
-  height: 650px;
+  width: 30%;
   //position: absolute;
   top: 50%;
   left: 50%;
@@ -249,6 +262,7 @@ h3 {
   font-size: 15px;
   font-style: italic;
   line-height: 18px;
+  text-transform: capitalize;
 }
 .card-info {
   width: 100%;
@@ -256,7 +270,7 @@ h3 {
   //bottom: 100px;
   //left: 0;
   margin: 0 auto;
-  padding: 200px 50px;
+  padding: 20px 20px 40px 20px;
   color: #dce3e7;
   font-family: 'Droid Serif', serif;
   font-style: 16px;
@@ -266,18 +280,21 @@ h3 {
   transition: bottom 0.3s, opacity 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 
+.eventsandnext {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .wrap_events{
   width: 550px;
 }
 
 .wrap_articles
 {
-margin:210px auto 0 auto;
-width:100%;
+width: 65%;
 display:flex;
-align-items:space-around;
-max-width:1200px;
-border: solid white 2px;
+flex-wrap: wrap;
 }
 
 hr {
@@ -321,6 +338,13 @@ hr {
   }
 }
 
+.home__spinner__border {
+  margin-top: 20px;
+  width: 7rem;
+  height: 7rem;
+  color: #fec11b;
+}
+
 
 /* .home {
     padding: 30px;
@@ -354,10 +378,6 @@ hr {
 
     &__spinner {
         
-        &__border {
-            width: 7rem;
-            height: 7rem;
-            color: #e53f00;
-        }
+        &__border 
     }
 } */

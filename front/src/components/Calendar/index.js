@@ -83,7 +83,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
                                 <span className="calendar-month-hover" onClick={showMonth} > {month()} </span>
                                 <span className="calendar-year-hover" onClick={showYear}> {year()} </span>
                             </div>
-                            <span className="calendar-today">{moment(dateObject).format('dddd DD MMMM')}</span>
+                            <span className="calendar-today">{moment().format('dddd DD MMMM')}</span>
                         </div>
                     </div>
                 </div>
