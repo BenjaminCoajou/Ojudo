@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -10,7 +11,12 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
     <div className="login-container">
     <Header />
     <div className="login-box">
-        <h2>Login</h2>
+        <ul className="login-button">
+        <div className="row">
+          <li className="login-text col"><Link color="inherit"  to="/connexion"><button className="button-header">login</button></Link></li>
+          <li className="login-text login-border col"><Link color="inherit"  to="/register"><button className="button-header">register</button></Link></li>
+        </div>
+        </ul>
         {error && <div className="alert alert-danger loginPage__alert" role="alert">
             {error}
         </div>}
@@ -44,6 +50,10 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                 <span></span>
                 <span></span>
                 Se Connecter</button>
+                <br/>
+					<br/>
+					<a className="passwordlost" href="">Mot de passe oublié ?</a>
+
         </form>}
         {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
 

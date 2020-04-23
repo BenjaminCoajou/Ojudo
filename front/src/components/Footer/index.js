@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 import "./style.scss";
-import "./raindrop.js";
-const Footer = () => (
-
+import initRaindrop from "./raindrop.js";
+const Footer = () => {
+    useEffect ( () => {initRaindrop();} );
+    return ( 
     <div className="page-wrapper">
         <div id="waterdrop">
        </div>
@@ -215,6 +216,6 @@ const Footer = () => (
     
     
 
-);
+    )};
 
 export default Footer;

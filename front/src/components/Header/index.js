@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 
 //import ffjudo from "./logo-ffjudo.png";
 import "./style.scss";
-import "./navbar.js";
-import "./logo.js";
+import initMenu from "./navbar.js";
+import initLogo from "./logo.js";
 
-const Header = () => (
+
+
+const Header = () => {
+  useEffect ( () => {initLogo();initMenu();} );
+  return ( 
   <header className="header">
     <div className="header__top">
       <h1 className="header__top__title">O'judo</h1>
@@ -67,7 +71,7 @@ const Header = () => (
      
     </div>
   </header>
-
-);
+  )
+};
 
 export default Header;

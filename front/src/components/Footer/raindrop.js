@@ -1,3 +1,4 @@
+var initRaindrop = () =>{
 
 var _requestAnimationFrame = window.webkitRequestAnimationFrame || 
   window.mozRequestAnimationFrame || 
@@ -6,7 +7,6 @@ var _requestAnimationFrame = window.webkitRequestAnimationFrame ||
   function(callback) {
     window.setTimeout(callback, 1000/60)
   };
-  document.addEventListener('DOMContentLoaded', () =>{
   var canvas = document.createElement("canvas"),
       ctx    = canvas.getContext('2d');
       document.getElementById('waterdrop').appendChild(canvas);
@@ -99,4 +99,6 @@ function tick()
 }
 
 tick();
-});
+};
+
+export default initRaindrop;

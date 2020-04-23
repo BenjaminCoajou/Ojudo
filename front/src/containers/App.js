@@ -22,10 +22,10 @@ const mapDispatchToProps = (dispatch) => ({
         console.log('je vais chercher les events');
         dispatch(fetchEvents());
     },
+
     fetchPresentation: () => {
-        console.log('je vais chercher la préssentation');
         dispatch(fetchPresentation());
-    }
+    },     
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

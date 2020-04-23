@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+var initLogo = () => {
 const interval = 2500,
   elWorld = document.querySelector(".mat"),
   els = Array.from(elWorld.querySelectorAll("a"));
@@ -24,4 +24,6 @@ let i = 0;
   i = (i + 1) % els.length;
   setTimeout(f, interval);
 }())
-});
+};
+
+export default initLogo;
