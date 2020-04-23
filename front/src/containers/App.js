@@ -4,7 +4,7 @@ import App from '../components/App';
 import { fetchUser } from '../actions/Admin/users';
 import { fetchArticle } from '../actions/Admin/articles';
 import { fetchEvents } from '../actions/calendar';
-import { fetchUsers } from '../actions/presentation';
+import { fetchPresentation } from '../actions/presentation';
 
 const mapStateToProps = null;
 
@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(fetchEvents());
     },
 
-    fetchUsers: () => {
-        dispatch(fetchUsers());
+    fetchPresentation: () => {
+        dispatch(fetchPresentation());
     },     
 });
 
