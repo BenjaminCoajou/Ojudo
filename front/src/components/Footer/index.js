@@ -13,7 +13,7 @@ const Footer = () => (
         <footer>
             <div className="footer-top">
                 <div className="pt-exebar"></div>
-                <div className="container">
+                <div className="footer-container">
                     <div className="row">
                         <div className="col-lg-3 col-md-12 col-sm-12 footer-col-3">
                             <div className="widget footer_widget">
@@ -106,10 +106,10 @@ const Footer = () => (
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div className="col-12 col-lg-3 col-md-5 col-sm-12 footer-col-4">
                             <div className="widget widget_gallery gallery-grid-4">
-                                <h5 className="footer-title">Our Gallery</h5>
+                                <h5 className="footer-title">Sponsors</h5>
                                 <ul className="magnific-image">
                                     <li>
                                         <a className="magnific-anchor">
@@ -163,7 +163,7 @@ const Footer = () => (
                 </div>
             </div>
             <div className="footer-bottom">
-                <div className="container">
+                <div className="footer-container">
                     <div className="row">
                         <div className="col-md-3">
                             <div className="footer-site-info">2020 �
