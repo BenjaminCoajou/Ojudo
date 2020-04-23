@@ -1,6 +1,7 @@
 import React from 'react';
 import Proprypes from 'prop-types';
 import moment from 'moment';
+import {v4 as uuid} from 'uuid';
 
 import './style.css';
 
@@ -54,7 +55,7 @@ const Years = ({  handleSelectYear }) => {
         });
         rows.push(cells);
         let yearlist = rows.map((d) => {
-        return <tr>{d}</tr>;
+        return <tr key={uuid()} >{d}</tr>;
         });
     
         return (

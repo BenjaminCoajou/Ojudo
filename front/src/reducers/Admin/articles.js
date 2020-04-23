@@ -18,7 +18,7 @@ const articles = (state = initialState, action = {}) => {
      return {
          ...state,
          list: [...action.payload],
-         isLoad: !state.isLoad,
+         isLoad: true,
      }
      case INPUT_CHANGE:
        return {

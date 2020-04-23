@@ -8,7 +8,7 @@ import Footer from "../Footer";
 
 import "./style.scss";
 
-const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo }) => {
+const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles, articlesIsLoaded }) => {
   const today = dateObject.format();
   const allEvents = events.map((evt) => moment(evt.date).format());
   allEvents.push(today);
@@ -17,102 +17,65 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo }) => {
   const r = allEvents[i + 1];
   const show = events.find((e) => moment(e.date).format() == r);
 
+
+  const articlesList = articles.slice(- 4, articles.length);
+
   return (
     <div>
       <Header />
-      {!isLoading ? <div className="up">
+      {isLoading && presIsLoaded && articlesIsLoaded ? <div className="home-page">
+      <div className="up">
         <div className="up__container">
-          <div class="card_present">
-            <div class="blog-card spring-fever">
-              <div class="title-content">
+          <div className="card_present">
+            <div className="blog-card spring-fever">
+              <div className="title-content">
                 <h3>Notre club</h3>
                 <hr />
-                <div class="intro">{presInfo[0].title}</div>
+                <div className="intro">{presInfo[0].title}</div>
               </div>
-              <div class="card-info">
-              {presInfo[0].content}
+              <div className="card-info">
+                {presInfo[0].content}
               </div>
             </div>
           </div>
-          <div class="wrap_events">
+          <div className="wrap_events">
             <div className="calendarContainer">
               <Calendar />
             </div>
           </div>
-            <div class="organizerContainer">
-              <div class="demo-card-image mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand"></div>
-              </div>
-              <div class="demo-card-event mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand">
-                  <h4>
-                    Prochain événement:<br />
-                    {moment(show.date).format('MMMM D, YYYY')+','}<br />
-                    {show.content}
-                    
-                  </h4>
-                </div>
+          <div className="organizerContainer">
+            <div className="demo-card-image mdl-card mdl-shadow--2dp">
+              <div className="mdl-card__title mdl-card--expand"></div>
+            </div>
+            <div className="demo-card-event mdl-card mdl-shadow--2dp">
+              <div className="mdl-card__title mdl-card--expand">
+                <h4>
+                  Prochain événement:<br />
+                  {moment(show.date).format('MMMM D, YYYY') + ','}<br />
+                  {show.content}
+
+                </h4>
               </div>
             </div>
-        </div>
-      </div>: ""}
-      <div class="wrap_articles">
-        <div>
-          <h2>Les derniers articles</h2>
-        </div>
-
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-                prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-                prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-
-
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1458668383970-8ddd3927deed?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1004&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-                prosciutto kevin turducken.{" "}
-            </p>
-          </div>
-        </div>
-
-        <div class="tile">
-          <img src="https://images.unsplash.com/photo-1422393462206-207b0fbd8d6b?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80" />
-          <div class="text">
-            <h1>Lorem ipsum.</h1>
-            <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
-            <p class="animate-text">
-              Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta
-              bresaola pork chicken meatloaf. Flank sirloin strip steak
-                prosciutto kevin turducken.{" "}
-            </p>
           </div>
         </div>
       </div>
+        <div className="wrap_articles">
+          <div>
+            <h2>Les derniers articles</h2>
+          </div>
+
+          {articlesList.map((article) => (
+            <div key={article.id} className="tile">
+              <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
+              <div className="text">
+                <h1>{article.title}</h1>
+                <h2 className="animate-text">{moment(article.date).format('D MMMM YYYY')}</h2>
+                <p className="animate-text">{article.content}</p>
+              </div>
+            </div>))}
+            </div>
+        </div> : ""}
 
 
 
@@ -131,6 +94,8 @@ Home.propTypes = {
   events: PropTypes.array.isRequired,
   dateObject: PropTypes.object.isRequired,
   presIsLoaded: PropTypes.bool.isRequired,
+  articles: PropTypes.array.isRequired,
+  articlesIsLoaded: PropTypes.bool.isRequired,
 };
 
 export default Home;
