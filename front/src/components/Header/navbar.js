@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+var initMenu = () => {
   
 var $menu = document.querySelector(".menu");
 var $menuUl = document.querySelector(".menu ul");
@@ -58,4 +58,6 @@ var click = true;
       $menuUl.style.display = "none";
     }
   });
-});
+};
+
+export default initMenu;

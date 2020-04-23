@@ -1,6 +1,27 @@
 html {
   height: 100%;
 }
+
+.login-text{
+  text-align: center;
+  
+}
+.button-header{
+  width: 100px;
+  height: 50px;
+}
+
+.login-button
+{
+	background-color: #0B111C;
+	height: 60px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.passwordlost{
+  color: white;
+}
 .login-container {
   margin:0;
   padding:0;

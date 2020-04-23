@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import moment from 'moment';
+import {v4 as uuid} from 'uuid';
 import { MdEvent } from "react-icons/md";
 
 import Months from '../../containers/Months';
@@ -69,7 +70,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
 
 
     const allDaysInMonth = rows.map((day) => (
-        <tr className="calendar-table-body-row">{day}</tr> // probleme de key
+        <tr key={uuid()} className="calendar-table-body-row">{day}</tr> // probleme de key
     ));
 
     return (
@@ -135,4 +136,4 @@ Calendar.propTypes = {
 };
 
 
-export default Calendar;  
+export default Calendar;
