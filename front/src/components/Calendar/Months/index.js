@@ -36,7 +36,7 @@ const Months = ({allmonths, handleSelectMonth}) => {
         <table className="calendar-months" >
             <thead>
                 <tr>
-                <th colSpan="4">Choisir un mois</th>
+                <th className="calendar-months-selector" colSpan="4">Choisir un mois</th>
                 </tr>
             </thead>
             <tbody>{list}</tbody>

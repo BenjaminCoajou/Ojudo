@@ -1,4 +1,3 @@
-
 import { FETCH_USERS_SUCCESS, FETCH_USERS_ERROR } from '../actions/presentation';
 
 export const initialState = {
@@ -23,4 +22,3 @@ export default (state = initialState, action) => {
         return state;
     }
 };
-

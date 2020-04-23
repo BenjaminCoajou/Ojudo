@@ -4,8 +4,11 @@ import { createStore, compose, applyMiddleware } from 'redux';
 // == Import : local
 import rootReducer from 'src/reducers';
 import logMiddleware from '../middleware/logMiddleware';
-import loginMiddleware from '../middleware/loginMiddleware'
-import userMiddleware from '../middleware/userMiddleware'
+import loginMiddleware from '../middleware/loginMiddleware';
+import usersMiddleware from '../middleware/Admin/usersMiddleware';
+import articlesMiddleware from '../middleware/Admin/articlesMiddleware';
+import calendarMiddleware from '../middleware/calendarMiddleware';
+import userMiddleware from '../middleware/userMiddleware';
 
 // == Enhancers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -14,7 +17,12 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     logMiddleware,
     loginMiddleware,
+    usersMiddleware,
+    articlesMiddleware,
+    calendarMiddleware,
+    presentationMiddleware,
     userMiddleware,
+
     // secondMiddleware,
   ),
 );

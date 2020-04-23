@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import UserCard from './UserCard';
 import UserCardStaff from './UserCardStaff';
 
+import Header from '../Header';
+import Footer from '../Footer';
+
 import './style.scss';
 import dojo from './Dojo.jpg';
 
 const Presentation = ({ list }) => {
     return (
+    <div>
+        <Header/>
     <div className="presentation">
         <div className="presentation__story">
             <div className="presentation__story__content">
@@ -44,6 +49,8 @@ const Presentation = ({ list }) => {
             </div>
         </div>
     </div>
+      <Footer/>
+    </div>
     );
 }
 
@@ -53,6 +60,6 @@ Presentation.propTypes = {
         id: PropTypes.number.isRequired,
       }),
     ).isRequired,
-  };
+};
 
 export default Presentation;
