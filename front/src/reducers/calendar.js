@@ -11,7 +11,7 @@ const initialState = {
     yearIsDisplayed: false,
     eventInfos: '',
     events: [],
-    isLoading: true,
+    isLoading: false,
     
 };
 
@@ -54,7 +54,7 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 events: [...action.payload],
                 error: false,
-                isLoading: false,
+                isLoading: true,
             };
         case FETCH_EVENTS_ERROR:
             return {
