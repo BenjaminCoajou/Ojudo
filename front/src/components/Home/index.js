@@ -64,27 +64,6 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
             </div>
           </div>
         </div>
-        <div className="wrap_articles">
-          <div>
-            <h2>Les derniers articles</h2>
-
-            <div className="organizerContainer">
-              <div className="demo-card-image mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title mdl-card--expand"></div>
-              </div>
-              <div className="demo-card-event mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title mdl-card--expand">
-                  <h4>
-                    Prochain événement:<br />
-                    {moment(show.date).format('MMMM D, YYYY') + ','}<br />
-                    {show.content}
-
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>: ""}
       <div className="wrap_articles">
           <div>
             <h2>Les derniers articles</h2>
