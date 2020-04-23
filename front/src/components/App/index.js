@@ -11,6 +11,7 @@ import Article from '../Article';
 import Events from '../Events';
 import Contact from '../Contact';
 import Login from '../../containers/Login';
+import Register from '../Register';
 import Sponsors from '../Sponsors';
 
 import './styles.css';
@@ -44,6 +45,7 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
       <Route exact path="/evenements" component={Events}/>
       <Route exact path="/contact" component={Contact}/>
       <Route exact path="/connexion" component={Login}/>
+      <Route exact path="/register" component={Register}/>
       <Route exact path="/sponsors" component={Sponsors}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
       <Admin/>

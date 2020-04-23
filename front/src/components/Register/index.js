@@ -7,15 +7,10 @@ import Footer from '../Footer';
 
 import './style.scss';
 
-const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
+const Register = ({ email, password, firstname, lastname, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
     <div className="login-container">
     <Header />
     <div className="login-box">
-        <ul className="login-button">
-        <div className="row">
-          <li className="login-text login-border col"><Link color="inherit"  to="/register"><button className="button-header">Inscription</button></Link></li>
-        </div>
-        </ul>
         {error && <div className="alert alert-danger loginPage__alert" role="alert">
             {error}
         </div>}
@@ -23,6 +18,26 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
             {loggedMessage}
         </div>}
         {!isLogged && <form className="loginPage__form" onSubmit={(evt) => { evt.preventDefault(); handleLogin() }}>
+            <div class="row">
+                <div className="user-box">                    
+                    <input type="text"
+                        className="form-control"
+                        id="InputFirstName"
+                        name="firstname"
+                        value={firstname}
+                        onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
+                    <label htmlFor="InputFirstName">Nom</label>
+                </div>
+					<div className="user-box">                  
+                        <input type="text"
+                            className="form-control"
+                            id="InputLastName"
+                            name="lastname"
+                            value={lastname}
+                            onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
+                        <label htmlFor="InputFirstName">Prénom</label>
+					</div>
+            </div>
 
             <div className="user-box">
                 <input type="email"
@@ -42,16 +57,25 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                     onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
                 <label htmlFor="InputPassword">Mot de passe</label>
             </div>
+            <div className="user-box">
+                <input type="password"
+                    className="form-control"
+                    id="InputPassword"
+                    name="password"
+                    value={password}
+                    onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
+                <label htmlFor="InputPassword">Confirmation du mot de passe</label>
+            </div>
 
             <button type="submit">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Se Connecter</button>
+               Confirmer</button>
                 <br/>
 					<br/>
-					<a className="passwordlost" href="">Mot de passe oublié ?</a>
+					<Link color="inherit"  to="/connexion"><a className="passwordlost" href="">Vous avez déjà un compte ?</a></Link>
 
         </form>}
         {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
@@ -61,7 +85,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
     </div>
 );
 
-Login.propTypes = {
+Register.propTypes = {
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     isLogged: PropTypes.bool.isRequired,
@@ -72,4 +96,4 @@ Login.propTypes = {
     handleLogout: PropTypes.func.isRequired,
 }
 
-export default Login;
+export default Register;
