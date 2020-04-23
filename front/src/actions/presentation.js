@@ -1,10 +1,16 @@
-export const FETCH_PRESENTATION = 'FETCH_PRESENTATION'; 
-export const FETCH_PRESENTATION_SUCCESS = 'FETCH_PRESENTATION_SUCCESS';
+export const FETCH_USERS = 'FETCH_USERS';
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
+export const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR';
 
-export const fetchPresentation = () => ({
-    type: FETCH_PRESENTATION,
+export const fetchUsers = () => ({
+  type: FETCH_USERS,
 });
-export const fetchPresentationSuccess = (payload) => ({
-    type: FETCH_PRESENTATION_SUCCESS,
-    payload,
+
+export const fetchUsersSuccess = (payload) => ({
+  type: FETCH_USERS_SUCCESS,
+  payload,
+});
+
+export const fetchUsersError = () => ({
+  type: FETCH_USERS_ERROR,
 });

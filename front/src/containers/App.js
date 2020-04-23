@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
+
 import { fetchUser } from '../actions/Admin/users';
+import { fetchUsers } from '../actions/presentation';
 import { fetchArticle } from '../actions/Admin/articles';
 import { fetchEvents } from '../actions/calendar';
 import { fetchPresentation } from '../actions/presentation';
-
 
 const mapStateToProps = null;
 
@@ -13,6 +14,10 @@ const mapDispatchToProps = (dispatch) => ({
         console.log('je dois aller chercher les users');
         dispatch(fetchUser());
     },
+                                          
+    fetchUsers: () => {
+        dispatch(fetchUsers());
+    },                                      
 
     fetchArticle: () => {
         dispatch(fetchArticle());
@@ -25,7 +30,6 @@ const mapDispatchToProps = (dispatch) => ({
     fetchPresentation: () => {
         console.log('je vais chercher la préssentation');
         dispatch(fetchPresentation());
-
     }
 });
 

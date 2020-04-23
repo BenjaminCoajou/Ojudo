@@ -1,19 +1,24 @@
-import {FETCH_PRESENTATION_SUCCESS} from '../actions/presentation';
+import { FETCH_USERS_SUCCESS, FETCH_USERS_ERROR } from '../actions/presentation';
 
-const initialState = {
-    info: '',
-    isLoaded: false,
+export const initialState = {
+    list: [],
 };
 
-export default (state = initialState, action = {}) => {
-    switch(action.type) {
-        case FETCH_PRESENTATION_SUCCESS:
+export default (state = initialState, action) => {
+    switch(action.type){
+        case FETCH_USERS_SUCCESS:
             return {
                 ...state,
-                info: {...action.payload},
-                isLoaded: !state.isLoaded,
+                list: [...action.payload],
+                error: false,
+            };
+        case FETCH_USERS_ERROR:
+            return {
+                ...state,
+                list: [],
+                error: true,
             };
         default:
-            return state;
+        return state;
     }
 };
