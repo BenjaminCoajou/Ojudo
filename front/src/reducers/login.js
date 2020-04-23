@@ -1,7 +1,5 @@
 import { LOGIN_SUCCESS, LOGIN_ERROR, SETTINGS_CHANGE, SUBMIT_LOGOUT } from '../actions/login';
 
-
-
 const initialState = {
     isLogged: false,
     loggedMessage:'',

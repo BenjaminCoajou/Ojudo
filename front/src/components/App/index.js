@@ -4,9 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
-
 import Home from '../../containers/Home';
-import Presentation from '../Presentation';
+import Presentation from '../../containers/Presentation';
 import News from '../News';
 import Article from '../Article';
 import Events from '../Events';
@@ -30,18 +29,13 @@ import ArticleAdmin from '../Admin/Article';
 import AddArticle from '../Admin/Article/AddArticle';
 import Mentions from '../Mentions légales/mentions'
 
-
-
 // == Composant
-
-
-
-const App = ({fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
+const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
-  useEffect(fetchArticle, []);
   useEffect(fetchPresentation, []);
- return (
+  useEffect(fetchArticle, []);
+   return (
   <div className="app">
     <Switch>
       <Route exact path="/" component={Home}/>
