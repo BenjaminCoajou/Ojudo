@@ -9,6 +9,7 @@ import usersMiddleware from '../middleware/Admin/usersMiddleware';
 import articlesMiddleware from '../middleware/Admin/articlesMiddleware';
 import calendarMiddleware from '../middleware/calendarMiddleware';
 import userMiddleware from '../middleware/userMiddleware';
+import presentationMiddleware from '../middleware/presentationMiddleware';
 
 // == Enhancers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

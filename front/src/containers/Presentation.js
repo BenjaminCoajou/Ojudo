@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Presentation from '../components/Presentation';
 
 const mapStateToProps = (state) => ({
-    list: state.presentation.list,
+    list: state.users.list,
 });
 
 const mapStateToDispatch = {};
