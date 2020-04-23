@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa";
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -19,18 +19,18 @@ CONTACT PAGE LEFT
     <form className="form-horizontal" role="form" method="post" action="contact.php">
       <div className="form-group">
         <div className="col-sm-12">
-          <input type="text" className="form-control" id="name" placeholder="NAME" name="name" defaultValue={""}  />
+          <input type="text" className="form-control" id="name" placeholder="Votre titre" name="name" defaultValue={""}  />
         </div>
       </div>
       <div className="form-group">
         <div className="col-sm-12">
-          <input type="email" className="form-control" id="email" placeholder="EMAIL" name="email" defaultValue={""}  />
+          <input type="email" className="form-control" id="email" placeholder="Votre email" name="email" defaultValue={""}  />
         </div>
       </div>
-      <textarea className="form-control" rows={10} placeholder="MESSAGE" name="message" defaultValue={""} />
-      <button className="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+      <textarea className="form-control" rows={10} placeholder="Votre message " name="message" defaultValue={""} />
+      <button className="btn_footer send-button" id="submit" type="submit" value="SEND">
         <div className="button">
-          <i className="fa fa-paper-plane" /><span className="send-text">SEND</span>
+          <i className="fa fa-paper-plane"></i><span className="send-text">Envoyer</span>
         </div>
       </button>
     </form>
@@ -41,23 +41,20 @@ CONTACT PAGE RIGHT
 ---------------*/} 
     <div className="direct-contact-container">
       <ul className="contact-list">
-        <li className="list-item"><i className="fa fa-map-marker fa-2x"><span className="contact-text place">Seattle | WA</span></i></li>
-        <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
-        <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:#" title="Send me an email">emailme@gmail.com</a></span></i></li>
+        <li className="list-item"><i className="fa fa-map-marker fa-2x"><span className="contact-text place">O'judo<br/>25 rue d'oclock, 95000 Paris.</span></i></li>
+        <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">02-02-02-02-02</a></span></i></li>
+        <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:#" title="Send me an email">ben.test@gmail.com</a></span></i></li>
       </ul>
       <hr />
       <ul className="social-media-list">
         <li><a href="#" target="_blank" className="contact-icon">
-            <i className="fa fa-github" aria-hidden="true" /></a>
+        <i className="fab fa-facebook-f facebook"></i></a>
         </li>
         <li><a href="#" target="_blank" className="contact-icon">
-            <i className="fa fa-twitter" aria-hidden="true" /></a>
+        <i className="fab fa-instagram instagram"></i></a>
         </li>
         <li><a href="#" target="_blank" className="contact-icon">
-            <i className="fa fa-instagram" aria-hidden="true" /></a>
-        </li>
-        <li><a href="#" target="_blank" className="contact-icon">
-            <i className="fa fa-codepen" aria-hidden="true" /></a>
+        <i className="fab fa-twitter twitter"></i></a>
         </li>
       </ul>
 

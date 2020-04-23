@@ -48,12 +48,13 @@ body {
     margin-top: 15px;
     height: 34px;
     width: 400px;
+    color: white;
     overflow: hidden;
     transition: all .2s ease-in-out;
   }
   
   .button {
-    width: 400px;
+    
     height: 34px;
     transition: all .2s ease-in-out;
   }
@@ -95,7 +96,7 @@ body {
   }
   
   .place {
-    margin-left: 62px;
+    margin-left: 85px;
   }
   
   .phone {
@@ -184,6 +185,8 @@ body {
   hr {
     border-color: rgba(255,255,255,.8); ;
   }
+
+  
   
   /* Begin Media Queries*/
   @media screen and (max-width: 760px) {
