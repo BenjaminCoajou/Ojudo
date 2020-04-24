@@ -45,7 +45,7 @@ const Presentation = ({ list }) => {
                     <div className="presentation__member__container__scroll__list">
                         {
                             list.map((card) => (
-                                <UserCard key={card.id} {...card} />
+                                <UserCardStaff key={card.id} {...card} />
                             ))
                         }                                    
                     </div>
