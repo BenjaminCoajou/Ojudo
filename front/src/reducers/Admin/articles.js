@@ -5,6 +5,7 @@ const initialState = {
     newArticle: {
       title:'',
       content: '',
+      picture: '',
     },
     articleToDelete: '',
     articleToEdit: {},

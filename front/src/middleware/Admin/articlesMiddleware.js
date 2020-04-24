@@ -23,6 +23,7 @@ export default (store) => (next) => (action) => {
                 data:  {
                     title: store.getState().articles.newArticle.title,
                     content: store.getState().articles.newArticle.content,
+                    picture: store.getState().articles.newArticle.picture,
                 },
             })
             .then((response) => {

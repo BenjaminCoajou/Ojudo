@@ -5,6 +5,7 @@ import { inputChange, submitArticle } from '../../actions/Admin/articles';
 const mapStateToProps = (state) => ({
     title: state.articles.newArticle.title,
     content: state.articles.newArticle.content,
+    picture: state.articles.newArticle.picture,
 });
 
 const mapDispatchToProps = (dispatch) => ({

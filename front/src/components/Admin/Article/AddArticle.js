@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddArticle = ({ title, content, inputChange, handleSubmit }) => {
+const AddArticle = ({ title, content, picture, inputChange, handleSubmit }) => {
     const classes = useStyles();
 
     return (
@@ -34,7 +34,7 @@ const AddArticle = ({ title, content, inputChange, handleSubmit }) => {
                     ajouter une image
                 </span>
 
-                <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" accept="image/png, image/jpeg"/>
+                <input type="file" name="upload" id="upload" className="upload-box" value={picture} onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required placeholder="Upload File" accept="image/png, image/jpeg" />
   
             </div>
             <button type="submit"
@@ -52,6 +52,7 @@ const AddArticle = ({ title, content, inputChange, handleSubmit }) => {
 AddArticle.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
     inputChange: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
 }
