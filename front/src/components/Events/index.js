@@ -9,7 +9,7 @@ import "./style.scss";
 
 
 
-const Events = () => (
+const Events = ({zoom, coordinates}) => (
   <div>
     <Header />
     
@@ -18,7 +18,7 @@ const Events = () => (
       <div className="event-calendar-table">
       <Calendar/>
       </div>
-    <Map />
+    <Map zoom={zoom} coordinates={coordinates}/>
     </div>
 
 

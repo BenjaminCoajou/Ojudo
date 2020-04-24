@@ -9,9 +9,11 @@ const initialState = {
     allmonths: moment.months(),
     monthIsDisplayed: false,
     yearIsDisplayed: false,
-    eventInfos: '',
+    eventInfos: {},
     events: [],
     isLoading: false,
+    coordinates: [48.856805, 2.346715],
+    zoom: 6,
     
 };
 
