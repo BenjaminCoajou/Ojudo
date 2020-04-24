@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.2",
+        "fresh/vich-uploader-serialization-bundle": "~3.0",
         "giggsey/libphonenumber-for-php": "^8.12",
         "lexik/jwt-authentication-bundle": "^2.6",
         "sensio/framework-extra-bundle": "^5.1",
