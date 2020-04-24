@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
-use App\Service\FileUploader;
+
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,10 +51,8 @@ class ArticleController extends AbstractController
     /**
      * @Route("/articles/add", name="articles_add", methods={"POST"})
      */
-    public function add(FileUploader $fileUploader)
+    public function add()
     {
-        $imageFileName = $fileUploader->uploadImageArticle();
-        $user->setPicture($imageFileName);
         
     }
 
