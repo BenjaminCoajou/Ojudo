@@ -24,10 +24,7 @@ const Years = ({  handleSelectYear }) => {
     // table des 9 prochaines années
     const yearTable = (currentYear) => {
         let months = [];
-        let nextEight = moment()
-        .set("year", currentYear)
-        .add("year", 8)
-        .format("Y");
+        let nextEight = moment().set("year", currentYear).add("year", 8).format("Y");
     
         let tenyear = getDates(currentYear, nextEight);
     

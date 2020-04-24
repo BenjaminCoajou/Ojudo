@@ -1,9 +1,9 @@
 import React from "react";
-import L from 'leaflet';
 
 import Header from "../Header";
 import Footer from "../Footer";
 import Map from "./maps";
+import Calendar from "../../containers/Calendar";
 import "./style.scss";
 
 
@@ -14,7 +14,10 @@ const Events = () => (
     <Header />
     
 
-    <div>
+    <div className="event-container">
+      <div className="event-calendar-table">
+      <Calendar/>
+      </div>
     <Map />
     </div>
 
