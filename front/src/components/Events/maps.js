@@ -11,12 +11,12 @@ export default class Map extends React.Component {
     
     componentDidMount(){
       this.map = L.map('map', {
-        center: [47.989031, -4.102362],
+        center: [48.842274, 2.32124],
         zoom:12,
         zoomControl: false
       });
 
-      L. marker([47.989031, -4.102362]).addTo(this.map),
+      L. marker([48.842274, 2.32124]).addTo(this.map),
 
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
         detectRetina: true,
