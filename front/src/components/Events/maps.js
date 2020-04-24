@@ -7,12 +7,15 @@ const Wrapper = styled.div`
     height: ${props => props.height};
 `;
 
+
 export default class Map extends React.Component {
-    
+  
+  
+
     componentDidMount(){
       this.map = L.map('map', {
         center: [48.842274, 2.32124],
-        zoom: ,
+        zoom: 6,
         zoomControl: false
       });
 
