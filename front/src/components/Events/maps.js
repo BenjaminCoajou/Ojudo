@@ -11,15 +11,18 @@ export default class Map extends React.Component {
     
     componentDidMount(){
       this.map = L.map('map', {
-        center: [58, 16],
-        zoom:6,
+        center: [47.989031, -4.102362],
+        zoom:12,
         zoomControl: false
       });
+
+      L. marker([47.989031, -4.102362]).addTo(this.map),
 
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
         detectRetina: true,
         maxZoom: 20,
         maxNativeZoom: 17,
+       
       }).addTo(this.map);
 
       
