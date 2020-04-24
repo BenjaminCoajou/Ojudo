@@ -34,7 +34,7 @@ const AddArticle = ({ title, content, picture, inputChange, handleSubmit }) => {
                     ajouter une image
                 </span>
 
-                <input type="file" name="upload" id="upload" className="upload-box" value={picture} onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required placeholder="Upload File" accept="image/png, image/jpeg" />
+                <input type="file" name="picture" id="upload" className="upload-box" value={picture} onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required placeholder="Upload File" accept="image/png, image/jpeg" />
   
             </div>
             <button type="submit"

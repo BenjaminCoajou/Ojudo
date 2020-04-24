@@ -56,7 +56,7 @@ export default (store) => (next) => (action) => {
                     data:  {
                         title: store.getState().articles.articleToEdit.title,
                         content: store.getState().articles.articleToEdit.content,
-                        picture: store.getState().articles.articleToEdit.picture,
+                        picture: store.getState().articles.articleToEdit.upload,
                     },                    
                                         
                                        
