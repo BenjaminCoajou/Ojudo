@@ -1,10 +1,14 @@
 import React from 'react';
 
+import Header from '../Header';
+import Footer from '../Footer';
+
 import './style.scss';
 import kimono from './kimono.jpg'
 
 const Article = () => (
     <div className="article">
+        <Header/>
         <div className="article__div">
         <img className="article__div__image" src={kimono}/>
         </div>
@@ -16,6 +20,7 @@ const Article = () => (
             <p className="article__text__authorDate">Auteur - date</p>
 
         </div>
+        <Footer/>
     </div>
 );
 

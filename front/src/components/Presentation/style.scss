@@ -3,9 +3,9 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 30px;
+    color: white;
 
     &__story {
-        border: 2px solid black;
         width: 80%;
         margin-bottom: 20px;
 
@@ -18,13 +18,13 @@
             }
 
             &__img-text {
-                display: flex;
-                justify-content: center;
-                
+                                
                 &__dojo {
                     width: 400px;
                     height: 300px;
                     padding: 10px;
+                    float: left;
+                    margin-right: 5px;
                 }
             
                 &__text {
@@ -41,38 +41,43 @@
         justify-content: space-between;
 
         &__container {
-            border: 2px solid black;
             width: 49%;
-            overflow: auto;
+            overflow: hidden;
+            border: solid 1px white;
+            border-radius: 10px;
 
-            &__title {
-                text-transform: uppercase;
-                padding: 10px;
-            }
+            &__scroll {
+                height: 500px;
+                overflow-y: auto;
 
-            &__list {
-                padding: 10px;
-
-                &__card {
-                    display: flex;
-                    width: 95%;
-                    border: 2px solid black;
-                    margin-bottom: 5px;
-
-                    &__avatar {
-                        width: 150px;
-                        height: 150px;
-                        padding: 10px;
-                    }
-
-                    &__info {
-                        flex-direction: column;
-
-                        &__text {
-                            padding: 5px;
-
+                &__title {
+                    text-transform: uppercase;
+                    padding: 10px;
+                }
+    
+                &__list {
+                    padding: 10px;
+    
+                    &__card {
+                        display: flex;
+                        width: 95%;
+                        margin-bottom: 5px;
+    
+                        &__avatar {
+                            width: 150px;
+                            height: 150px;
+                            padding: 10px;
                         }
-                    }    
+    
+                        &__info {
+                            flex-direction: column;
+    
+                            &__text {
+                                padding: 5px;
+    
+                            }
+                        }    
+                    }
                 }
             }
         }

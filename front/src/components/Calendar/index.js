@@ -1,15 +1,16 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import moment from 'moment';
+import {v4 as uuid} from 'uuid';
 import { MdEvent } from "react-icons/md";
 
 import Months from '../../containers/Months';
 import Years from '../../containers/Years';
 
-import './style.css';
+import './style.scss';
 
 const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, showYear, handleDayClick, events, selectEvent, eventInfos }) => {
-    
+
     moment.locale('fr');
 
     // mois
@@ -30,7 +31,7 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     // zone de vide pour le début du mois
     const blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
-        blanks.push(<td className="calendar-day empty" >{""}</td>);
+        blanks.push(<td key={i * 100} className="calendar-day empty" >{""}</td>);
     };
 
     // jour actuel
@@ -40,13 +41,13 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
     const daysInMonth = [];
     for (let day = 1; day <= dateObject.daysInMonth(); day++) {
         let today = day == currentDay() ? "today" : "";
-        let selectedDay = moment(`${dateObject.format('MM')}-${day}-${year()}`).dayOfYear();
-        let allEvent = events.map((evt) => (evt.date));
+        let selectedDay = dateObject.format(`MM-${day}-${year()}`);
+        let allEvent = events.map((evt) => (moment(evt.date).format('MM-D-YYYY')));
         let findEvent = allEvent.find(evt => evt == selectedDay);
-        let eventInfos = events.find(evt => evt.date == selectedDay);
-        let nextEvent = () => (selectedDay == findEvent ? <MdEvent/> : "");
+        let eventInfos = events.find(evt => moment(evt.date).format('MM-D-YYYY') == selectedDay);
+        let nextEvent = () => (selectedDay == findEvent ? <MdEvent /> : "");
         daysInMonth.push(
-            <td key={day} className={`calendar-day ${today}`} onClick={() => {handleDayClick(selectedDay), selectEvent(eventInfos)}} ><span>{nextEvent()}</span> {day}</td>,
+            <td key={day} className={`calendar-day ${today}`} onClick={() => { handleDayClick(selectedDay), selectEvent(eventInfos) }} ><span>{nextEvent()}</span> {day}</td>,
         );
     };
 
@@ -67,37 +68,56 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
         }
     });
 
+
     const allDaysInMonth = rows.map((day) => (
-        <tr>{day}</tr> // possible probleme de key
+        <tr key={uuid()} className="calendar-table-body-row">{day}</tr> // probleme de key
     ));
 
     return (
         <div>
-        <div className="tail-datetime-calendar" >
-            <div className="calendar-navi" >
-                <span className="calendar-label" onClick={showMonth} > {month()} </span>
-                <span className="calendar-label" onClick={showYear}> {year()} </span>
-            </div>            
+            <div className="calendar-container" >
+                <div className="calendar-header1" >
+                    <div className="calendar-header-title">
+                        <div className="calendar-header-title-text">
+                            <div className="calendar-month-year">
+                                <span className="calendar-month-hover" onClick={showMonth} > {month()} </span>
+                                <span className="calendar-year-hover" onClick={showYear}> {year()} </span>
+                            </div>
+                            <span className="calendar-today">{moment().format('dddd DD MMMM')}</span>
+                        </div>
+                    </div>
+                </div>
                 {monthIsDisplayed && <Months />}
                 {yearIsDisplayed && <Years />}
-            <div className="calendar-date" >
-                <table className="calendar-days" >
-                    <thead>
-                        <tr>
-                            {
-                                weekDayName.map(day => (
-                                    <th key={day} className="week-day" > {day} </th>
-                                ))
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {allDaysInMonth}
-                    </tbody>
-                </table>
+                <div className="calendar-content1" >
+                    <table className="calendar-table1" >
+                        <thead className="calendar-table-header">
+                            <tr className="calendar-table-header-row">
+                                {
+                                    weekDayName.map(day => (
+                                        <th key={day} className="calendar-table-header-col" > {day} </th>
+                                    ))
+                                }
+                            </tr>
+                        </thead>
+                        <tbody className="calendar-table-body">
+                            {allDaysInMonth}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div>{eventInfos ? eventInfos : ""}</div>
+            {eventInfos ? <div className="calendar-footer">
+            <div className="calendar-footer-title">
+                <h4 className="calendar-footer-title-text">{eventInfos.title}</h4>
+                <p className="calendar-footer-text" >{eventInfos.place}</p>
+                <p className="calendar-footer-text" >{eventInfos.content}</p>
+                </div>
+            </div>
+                : <div className="calendar-footer">
+                    <div className="calendar-footer-title">
+                        <h4 className="calendar-footer-title-text">Aucun événement à ce jour</h4>
+                    </div>
+                </div>}
         </div>
     )
 };
@@ -111,7 +131,7 @@ Calendar.propTypes = {
     handleDayClick: Proptypes.func.isRequired,
     events: Proptypes.array.isRequired,
     selectEvent: Proptypes.func.isRequired,
-    eventInfos: Proptypes.object.isRequired,
+    eventInfos: Proptypes.string.isRequired,
 
 };
 

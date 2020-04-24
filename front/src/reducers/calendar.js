@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY, DISPLAY_EVENT } from '../actions/calendar';
+import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY, DISPLAY_EVENT, FETCH_EVENTS_SUCCESS, FETCH_EVENTS_ERROR } from '../actions/calendar';
 
 
 moment.locale('fr');
@@ -10,20 +10,8 @@ const initialState = {
     monthIsDisplayed: false,
     yearIsDisplayed: false,
     eventInfos: '',
-    events: [
-        {
-            date: '106',
-            name: 'compétion',
-        },
-        {
-            date: '110',
-            name: 'BBQ',
-        },
-        {
-            date: '140',
-            name: 'pizza',
-        }
-    ],
+    events: [],
+    isLoading: false,
     
 };
 
@@ -59,8 +47,21 @@ export default (state = initialState, action = {}) => {
         case DISPLAY_EVENT:
                 return {
                     ...state,
-                    eventInfos: action.payload === undefined ? "" :action.payload.name,
+                    eventInfos: action.payload === undefined ? "" :action.payload,
                 };
+        case FETCH_EVENTS_SUCCESS:
+            return {
+                ...state,
+                events: [...action.payload],
+                error: false,
+                isLoading: true,
+            };
+        case FETCH_EVENTS_ERROR:
+            return {
+                ...state,
+                events: [],
+                error: true,
+            };
         default:
             return state;
     }

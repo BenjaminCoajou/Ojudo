@@ -7,17 +7,16 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 // == Import : local
 // Composants
-import App from 'src/components/App';
+import App from 'src/containers/App';
 // Store
 import store from 'src/store';
-
 
 // == Render
 // 1. Le composant racine (celui qui contient l'ensemble de l'app)
 const rootComponent = (
   <Provider store={store}>
     <Router>
-    <App />
+     <App/>
     </Router>
   </Provider>
 );

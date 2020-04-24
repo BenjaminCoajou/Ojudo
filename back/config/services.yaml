@@ -4,6 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    articles_directory: '%kernel.project_dir%%env(resolve:ARTICLES_IMAGES_DIR)%'
+    events_directory: '%kernel.project_dir%%env(resolve:EVENTS_IMAGES_DIR)%'
+    sponsors_directory: '%kernel.project_dir%%env(resolve:SPONSORS_IMAGES_DIR)%'
+ 
+
 
 services:
     # default configuration for services in *this* file

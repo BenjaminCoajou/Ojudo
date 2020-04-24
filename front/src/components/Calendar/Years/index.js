@@ -1,6 +1,7 @@
 import React from 'react';
 import Proprypes from 'prop-types';
 import moment from 'moment';
+import {v4 as uuid} from 'uuid';
 
 import './style.css';
 
@@ -54,14 +55,14 @@ const Years = ({  handleSelectYear }) => {
         });
         rows.push(cells);
         let yearlist = rows.map((d) => {
-        return <tr>{d}</tr>;
+        return <tr key={uuid()} >{d}</tr>;
         });
     
         return (
         <table className="calendar-years">
             <thead>
             <tr>
-                <th colSpan="4">Choisir une année</th>
+                <th className="calendar-years-selector" colSpan="4">Choisir une année</th>
             </tr>
             </thead>
             <tbody>{yearlist}</tbody>

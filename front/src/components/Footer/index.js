@@ -1,34 +1,207 @@
-import React from 'react';
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-import './style.scss';
+import "./style.scss";
+import initRaindrop from "./raindrop.js";
+const Footer = () => {
+    useEffect ( () => {initRaindrop();} );
+    return ( 
+    <div className="page-wrapper">
+        <div id="waterdrop">
+       </div>
+        <footer>
+            <div className="footer-top">
+                <div className="pt-exebar"></div>
+                <div className="footer-container">
+                    <div className="row-footer">
+                        <div className="col-lg-3 col-md-12 col-sm-12 footer-col-3">
+                            <div className="widget footer_widget">
+                                <h5 className="footer-title">Adresse</h5>
+                                <div className="gem-contacts">
+                                    <div className="gem-contacts-item gem-contacts-address">Club de judo :
+                                    <br /> 25 rue d'oclock , 95000 Paris.
+                                </div>
+                                    <div className="gem-contacts-item gem-contacts-phone">
+                                        <i className="fa fa-phone" aria-hidden="true"></i> Téléphone:
+                                    <a href="">0202020202</a>
+                                    </div>
+                                  
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12 col-lg-6 col-md-6 col-sm-12">
+                            <div className="row-footer">
+                                <div className="col-6 col-lg-6 col-md-6 col-sm-6">
+                                    <div className="widget footer_widget">
+                                        <h5 className="footer-title">Dernières Actualités</h5>
+                                        <ul className="posts  styled">
+                                            <li className="clearfix gem-pp-posts">
+                                                <div className="gem-pp-posts-text">
+                                                    <div className="gem-pp-posts-item">
+                                                        <a href="#">title</a>
+                                                    </div>
+                                                    <div className="gem-pp-posts-date">Content</div>
+                                                </div>
+                                            </li>
+                                            <li className="clearfix gem-pp-posts">
+                                                <div className="gem-pp-posts-text">
+                                                    <div className="gem-pp-posts-item">
+                                                        <a href="#">title</a>
+                                                    </div>
+                                                    <div className="gem-pp-posts-date">Content</div>
+                                                </div>
+                                            </li>
+                                            <li className="clearfix gem-pp-posts">
+                                                <div className="gem-pp-posts-text">
+                                                    <div className="gem-pp-posts-item">
+                                                        <a href="">title</a>
+                                                    </div>
+                                                    <div className="gem-pp-posts-date">Content</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="col-6 col-lg-6 col-md-6 col-sm-6">
+                                    <div className="widget">
+                                        <h5 className="footer-title">Contact</h5>
+                                        <div className="textwidget">
+                                            <div role="form" className="wpcf7" id="wpcf7-f4-o1" lang="en-FR" dir="ltr">
+                                                <form method="post" className="wpcf7-form" noValidate="novalidate">
+                                                    <div className="contact-form-footer">
+                                                        <p>
+                                                            <span className="wpcf7-form-control-wrap your-first-name">
+                                                                <input type="text" name="title"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre titre" />
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span className="wpcf7-form-control-wrap your-email_1">
+                                                                <input type="text" name="content"  size="40" className="wpcf7-form-control wpcf7-text " aria-invalid="false" placeholder="Votre contenu" />
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span className="wpcf7-form-control-wrap your-message">
+                                                                <textarea name="your-message" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
+                                                            </span>
+                                                        </p>
+                                                        <div>
+                                                            <input type="submit" value="Envoyer" className="wpcf7-form-control wpcf7-submit" />
+                                                            <span className="ajax-loader"></span>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div className="col-12 col-lg-3 col-md-5 col-sm-12 footer-col-4">
+                            <div className="widget widget_gallery gallery-grid-6">
+                                <h5 className="footer-title">Notre galerie photos</h5>
+                                <ul className="magnific-image">
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="magnific-anchor">
+                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="footer-bottom">
+                <div className="footer-container">
+                    <div className="row-footer">
+                        <div className="col-md-3">
+                            <div className="footer-site-info">O'judo 2020 
+                            <a href="#" target="_blank"> </a>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <nav id="footer-navigation" className="site-navigation footer-navigation centered-box" role="navigation">
+                                <ul id="footer-menu" className="nav-menu styled clearfix inline-inside">
+                                    
+                                    <li id="menu-item-27" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-27">
+                                        <a href="#">Page de contact</a>
+                                    </li>
+                                    <li id="menu-item-28" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-28">
+                                        <a href="#">Mentions légales</a>
+                                    </li>
+                                    <li id="menu-item-29" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
+                                        <a href="#">Nos développeurs</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div className="col-md-3">
+                            <div id="footer-socials">
+                                <div className="socials inline-inside socials-colored">
+                                    <a href="#" target="_blank" title="Facebook" className="socials-item">
+                                        <i className="fab fa-facebook-f facebook"></i>
+                                    </a>
+                                    <a href="#" target="_blank" title="Twitter" className="socials-item">
+                                        <i className="fab fa-twitter twitter"></i>
+                                    </a>
+                                    <a href="#" target="_blank" title="Instagram" className="socials-item">
+                                        <i className="fab fa-instagram instagram"></i>
+                                    </a>
+                                    <a href="#" target="_blank" title="Telegram" className="socials-item">
+                                        <i className="fab fa-telegram telegram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-const Footer = () => (
-    <footer>
-        <div className="sponsors">
-        <Link to="/sponsors" >
-            <h2 className="sponsors__title">Sponsors</h2>
-        </Link>
-            <div className="sponsors__div-sponsors">
-                <a className="sponsors__sponsor" href="#"><img className="img-fluid" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
-                <a className="sponsors__sponsor" href="#"><img className="img-fluid" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
-                <a className="sponsors__sponsor" href="#"><img className="img-fluid" src="https://img.icons8.com/officel/100/000000/facebook.png" /></a>
-            </div>
-            </div>
-        <div className="networks">
-            <div className="networks__div-icons">
-                <a className="networks__icon" href="#">{<FaFacebookSquare />}</a>
-                <a className="networks__icon" href="#">{<FaTwitterSquare />}</a>
-                <a className="networks__icon" href="#">{<FaInstagram />}</a>
-                <Link to="/contact" className="networks__icon">{<MdEmail />}</Link>
-            </div>
-            <div className="networks__div-links">
-                <a href="#">Mentions Légales</a>
-            </div>
-        </div>
-    </footer>
-);
+    </div>
+    
+    
+
+    )};
 
 export default Footer;

@@ -1,42 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+
+import Header from '../Header';
+import Footer from '../Footer';
 
 import './style.scss';
 
 const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
-    <div className="loginPage">
-        {error && <div className="alert alert-danger loginPage__alert" role="alert">                            
+    <div className="login-container">
+    <Header />
+    <div className="login-box">
+        <ul className="login-button">
+        <div className="row">
+          <li className="login-text login-border col"><Link color="inherit"  to="/register"><button className="button-header">Inscription</button></Link></li>
+        </div>
+        </ul>
+        {error && <div className="alert alert-danger loginPage__alert" role="alert">
             {error}
         </div>}
-       {loggedMessage && <div className="alert alert-success" role="alert">
+        {loggedMessage && <div className="alert alert-success" role="alert">
             {loggedMessage}
         </div>}
-        { !isLogged && <form className="loginPage__form" onSubmit={(evt) => { evt.preventDefault(); handleLogin() }}>
-            <div className="form-group">
-                <label htmlFor="InputEmail">Adresse Email</label>
+        {!isLogged && <form className="loginPage__form" onSubmit={(evt) => { evt.preventDefault(); handleLogin() }}>
+
+            <div className="user-box">
                 <input type="email"
                     className="form-control"
                     id="InputEmail"
                     name="email"
                     value={email}
-                    onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }}
-                />
+                    onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
+                <label htmlFor="InputEmail">Email</label>
             </div>
-            <div className="form-group">
-                <label htmlFor="InputPassword">Mot de Passe</label>
+            <div className="user-box">
                 <input type="password"
                     className="form-control"
                     id="InputPassword"
                     name="password"
                     value={password}
-                    onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }}
-                />
+                    onChange={(evt) => { inputChange({ [evt.target.name]: evt.target.value }) }} />
+                <label htmlFor="InputPassword">Mot de passe</label>
             </div>
-            <button type="submit" className="btn btn-primary">Se Connecter</button>
-        </form> }
-        { isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button> }
-    </div>
 
+            <button type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Se Connecter</button>
+                <br/>
+					<br/>
+					<a className="passwordlost" href="">Mot de passe oublié ?</a>
+
+        </form>}
+        {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
+
+    </div>
+    <Footer />
+    </div>
 );
 
 Login.propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-
+import {v4 as uuid} from 'uuid';
 import './style.css';
 
 const Months = ({allmonths, handleSelectMonth}) => {
@@ -30,13 +30,13 @@ const Months = ({allmonths, handleSelectMonth}) => {
         }
         });
         rows.push(cells);
-        let list = rows.map((month) => (<tr>{month}</tr>));
+        let list = rows.map((month) => (<tr key={uuid()}>{month}</tr>));
     
         return (
         <table className="calendar-months" >
             <thead>
                 <tr>
-                <th colSpan="4">Choisir un mois</th>
+                <th className="calendar-months-selector" colSpan="4">Choisir un mois</th>
                 </tr>
             </thead>
             <tbody>{list}</tbody>

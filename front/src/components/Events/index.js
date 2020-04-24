@@ -1,9 +1,26 @@
-import React from 'react';
+import React from "react";
+import L from 'leaflet';
 
-import './style.css';
+import Header from "../Header";
+import Footer from "../Footer";
+import Map from "./maps";
+import "./style.scss";
+
+
+
 
 const Events = () => (
-    <div>Events</div>
+  <div>
+    <Header />
+    
+
+    <div>
+    <Map />
+    </div>
+
+
+    <Footer />
+  </div>
 );
 
 export default Events;

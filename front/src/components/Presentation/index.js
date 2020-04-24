@@ -1,9 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import UserCard from './UserCard';
+import UserCardStaff from './UserCardStaff';
+
+import Header from '../Header';
+import Footer from '../Footer';
 
 import './style.scss';
 import dojo from './Dojo.jpg';
 
-const Presentation = () => (
+const Presentation = ({ list }) => {
+    return (
+    <div>
+        <Header/>
     <div className="presentation">
         <div className="presentation__story">
             <div className="presentation__story__content">
@@ -16,82 +25,45 @@ const Presentation = () => (
             </div>
         </div>
         <div className="presentation__member">
+
             <div className="presentation__member__container">
-                <h2 className="presentation__member__container__title">Nos Licenciés</h2>
-                <div className="presentation__member__container__list">
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
+                <div className="presentation__member__container__scroll">
+                    <h2 className="presentation__member__container__scroll__title">Nos Licenciés</h2>
+                    <div className="presentation__member__container__scroll__list">
+                        {
+                            list.map((card) => (
+                                <UserCard key={card.id} {...card} />
+                            ))
+                        }                                    
                     </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>                                        
-                </div>                
+                </div>               
             </div>
+
             <div className="presentation__member__container">
-                <h2 className="presentation__member__container__title">Notre staff</h2>
-                <div className="presentation__member__container__list">
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
+                <div className="presentation__member__container__scroll">
+                    <h2 className="presentation__member__container__scroll__title">Notre staff</h2>
+                    <div className="presentation__member__container__scroll__list">
+                        {
+                            list.map((card) => (
+                                <UserCardStaff key={card.id} {...card} />
+                            ))
+                        }                                    
                     </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>
-                    <div className="presentation__member__container__list__card">
-                        <img className="presentation__member__container__list__card__avatar img-fluid" src={dojo}/>
-                        <div className="presentation__member__container__list__card__info">
-                            <p className="presentation__member__container__list__card__info__text">Nom : </p> 
-                            <p className="presentation__member__container__list__card__info__text">Prénom :</p> 
-                            <p className="presentation__member__container__list__card__info__text">Détails :</p>  
-                        </div>
-                    </div>                                        
-                </div>                
+                </div>               
             </div>
         </div>
     </div>
-);
+      <Footer/>
+    </div>
+    );
+}
+
+Presentation.propTypes = {
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+      }),
+    ).isRequired,
+};
 
 export default Presentation;
