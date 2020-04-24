@@ -27,25 +27,29 @@ const Presentation = ({ list }) => {
         <div className="presentation__member">
 
             <div className="presentation__member__container">
-                <h2 className="presentation__member__container__title">Nos Licenciés</h2>
-                <div className="presentation__member__container__list">
-                    {
-                        list.map((card) => (
-                            <UserCard key={card.id} {...card} />
-                        ))
-                    }                                    
+                <div className="presentation__member__container__scroll">
+                    <h2 className="presentation__member__container__scroll__title">Nos Licenciés</h2>
+                    <div className="presentation__member__container__scroll__list">
+                        {
+                            list.map((card) => (
+                                <UserCard key={card.id} {...card} />
+                            ))
+                        }                                    
+                    </div>
                 </div>               
             </div>
 
             <div className="presentation__member__container">
-                <h2 className="presentation__member__container__title">Notre staff</h2>
-                <div className="presentation__member__container__list">
-                    {
-                        list.map((card) => (
-                            <UserCardStaff key={card.id} {...card} />
-                        ))
-                    }                                    
-                </div>   
+                <div className="presentation__member__container__scroll">
+                    <h2 className="presentation__member__container__scroll__title">Notre staff</h2>
+                    <div className="presentation__member__container__scroll__list">
+                        {
+                            list.map((card) => (
+                                <UserCard key={card.id} {...card} />
+                            ))
+                        }                                    
+                    </div>
+                </div>               
             </div>
         </div>
     </div>
