@@ -56,7 +56,10 @@ export default (store) => (next) => (action) => {
                     data:  {
                         title: store.getState().articles.articleToEdit.title,
                         content: store.getState().articles.articleToEdit.content,
+                        picture: store.getState().articles.articleToEdit.picture,
                     },                    
+                                        
+                                       
                 })
                 .then((response) => {
                     console.log('article modifié', response),
