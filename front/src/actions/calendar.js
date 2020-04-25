@@ -7,6 +7,7 @@ export const DISPLAY_EVENT = 'DISPLAY_EVENT';
 export const FETCH_EVENTS = 'FETCH_EVENTS';
 export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
 export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
+export const DISPLAY_EVENT_MAP = 'DISPLAY_EVENT_MAP'
 
 export const displayMonth = () => ({
     type: DISPLAY_MONTH,
@@ -41,4 +42,9 @@ payload,
 
 export const fetchRecipesError = () => ({
 type: FETCH_EVENTS_ERROR,
+});
+
+export const displayEventMap = (payload) => ({
+    type: DISPLAY_EVENT_MAP,
+    payload
 });
