@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY, DISPLAY_EVENT, FETCH_EVENTS_SUCCESS, FETCH_EVENTS_ERROR } from '../actions/calendar';
+import { DISPLAY_MONTH, DISPLAY_YEAR, SELECT_MONTH, SELECT_YEAR, SELECT_DAY, DISPLAY_EVENT, FETCH_EVENTS_SUCCESS, FETCH_EVENTS_ERROR, DISPLAY_EVENT_MAP } from '../actions/calendar';
 
 
 moment.locale('fr');
@@ -12,8 +12,9 @@ const initialState = {
     eventInfos: {},
     events: [],
     isLoading: false,
-    coordinates: [48.856805, 2.346715],
+    coordinates: [2.346715, 48.856805],
     zoom: 6,
+    marker: false,
     
 };
 
@@ -49,7 +50,8 @@ export default (state = initialState, action = {}) => {
         case DISPLAY_EVENT:
                 return {
                     ...state,
-                    eventInfos: action.payload === undefined ? "" :action.payload,
+                    eventInfos: action.payload === undefined ? "" : action.payload,
+                    adress: action.payload.place.replace(/ /gi, '+').replace(',',''),
                 };
         case FETCH_EVENTS_SUCCESS:
             return {
@@ -63,6 +65,13 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 events: [],
                 error: true,
+            };
+        case DISPLAY_EVENT_MAP:
+            return {
+                ...state,
+                zoom: 12,
+                coordinates: action.payload,
+                marker: true,
             };
         default:
             return state;

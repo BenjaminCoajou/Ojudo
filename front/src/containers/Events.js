@@ -4,7 +4,8 @@ import Events from '../components/Events';
 
 const mapStateToProps = (state) => ({    
     coordinates: state.calendar.coordinates,
-    zoom: state.calendar.zoom,    
+    zoom: state.calendar.zoom,  
+    marker: state.calendar.marker,  
 });
 
 const mapDispatchToProps = {};

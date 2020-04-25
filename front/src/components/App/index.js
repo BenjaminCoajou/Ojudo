@@ -8,7 +8,7 @@ import Home from '../../containers/Home';
 import Presentation from '../../containers/Presentation';
 import News from '../News';
 import Article from '../Article';
-import Events from '../Events';
+import Events from '../../containers/Events';
 import Contact from '../Contact';
 import Login from '../../containers/Login';
 import Register from '../Register';

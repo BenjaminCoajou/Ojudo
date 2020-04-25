@@ -3,7 +3,7 @@ import App from '../components/App';
 
 import { fetchUser } from '../actions/Admin/users';
 import { fetchArticle } from '../actions/Admin/articles';
-import { fetchEvents } from '../actions/calendar';
+import { fetchEvents, displayEvent } from '../actions/calendar';
 import { fetchPresentation } from '../actions/presentation';
 
 const mapStateToProps = null;
@@ -25,7 +25,10 @@ const mapDispatchToProps = (dispatch) => ({
 
     fetchPresentation: () => {
         dispatch(fetchPresentation());
-    },     
+    },
+    displayEvent: () => {
+        dispatch(displayEvent());
+    }     
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
