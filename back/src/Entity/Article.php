@@ -19,7 +19,6 @@ use App\Controller\Admin\CreateMediaObjectAction;
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  * @ApiResource(iri="http://schema.org/Article")
  * @Vich\Uploadable
- * @Groups({"media_object_read"})
  */
 class Article
 {
