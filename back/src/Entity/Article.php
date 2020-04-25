@@ -17,9 +17,8 @@ use App\Controller\Admin\CreateMediaObjectAction;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ApiResource(iri="http://schema.org/Article")
  * @Vich\Uploadable
- * @Groups({"article_read", "media_object_read"})
-
  */
 class Article
 {
@@ -62,6 +61,7 @@ class Article
      *
      * @ORM\ManyToOne(targetEntity=MediaObject::class)
      * @ORM\JoinColumn(nullable=true)
+     * @ApiProperty(iri="http://schema.org/picture")
      */
     public $picture;
 
