@@ -29,8 +29,8 @@ const AddArticle = ({ title, content, picture, inputChange, handleSubmit }) => {
             <textarea rows="4" cols="50" name="content" placeholder="Entrer votre contenu" className="message" value={content}
                     onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required></textarea>
 
-            <div class="button-wrapper">
-                <span class="label">
+            <div className="button-wrapper">
+                <span className="label">
                     ajouter une image
                 </span>
 

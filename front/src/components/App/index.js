@@ -30,11 +30,12 @@ import ArticleAdmin from '../Admin/Article';
 import Mentions from '../Mentions légales/mentions'
 
 // == Composant
-const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
+const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPicture}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
   useEffect(fetchPresentation, []);
   useEffect(fetchArticle, []);
+  useEffect(fetchPicture, []);
    return (
   <div className="app">
     <Switch>

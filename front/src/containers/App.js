@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import App from '../components/App';
 
 import { fetchUser } from '../actions/Admin/users';
-import { fetchArticle } from '../actions/Admin/articles';
+import { fetchArticle, fetchPicture } from '../actions/Admin/articles';
 import { fetchEvents } from '../actions/calendar';
 import { fetchPresentation } from '../actions/presentation';
 
@@ -16,6 +16,10 @@ const mapDispatchToProps = (dispatch) => ({
                                           
     fetchArticle: () => {
         dispatch(fetchArticle());
+    },
+
+    fetchPicture: () => {
+        dispatch(fetchPicture());
     },
 
     fetchEvents: () => {
