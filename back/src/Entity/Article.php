@@ -63,7 +63,6 @@ class Article
      *
      * @ORM\ManyToOne(targetEntity=MediaObject::class)
      * @ORM\JoinColumn(nullable=true)
-     * @ApiProperty(iri="http://schema.org/picture")
      */
     public $picture;
 
