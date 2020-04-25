@@ -61,9 +61,9 @@ class Article
      *
      * @ORM\ManyToOne(targetEntity=MediaObject::class)
      * @ORM\JoinColumn(nullable=true)
-     * @ApiProperty(iri="http://schema.org/picture")
+     * @ApiProperty(iri="http://schema.org/image")
      */
-    public $picture;
+    public $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
