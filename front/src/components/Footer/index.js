@@ -71,17 +71,18 @@ const Footer = () => {
                                                     <div className="contact-form-footer">
                                                         <p>
                                                             <span className="wpcf7-form-control-wrap your-first-name">
+                                                                <input type="email" name="email"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre email" />
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span className="wpcf7-form-control-wrap your-first-name">
                                                                 <input type="text" name="title"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre titre" />
                                                             </span>
                                                         </p>
-                                                        <p>
-                                                            <span className="wpcf7-form-control-wrap your-email_1">
-                                                                <input type="text" name="content"  size="40" className="wpcf7-form-control wpcf7-text " aria-invalid="false" placeholder="Votre contenu" />
-                                                            </span>
-                                                        </p>
+                                                       
                                                         <p>
                                                             <span className="wpcf7-form-control-wrap your-message">
-                                                                <textarea name="your-message" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
+                                                                <textarea name="content" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
                                                             </span>
                                                         </p>
                                                         <div>
