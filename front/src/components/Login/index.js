@@ -51,7 +51,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                 Se Connecter</button>
                 <br/>
 					<br/>
-					<a className="passwordlost" href="">Mot de passe oublié ?</a>
+                    <Link to="/forgotten-password">	<a className="passwordlost" >Mot de passe oublié ?</a></Link>
 
         </form>}
         {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}

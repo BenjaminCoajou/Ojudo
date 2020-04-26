@@ -27,7 +27,8 @@ import UsersDetails from '../Admin/Users/UsersDetails';
 import EventAdmin from '../Admin/Event';
 import SponsorsAdmin from '../Admin/Sponsors';
 import ArticleAdmin from '../Admin/Article';
-import Mentions from '../Mentions légales/mentions'
+import Mentions from '../Mentions légales/mentions';
+import ForgottenPassword from '../Login/ForgottenPassword';
 
 // == Composant
 const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
@@ -47,6 +48,7 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
       <Route exact path="/connexion" component={Login}/>
       <Route exact path="/register" component={Register}/>
       <Route exact path="/sponsors" component={Sponsors}/>
+      <Route exact path="/forgotten-password" component={ForgottenPassword}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
       <Admin/>
       <Route exact path="/admin" component={Dashboard} />
