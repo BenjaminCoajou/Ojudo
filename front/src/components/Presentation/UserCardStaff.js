@@ -10,13 +10,25 @@ const UserCardStaff = ({role, picture, firstname, lastname, email,}) => {
     if (role.name == "Administrateur" || role.name == "Bénévole"){
         return(
             <div className="presentation__member__container__scroll__list__card">
-                <img className="presentation__member__container__scroll__list__card__avatar img-fluid" src={picture}/>
-                <div className="presentation__member__container__scroll__list__card__info">
-                    <p className="presentation__member__container__scroll__list__card__info__text">Nom : {firstname}</p> 
-                    <p className="presentation__member__container__scroll__list__card__info__text">Prénom : {lastname}</p> 
-                    <p className="presentation__member__container__scroll__list__card__info__text">Détails : {email}</p>  
-                </div>
+        <aside className="profile-card">
+
+            <header className="header_presentation">
+      
+                <img src={picture}/>
+
+                <h1> {firstname} {lastname}</h1>
+
+                <h2>{email}</h2>
+            </header>
+
+            <div className="profile-bio">
+
+                <p>catégorie:
+                <br />palmarès:</p>
             </div>
+
+        </aside>
+    </div>
         );
     }
         return(
