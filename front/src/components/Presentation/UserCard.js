@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const UserCard = ({role, picture, firstname, lastname, email,}) => {
-    console.log("firstname", firstname);
-    console.log("role", role);
-    console.log("name de role", role.name);
+   
     if (role.name == "utilisateur"){
         return(
 
@@ -18,7 +16,7 @@ const UserCard = ({role, picture, firstname, lastname, email,}) => {
                 <img src={picture}/>
 
                 <h1> {firstname} {lastname}</h1>
-
+                <br />
                 <h2>{email}</h2>
             </header>
 

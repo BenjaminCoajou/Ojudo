@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {Link} from 'react-router-dom';
 import "./style.scss";
 import initRaindrop from "./raindrop.js";
 const Footer = () => {
@@ -171,7 +171,7 @@ const Footer = () => {
                                         <a href="#">Mentions légales</a>
                                     </li>
                                     <li id="menu-item-29" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
-                                        <a href="#">Nos développeurs</a>
+                                    <Link color="inherit"  to="/developpeur">Nos développeurs</Link>
                                     </li>
                                 </ul>
                             </nav>

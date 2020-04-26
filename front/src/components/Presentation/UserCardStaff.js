@@ -17,7 +17,7 @@ const UserCardStaff = ({role, picture, firstname, lastname, email,}) => {
                 <img src={picture}/>
 
                 <h1> {firstname} {lastname}</h1>
-
+                <br />
                 <h2>{email}</h2>
             </header>
 
