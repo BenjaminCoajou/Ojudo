@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 
+
 import Header from '../Header';
 import Footer from '../Footer';
 
 import './style.scss';
 import './../Footer/raindrop';
 import initNews from './article.js';
-//import logo from './logo-ffjudo.png';
+
 
 const News = () => {
   useEffect ( () => { initNews()();} );
@@ -14,6 +15,7 @@ const News = () => {
     <div>
         <Header/>
         <div className="body_news">
+      
         <div className="news-container">
   <div className="card-column column-0">
     <div className="card card-color-0">

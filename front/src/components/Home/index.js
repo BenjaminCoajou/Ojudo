@@ -5,6 +5,7 @@ import moment from "moment";
 import Calendar from "../../containers/Calendar";
 import Header from "../Header";
 import Footer from "../Footer";
+import Sponsors from "../Sponsors";
 
 import "./style.scss";
 
@@ -97,7 +98,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
         </div>
       </div> }
       
-      
+      <Sponsors />
       
       <Footer />
     </div>

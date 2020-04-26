@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {Link} from 'react-router-dom';
 import "./style.scss";
 import initRaindrop from "./raindrop.js";
 const Footer = () => {
@@ -71,17 +71,18 @@ const Footer = () => {
                                                     <div className="contact-form-footer">
                                                         <p>
                                                             <span className="wpcf7-form-control-wrap your-first-name">
+                                                                <input type="email" name="email"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre email" />
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span className="wpcf7-form-control-wrap your-first-name">
                                                                 <input type="text" name="title"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre titre" />
                                                             </span>
                                                         </p>
-                                                        <p>
-                                                            <span className="wpcf7-form-control-wrap your-email_1">
-                                                                <input type="text" name="content"  size="40" className="wpcf7-form-control wpcf7-text " aria-invalid="false" placeholder="Votre contenu" />
-                                                            </span>
-                                                        </p>
+                                                       
                                                         <p>
                                                             <span className="wpcf7-form-control-wrap your-message">
-                                                                <textarea name="your-message" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
+                                                                <textarea name="content" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
                                                             </span>
                                                         </p>
                                                         <div>
@@ -170,7 +171,7 @@ const Footer = () => {
                                         <a href="#">Mentions légales</a>
                                     </li>
                                     <li id="menu-item-29" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
-                                        <a href="#">Nos développeurs</a>
+                                    <Link color="inherit"  to="/developpeur">Nos développeurs</Link>
                                     </li>
                                 </ul>
                             </nav>
