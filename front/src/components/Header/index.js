@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import "./style.scss";
 import initMenu from "./navbar.js";
 import initLogo from "./logo.js";
+import logo from "./logo.png";
 
 
 
@@ -13,7 +14,7 @@ const Header = () => {
   return ( 
   <header className="header">
     <div className="header__top">
-      <h1 className="header__top__title">O'judo</h1>
+      <img className="header__top__logo" src={logo} />
       <div className="menuContainer">
         {" "}
         <span className="menuTitle">menu</span>
