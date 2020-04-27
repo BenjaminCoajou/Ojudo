@@ -47,6 +47,7 @@ class Categorie
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Event", inversedBy="categories")
+     * @groups({"categorie_read"})
      */
     private $event;
 

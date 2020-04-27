@@ -27,14 +27,17 @@ import UsersDetails from '../Admin/Users/UsersDetails';
 import EventAdmin from '../Admin/Event';
 import SponsorsAdmin from '../Admin/Sponsors';
 import ArticleAdmin from '../Admin/Article';
-import Mentions from '../Mentions légales/mentions'
+import Mentions from '../Mentions légales/mentions';
+import ForgottenPassword from '../Login/ForgottenPassword';
+import Developpeur from '../Presentation/Developpeur';
 
 // == Composant
-const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
+const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPicture}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
   useEffect(fetchPresentation, []);
   useEffect(fetchArticle, []);
+  useEffect(fetchPicture, []);
    return (
   <div className="app">
     <Switch>
@@ -47,7 +50,9 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle}) => {
       <Route exact path="/connexion" component={Login}/>
       <Route exact path="/register" component={Register}/>
       <Route exact path="/sponsors" component={Sponsors}/>
+      <Route exact path="/forgotten-password" component={ForgottenPassword}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
+      <Route exact path="/developpeur" component={Developpeur}/>
       <Admin/>
       <Route exact path="/admin" component={Dashboard} />
       <Route exact path="/admin/categorie" component={Categories} />

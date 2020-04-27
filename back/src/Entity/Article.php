@@ -2,15 +2,23 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Controller\Admin\CreateMediaObjectAction;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
- * @ApiResource(normalizationContext={"groups"={"article_read"}})
+ * @ApiResource(iri="http://schema.org/Article")
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -18,44 +26,49 @@ class Article
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @groups({"article_read"})
+     * @groups({"article_read", "post" })
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @groups({"article_read"})
+     * @groups({"article_read", "post" })
+     * @Assert\NotBlank(message="Le titre est obligatoire")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @groups({"article_read"})
+     * @groups({"article_read", "post" })
+     * @Assert\NotBlank(message="Le contenu est obligatoire")
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
-     * @groups({"article_read"})
+     * @groups({"article_read", "post" })
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @groups({"article_read"})
+     * @groups({"article_read", "post" })
      */
     private $updatedAt;
 
-    /**
-     * @ORM\Column(type="string", length=160, nullable=true)
-     * @groups({"article_read"})
+  /**
+     * @var MediaObject|null
+     *
+     * @ORM\ManyToOne(targetEntity=MediaObject::class)
+     * @ORM\JoinColumn(nullable=true)
+     * @ApiProperty(iri="http://schema.org/image")
      */
-    private $picture;
+    public $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
-     * @ORM\JoinColumn(nullable=false)
-     * 
+     * @ORM\JoinColumn(nullable=true)
+     * @groups({"article_read", "post" })
      */
     private $user;
 
@@ -73,6 +86,9 @@ class Article
     {
         $this->comment = new ArrayCollection();
         $this->tag = new ArrayCollection();
+        $this->createdAt = new \DateTime;
+        
+        
     }
 
     public function getId(): ?int
@@ -128,18 +144,8 @@ class Article
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
+   
+ 
     public function getUser(): ?User
     {
         return $this->user;
@@ -150,8 +156,8 @@ class Article
         $this->user = $user;
 
         return $this;
-    }
-
+    } 
+    
     /**
      * @return Collection|Comment[]
      */

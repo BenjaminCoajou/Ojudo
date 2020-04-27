@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SponsorRepository")
@@ -21,7 +22,7 @@ class Sponsor
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=160)
+     * @ORM\Column(type="string", length=255)
      * @groups({"sponsor_read"})
      */
     private $picture;
@@ -29,26 +30,34 @@ class Sponsor
     /**
      * @ORM\Column(type="string", length=120)
      * @groups({"sponsor_read"})
+     * @Assert\NotBlank(message="le titre est obligatoire")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
      * @groups({"sponsor_read"})
+     * @Assert\NotBlank(message="le contenu est obligatoire")
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=160)
      * @groups({"sponsor_read"})
+     * @Assert\NotBlank(message="l'adresse est obligatoire")
+     * @Assert\Length(max=255, maxMessage="le nombre de caractère maximal est dépassé", min=10, minMessage="le nombre de caractère est trop minime" )
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=10)
      * @groups({"sponsor_read"})
+     * @Assert\Regex(
+     *     pattern="/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/")
+     * @Assert\NotBlank(message="Veuillez saisir un numéro de téléphone")
+     * @Assert\Length(min=10, minMessage="Votre numéro de téléphone est incorrect", max=10, maxMessage="Votre numéro de téléphone est incorrect" )
      */
-    private $phone_number;
+    private $telephone;
 
     public function getId(): ?int
     {
@@ -103,14 +112,14 @@ class Sponsor
         return $this;
     }
 
-    public function getPhoneNumber(): ?string
+    public function getTelephone(): ?string
     {
-        return $this->phone_number;
+        return $this->telephone;
     }
 
-    public function setPhoneNumber(string $phone_number): self
+    public function setTelephone(string $telephone): self
     {
-        $this->phone_number = $phone_number;
+        $this->telephone = $telephone;
 
         return $this;
     }

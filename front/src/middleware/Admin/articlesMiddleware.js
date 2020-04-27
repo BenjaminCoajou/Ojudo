@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE, fetchArticle, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT, MODIFY_ARTICLE_SUBMIT, modifyArticleSuccess } from '../../actions/Admin/articles';
+import { FETCH_ARTICLE, fetchArticle, fetchArticleSuccess, SUBMIT_ARTICLE, DELETE_ARTICLE_SUBMIT, MODIFY_ARTICLE_SUBMIT, modifyArticleSuccess, FETCH_PICTURE, fetchPictureSuccess, fetchPicture } from '../../actions/Admin/articles';
 import axios from 'axios';
 
 export default (store) => (next) => (action) => {
@@ -10,6 +10,16 @@ export default (store) => (next) => (action) => {
             .then((response) => {
                 console.log('ok', response)
                 store.dispatch(fetchArticleSuccess(response.data["hydra:member"]))
+            })
+            .catch((error) => {
+                console.log(error, 'erreur avec api')
+            })
+            break;
+        case FETCH_PICTURE:
+            axios.get('http://54.166.4.90/projet-judo/back/public/index.php/api/media_objects')
+            .then((response) => {
+                console.log('ok', response)
+                store.dispatch(fetchPictureSuccess(response.data["hydra:member"]))
             })
             .catch((error) => {
                 console.log(error, 'erreur avec api')
@@ -31,6 +41,21 @@ export default (store) => (next) => (action) => {
             })
             .catch((error) => {
                 console.log('erreur de l\'envoie de l\'article',error )
+            });
+            axios({
+                url:'http://54.166.4.90/projet-judo/back/public/index.php/api/media_objects',
+                method: 'post',
+                withCredentials: false,
+                data: {
+                    fakepath: store.getState().articles.newArticle.picture,
+                },
+            })
+            .then((response) => {
+                console.log('nouvel image', response),
+                store.dispatch(fetchPicture())
+            })
+            .catch((error) => {
+                console.log('erreur de l\'envoie de l\'image',error )
             });
             break;
             case DELETE_ARTICLE_SUBMIT:
@@ -55,7 +80,10 @@ export default (store) => (next) => (action) => {
                     data:  {
                         title: store.getState().articles.articleToEdit.title,
                         content: store.getState().articles.articleToEdit.content,
+                        picture: store.getState().articles.articleToEdit.upload,
                     },                    
+                                        
+                                       
                 })
                 .then((response) => {
                     console.log('article modifié', response),

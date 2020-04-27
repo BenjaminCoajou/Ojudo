@@ -5,6 +5,7 @@ import moment from "moment";
 import Calendar from "../../containers/Calendar";
 import Header from "../Header";
 import Footer from "../Footer";
+import Sponsors from "../Sponsors";
 
 import "./style.scss";
 
@@ -49,7 +50,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               <div className="articles-content-div">
                 {articlesList.map((article) => (
                   <div key={article.id} className="tile">
-                    <img src="https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80" />
+                    <img src={article.picture} />
                     <div className="text">
                       <h1>{article.title}</h1>
                       <h2 className="animate-text">{moment(article.date).format('D MMMM YYYY')}</h2>
@@ -97,7 +98,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
         </div>
       </div> }
       
-      
+      <Sponsors />
       
       <Footer />
     </div>

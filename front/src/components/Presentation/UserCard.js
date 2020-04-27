@@ -4,23 +4,35 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const UserCard = ({role, picture, firstname, lastname, email,}) => {
-    console.log("firstname", firstname);
-    console.log("role", role);
-    console.log("name de role", role.name);
+   
     if (role.name == "utilisateur"){
         return(
-            <div className="presentation__member__container__scroll__list__card">
-                <img className="presentation__member__container__scroll__list__card__avatar img-fluid" src={picture}/>
-                <div className="presentation__member__container__scroll__list__card__info">
-                    <p className="presentation__member__container__scroll__list__card__info__text">Nom : {firstname}</p> 
-                    <p className="presentation__member__container__scroll__list__card__info__text">Prénom : {lastname}</p> 
-                    <p className="presentation__member__container__scroll__list__card__info__text">Détails : {email}</p>  
-                </div>
+
+    <div className="presentation__member__container__scroll__list__card">
+        <aside className="profile-card">
+
+            <header className="header_presentation">
+      
+                <img src={picture}/>
+
+                <h1> {firstname} {lastname}</h1>
+                <br />
+                <h2>{email}</h2>
+            </header>
+
+            <div className="profile-bio">
+
+                <p>catégorie:
+                <br />palmarès:</p>
             </div>
-        );
-    }
-        return(
-            null
+
+        </aside>
+    </div>
+   
+);
+}
+return(
+        null
         );
 }
 

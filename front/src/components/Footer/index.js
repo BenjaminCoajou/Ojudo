@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+
+import {Link} from 'react-router-dom';
 
 import "./style.scss";
 import initRaindrop from "./raindrop.js";
@@ -74,17 +75,18 @@ const Footer = () => {
                                                     <div className="contact-form-footer">
                                                         <p>
                                                             <span className="wpcf7-form-control-wrap your-first-name">
+                                                                <input type="email" name="email"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre email" />
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span className="wpcf7-form-control-wrap your-first-name">
                                                                 <input type="text" name="title"  size="40" className="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Votre titre" />
                                                             </span>
                                                         </p>
-                                                        <p>
-                                                            <span className="wpcf7-form-control-wrap your-email_1">
-                                                                <input type="text" name="content"  size="40" className="wpcf7-form-control wpcf7-text " aria-invalid="false" placeholder="Votre contenu" />
-                                                            </span>
-                                                        </p>
+                                                       
                                                         <p>
                                                             <span className="wpcf7-form-control-wrap your-message">
-                                                                <textarea name="your-message" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
+                                                                <textarea name="content" cols="40" rows="10" className="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Votre message"></textarea>
                                                             </span>
                                                         </p>
                                                         <div>
@@ -167,13 +169,16 @@ const Footer = () => {
                                 <ul id="footer-menu" className="nav-menu styled clearfix inline-inside">
                                     
                                     <li id="menu-item-27" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-27">
-                                        <NavLink className="nav-link" to="/contact">Page de contact</NavLink>
+                                        <Link className="nav-link" to="/contact">Page de contact</Link>
                                     </li>
                                     <li id="menu-item-28" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-28">
-                                        <NavLink className="nav-link" to="/mentions-legales">Mentions légales</NavLink>
+                                        <Link className="nav-link" to="/mentions-legales">Mentions légales</Link>
                                     </li>
                                     <li id="menu-item-29" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
-                                        <NavLink className="nav-link" to="/contact">Nos développeurs</NavLink>
+                                     
+
+                                    <Link color="inherit"  to="/developpeur">Nos développeurs</Link>
+
                                     </li>
                                 </ul>
                             </nav>

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
@@ -25,11 +26,12 @@ class Event
     /**
      * @ORM\Column(type="string", length=255)
      * @groups({"event_read"})
+     * @Assert\NotBlank(message="Le titre est obligatoire")
      */
     private $title;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      * @groups({"event_read"})
      */
     private $date;
@@ -37,12 +39,15 @@ class Event
     /**
      * @ORM\Column(type="string", length=255)
      * @groups({"event_read"})
+     * @Assert\NotBlank(message="l'adresse est obligatoire")
+     * @Assert\Length(max=255, maxMessage="le nombre de caractère maximal est dépassé", min=10, minMessage="le nombre de caractère est trop minime" )
      */
     private $place;
 
     /**
      * @ORM\Column(type="text")
-     * @groups({"event_read"})
+     * @groups({"event_read"})     * 
+     * @Assert\NotBlank(message="Le contenu est obligatoire")
      */
     private $content;
     
@@ -66,12 +71,14 @@ class Event
 
       /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @groups({"event_read"})
      */
     private $picture;
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        
     }
 
     public function getId(): ?int

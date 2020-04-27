@@ -7,13 +7,26 @@ App\Entity\User:
         firstname: '<firstName()>'
         lastname: '<lastName()>'
         address: '<address()>'
-        phone_number: '<isbn10()>'
+        telephone: '<isbn10()>'
         email: '<email()>'
         password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$icQTO200bPENeuMS2VFL/Q\$NdR9NMBVmhbl2atpFitM5UzIxcRcd03/kM+03EegOI8'
         status: '1'
         categorie: '@categorie_*'
         picture: '<imageUrl(100, 100)>'
         
+
+App\Entity\Presentation:
+    presentation_{1}:
+        title: '<word(12)>'
+        content: '<text(120)>'
+        picture: '<imageUrl(100, 100)>'
+
+
+App\Entity\Role:
+    role_{1}:
+        name: 'utilisateur'
+        roleString: 'ROLE_USER'
+                
 
         
 App\Entity\Event:
@@ -63,5 +76,5 @@ App\Entity\Sponsor:
         title: '<company()>'
         content: '<text(200)>'
         address: '<address()>'
-        phone_number: '<isbn10()>'              
+        telephone: '<isbn10()>'              
             
