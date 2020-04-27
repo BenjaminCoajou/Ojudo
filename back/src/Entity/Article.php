@@ -2,14 +2,17 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 
@@ -17,6 +20,9 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ApiResource(normalizationContext={"groups"={"article_read"}},
+ *              denormalizationContext={"groups"={"post"}})
+ * @ApiResource(iri="http://schema.org/Book")
  */
 class Article
 {
@@ -54,10 +60,22 @@ class Article
      */
     private $updatedAt;
 
-  /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+    /**
+     * 
+     * @Vich\UploadableField(mapping="article_img", fileNameProperty="picture")
+     * @groups({"article_read", "post" })
+     * @var File|null
      */
-    public $picture;
+    private $imageFile;
+
+
+  /**
+     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity=MediaObject::class)
+     * @groups({"article_read", "post" })
+     * @ApiProperty(iri="http://schema.org/image")
+     */
+    public $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
@@ -83,6 +101,22 @@ class Article
         $this->createdAt = new \DateTime;
         
         
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getId(): ?int
