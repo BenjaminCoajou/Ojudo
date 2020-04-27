@@ -3,6 +3,7 @@ export const FETCH_ARTICLE_SUCCESS = 'FETCH_ARTICLE_SUCCESS';
 export const FETCH_PICTURE = 'FETCH_PICTURE';
 export const FETCH_PICTURE_SUCCESS = 'FETCH_PICTURE_SUCCESS';
 export const INPUT_CHANGE = 'INPUT_CHANGE';
+export const FILE_CHANGE = 'FILE_CHANGE';
 export const SUBMIT_ARTICLE = 'SUBMIT_ARTICLE';
 export const DELETE_ARTICLE = 'DELETE_ARTICLE';
 export const DELETE_ARTICLE_SUBMIT = 'DELETE_ARTICLE_SUBMIT';
@@ -28,6 +29,10 @@ export const fetchPictureSuccess = (payload) => ({
 });
 export const inputChange = (payload) => ({
     type: INPUT_CHANGE,
+    payload,
+});
+export const fileChange = (payload) => ({
+    type: FILE_CHANGE,
     payload,
 });
 export const submitArticle = () => ({
