@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddArticle = ({ title, content, picture, inputChange, handleSubmit }) => {
+const AddArticle = ({ title, content, picture, inputChange, handleSubmit, fileChange }) => {
     const classes = useStyles();
-
+    
     return (
         <form className="form_article" onSubmit={(evt) => { evt.preventDefault(); handleSubmit() }}>
             <input name="title" placeholder="Entrer un titre" className="input_title" value={title} onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required /> 
@@ -34,7 +34,7 @@ const AddArticle = ({ title, content, picture, inputChange, handleSubmit }) => {
                     ajouter une image
                 </span>
 
-                <input type="file" name="picture" id="upload" className="upload-box" value={picture} onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} required placeholder="Upload File" accept="image/png, image/jpeg" />
+                <input type="file" name="picture" id="upload" className="upload-box"  onChange={(evt) => {fileChange( evt.target.files[0], console.log(evt.target.files[0]))}} required placeholder="Upload File" accept="image/png, image/jpeg" />
   
             </div>
             <button type="submit"
@@ -52,7 +52,7 @@ const AddArticle = ({ title, content, picture, inputChange, handleSubmit }) => {
 AddArticle.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
+    //picture: PropTypes.string.isRequired,
     inputChange: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
 }
