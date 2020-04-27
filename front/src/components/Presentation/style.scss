@@ -1,3 +1,12 @@
+@font-face {  
+  font-family: Cooper;
+  src: url(./../../assets/fonts/CooperHewitt-Book.otf);
+}
+@font-face {  
+  font-family: Noto;
+  src: url(./../../assets/fonts/NotoSansJP-Bold.otf);
+}
+
 .presentation {
     display: flex;
     justify-content: center;
@@ -11,15 +20,19 @@
 
         &__content {
             margin: 8px;
+            font-family: Cooper;
+            font-size: 18px;
             
             &__title {
+                font-family: Noto;
                 text-transform: uppercase;
                 padding: 10px;
             }
 
             &__img-text {
-                                
+
                 &__dojo {
+                    border-radius: 20px;
                     width: 400px;
                     height: 300px;
                     padding: 10px;
@@ -51,6 +64,7 @@
                 overflow-y: auto;
 
                 &__title {
+                    font-family: Noto;
                     text-transform: uppercase;
                     padding: 10px;
                 }
@@ -121,10 +135,11 @@ aside:hover header img {
 
 .header_presentation {
   text-align: center;
+  font-family: Cooper;
 }
 
 .container {
-  display: flex;
+  display: flex;  
 }
 
 .header_presentation h1 {

@@ -1,3 +1,7 @@
+@font-face {  
+  font-family: Cooper;
+  src: url(./../../assets/fonts/CooperHewitt-Book.otf);
+}
 body
 {
   background-color:#22273d;
@@ -20,14 +24,16 @@ h2 {
 
 .articles-title-div {
   width: 100%;
+  font-family:'Cooper';
 }
 .articles-content-div {
-
+  font-family:'Cooper';
 }
 
 .organizerContainer{
   margin-top: 200px;
   padding-left: 70px;
+  font-family:'Cooper';
 }
 
 .demo-card-image.mdl-card {
@@ -87,7 +93,7 @@ h2 {
   box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
   overflow:hidden;
   color:white;
-  font-family:'Roboto';
+  font-family:'Cooper';
   margin: 9px;
   
 }
