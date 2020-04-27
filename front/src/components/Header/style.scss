@@ -46,7 +46,8 @@
   }
   .nav-link {
     text-decoration: none;
-    color:white;
+    //color:white;
+    color: #0f55a3;
   }
   .menuContainer {
     display: block;
@@ -64,7 +65,7 @@
     margin: -150px auto;
     background: white;
     border-radius: 100%;
-    border: 1px solid white;
+    //border: 1px solid white;
     cursor: pointer;
     z-index: 10;
     & ul {
@@ -79,7 +80,7 @@
         position: relative;
         font-family: Inconsolata;
         font-size: 25px;
-        box-sizing: border-box;
+        //box-sizing: border-box;
         width: 160px;
         letter-spacing: 1px;
         text-align: center;
@@ -87,10 +88,11 @@
         &:last-child {
           margin-right: 0;
         }&:hover {
-          background: white;
+          background: #e6243e;
           width: 160px;
           & a {
-            color: #000;
+            
+            color: #0f55a3;
           }
         }
       }

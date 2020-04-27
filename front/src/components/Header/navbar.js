@@ -6,6 +6,9 @@ var $menuTitle = document.querySelector(".menuTitle");
 var $menuContainer = document.querySelector(".menuContainer");
 var count = 0;
 var click = true;
+
+$menuTitle.style.color = "#e6243e";
+
   $menuTitle.addEventListener("click", function (event) {
     if (click) {
 
@@ -24,15 +27,15 @@ var click = true;
           height: 75,
           x: 0,
           y: 70,
-          background: "#000",
+          background: "#fff",
           borderRadius: 0,
           borderTop: "1px solid #D8D8D8",
-          color: "#fff",
+          color: "#0f55a3",
         },
         ease: Expo.easeOut, 
       });
-      tl.to($menuTitle, 0.25, {color: "#fff" });
-      tl.to($menuUl, 0.1, {css: {display: "block"}});
+      tl.to($menuTitle, 0.25, {color: "#0f55a3" });
+      tl.to($menuUl, 0.1, {css: {display: "block" }});
 
 
       /*setTimeout(function(){
@@ -57,13 +60,13 @@ var click = true;
           height: 150,
           x: 0,
           y: 0,
-          background: "#FFF",
+          background: "#fff",
           borderRadius: "100%",
           borderTop: "1px solid #D8D8D8",
         },
         ease: Expo.easeOut,
       });
-      tl.to($menuTitle, 0.2, { x: 0, y: 0, opacity:1, color: "#000" });
+      tl.to($menuTitle, 0.2, { x: 0, y: 0, opacity:1, color: "#e6243e" });
       $menuUl.style.display = "none";
     }
   });
