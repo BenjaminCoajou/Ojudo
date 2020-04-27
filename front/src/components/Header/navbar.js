@@ -8,20 +8,22 @@ var count = 0;
 var click = true;
   $menuTitle.addEventListener("click", function (event) {
     if (click) {
+
+/* Bande Noire */
       click = false;
       $menuTitle.style.zIndex = 9;
       //$menuUl.style.display = "none";
 
       var tl = new TimelineLite();
 
-      tl.to($menuTitle, 0.25, { x: 0, y: 0, color: "#fff" });
+      tl.to($menuTitle, 0.25, { x: 0, y: -50, color: "#000" });
       tl.to($menuContainer, 0.25, {css: {height: 225}});
       tl.to($menu, 0.25, {
         css: {
           width: 1000,
           height: 75,
           x: 0,
-          y: 100,
+          y: 70,
           background: "#000",
           borderRadius: 0,
           borderTop: "1px solid #D8D8D8",
@@ -29,12 +31,15 @@ var click = true;
         },
         ease: Expo.easeOut, 
       });
+      tl.to($menuTitle, 0.25, {color: "#fff" });
       tl.to($menuUl, 0.1, {css: {display: "block"}});
+
 
       /*setTimeout(function(){
       $menuUl.fadeIn();
     }, 250);*/
 
+/* Cercle blanc */     
     } else {
       click = true;
       $menuTitle.style.zIndex = 11;
@@ -42,19 +47,23 @@ var click = true;
 
       var tl = new TimelineLite();
 
+      tl.to($menuTitle, 0.2, {opacity: 0 });
+      tl.to($menu, 0.2, { x: 0, y: 20, color: "#fff" });
+      tl.to($menuTitle, 0.2, { x: 0, y: 0, opacity:0 });
+      tl.to($menuContainer, 0.1, {css: {height: 150}});
       tl.to($menu, 0.25, {
         css: {
           width: 150,
           height: 150,
+          x: 0,
+          y: 0,
           background: "#FFF",
           borderRadius: "100%",
           borderTop: "1px solid #D8D8D8",
         },
         ease: Expo.easeOut,
       });
-      tl.to($menu, 0.2, { x: 0, y: 0, color: "#fff" });
-      tl.to($menuTitle, 0.2, { x: 0, y: 0, color: "#000" });
-      tl.to($menuContainer, 0.1, {css: {height: 150}});
+      tl.to($menuTitle, 0.2, { x: 0, y: 0, opacity:1, color: "#000" });
       $menuUl.style.display = "none";
     }
   });
