@@ -10,15 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use App\Controller\Admin\CreateMediaObjectAction;
+
+
 
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
- * @ApiResource(iri="http://schema.org/Article")
- * @Vich\Uploadable
  */
 class Article
 {
@@ -57,13 +55,9 @@ class Article
     private $updatedAt;
 
   /**
-     * @var MediaObject|null
-     *
-     * @ORM\ManyToOne(targetEntity=MediaObject::class)
-     * @ORM\JoinColumn(nullable=true)
-     * @ApiProperty(iri="http://schema.org/image")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    public $image;
+    public $picture;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="article")
@@ -211,6 +205,26 @@ class Article
         if ($this->tag->contains($tag)) {
             $this->tag->removeElement($tag);
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of picture
+     */ 
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set the value of picture
+     *
+     * @return  self
+     */ 
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
 
         return $this;
     }
