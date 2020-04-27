@@ -102,7 +102,7 @@ aside {
   background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);
   background-size: cover;
   overflow: hidden;
-  box-shadow: 0 0 100px 10px #fff;
+  box-shadow: 0 0 20px 1px #fff;
   transition: all ease 0.3s;
 }
 
@@ -111,7 +111,7 @@ aside:hover {
   border-radius: 5px;
   height: 480px;
   width: 350px;
-  box-shadow: 0 0 70px 10px #fff;
+  box-shadow: 0 0 20px 1px #fff;
 }
 
 aside:hover header img {
@@ -121,6 +121,10 @@ aside:hover header img {
 
 .header_presentation {
   text-align: center;
+}
+
+.container {
+  display: flex;
 }
 
 .header_presentation h1 {
@@ -171,6 +175,17 @@ aside:hover .profile-bio {
 .profile-bio p:first-child {
   text-align: center;
   font-size: 16px;
+}
+
+.profile-bio h3 {
+  color: rgba(0, 60, 255, 0.493) ;
+  text-align: center;
+  font-size: 20px;
+}
+
+.profile-bio ul {
+  text-align: center;
+  font-size: 15px;
 }
 
 .profile-social-links {
