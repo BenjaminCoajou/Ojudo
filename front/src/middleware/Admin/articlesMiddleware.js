@@ -42,13 +42,16 @@ export default (store) => (next) => (action) => {
             .catch((error) => {
                 console.log('erreur de l\'envoie de l\'article',error )
             });
+            
+          
             axios({
                 url:'http://54.166.4.90/projet-judo/back/public/index.php/api/media_objects',
                 method: 'post',
                 withCredentials: false,
-                data: {
-                    fakepath: store.getState().articles.newArticle.picture,
-                },
+                data: {file: store.getState().articles.picture},
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                  },
             })
             .then((response) => {
                 console.log('nouvel image', response),

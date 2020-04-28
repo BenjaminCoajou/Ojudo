@@ -17,7 +17,10 @@ const Mentions = () => (
     Le responsable publication est une personne physique ou une personne morale.<br />
     <strong>Webmaster</strong> : johan – johan27000@gmail.com<br />
     <strong>Hébergeur</strong> : aws – oclock<br />
+
     Crédits : Freddy, Johan, Cyril et Benjamin<br />
+
+  
     Le modèle de mentions légales est offert par Subdelirium.com <a target="_blank" href="https://www.subdelirium.com/generateur-de-mentions-legales/" alt="Modèle de mentions légales">Modèle de mentions légales</a></p>
   <h3 className="title">2. Conditions générales d’utilisation du site et des services proposés.</h3>
   <p>L’utilisation du site <a href="http://www.O'judo.fr/">www.O'judo.fr</a> implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site <a href="http://www.O'judo.fr/">www.O'judo.fr</a> sont donc invités à les consulter de manière régulière.</p>

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+
 import {Link} from 'react-router-dom';
+
 import "./style.scss";
 import initRaindrop from "./raindrop.js";
+
 const Footer = () => {
     useEffect ( () => {initRaindrop();} );
     return ( 
     <div className="page-wrapper">
+
         <div id="waterdrop">
        </div>
         <footer>
@@ -165,13 +169,16 @@ const Footer = () => {
                                 <ul id="footer-menu" className="nav-menu styled clearfix inline-inside">
                                     
                                     <li id="menu-item-27" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-27">
-                                        <a href="#">Page de contact</a>
+                                        <Link className="nav-link" to="/contact">Page de contact</Link>
                                     </li>
                                     <li id="menu-item-28" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-28">
-                                        <a href="#">Mentions légales</a>
+                                        <Link className="nav-link" to="/mentions-legales">Mentions légales</Link>
                                     </li>
                                     <li id="menu-item-29" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
+                                     
+
                                     <Link color="inherit"  to="/developpeur">Nos développeurs</Link>
+
                                     </li>
                                 </ul>
                             </nav>

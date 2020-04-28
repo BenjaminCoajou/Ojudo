@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AddArticle from '../../components/Admin/Article/AddArticle';
-import { inputChange, submitArticle } from '../../actions/Admin/articles';
+import { inputChange, submitArticle, fileChange } from '../../actions/Admin/articles';
 
 const mapStateToProps = (state) => ({
     title: state.articles.newArticle.title,
@@ -15,6 +15,13 @@ const mapDispatchToProps = (dispatch) => ({
     handleSubmit: () => {
         dispatch(submitArticle());
     },
+    fileChange: (payload) => {
+        dispatch(fileChange({
+            name: payload.name,
+            size: payload.size,
+            type: payload.type,
+        }));
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddArticle);
