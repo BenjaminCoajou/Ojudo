@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const UserCard = ({role, picture, firstname, lastname, email,}) => {
-   
+
     if (role.name == "utilisateur"){
         return(
 

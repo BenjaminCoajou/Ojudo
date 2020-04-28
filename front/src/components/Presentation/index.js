@@ -41,7 +41,7 @@ const Presentation = ({ list }) => {
                             list.map((card) => (
                                 <UserCard key={card.id} {...card} />
                             ))
-                        }                                    
+                        }                                   
                     </div>
                 </div>               
             </div>
