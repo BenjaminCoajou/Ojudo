@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ApiResource(
  *     iri="http://schema.org/MediaObject",
  *     normalizationContext={
- *         "groups"={"media_object_read"}
+ *         "groups"={"media_object_read","article_read", "post" }
  *     },
  *     collectionOperations={
  *         "post"={
@@ -63,14 +63,14 @@ class MediaObject
      * @var string|null
      *
      * @ApiProperty(iri="http://schema.org/contentUrl")
-     * @Groups({"media_object_read"})
+     * @Groups({"media_object_read", "article_read"})
      */
     public $contentUrl;
 
     /**
      * @var File|null
      *
-     * @Assert\NotNull(groups={"media_object_create"})
+     * @Assert\NotNull(groups={"media_object_create","article_read"})
      * @Vich\UploadableField(mapping="article_img", fileNameProperty="filePath")
      */
     public $file;
@@ -79,6 +79,7 @@ class MediaObject
      * @var string|null
      *
      * @ORM\Column(nullable=true)
+     * @Groups({"media_object_read", "article_read"})
      */
     public $filePath;
 

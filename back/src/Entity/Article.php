@@ -20,8 +20,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
- * @ApiResource(normalizationContext={"groups"={"article_read"}},
- *              denormalizationContext={"groups"={"post"}})
+ * @ApiResource(normalizationContext={"groups"={"article_read","media_object_read"}},
+ *              denormalizationContext={"groups"={"article_read","post"}})
  * @ApiResource(iri="http://schema.org/Book")
  */
 class Article
