@@ -74,8 +74,12 @@ function animateCoverUp(card) {
   setCoverColor(cardStyle);
   scaleCoverToFillWindow(cardPosition);
   // update the content of the opened page
+
+
   openContentText.innerHTML = '<h1>'+card.children[2].textContent+'</h1>'+paragraphText;
   openContentImage.src = card.children[1].src;
+
+
   setTimeout(function() {
     // update the scroll position to 0 (so it is at the top of the 'opened' page)
     window.scroll(0, 0);

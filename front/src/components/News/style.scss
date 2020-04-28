@@ -23,6 +23,7 @@ p {
   box-sizing: border-box;
 }
 
+// À supprimer pour aligner les colonnes
 .column-1 {
   padding-top: 100px;
 }
@@ -36,7 +37,7 @@ p {
   background: #EB5160;
   color: #fff;
   cursor: pointer;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .border {
@@ -206,6 +207,29 @@ p {
   pointer-events: all;
   transition-delay: 1000ms;
 }
+
+.center {
+  text-align: center;
+}
+.pagination {
+  display: inline-block;
+  margin: auto;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+.pagination a.active {
+  background-color: #e6243e;
+  color: white;
+  border: 1px solid #e6243e;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
 
 /* 
 ** Media Queries
