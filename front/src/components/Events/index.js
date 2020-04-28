@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from 'moment'
 import { Map, Marker, TileLayer } from "react-leaflet";
 
 import Header from "../Header";
@@ -10,7 +11,7 @@ import "./style.scss";
 
 
 
-const Events = ({ zoom, coordinates, marker }) => {
+const Events = ({ zoom, coordinates, marker, eventInfos, isDisplay }) => {
   
 
   return (
@@ -22,6 +23,28 @@ const Events = ({ zoom, coordinates, marker }) => {
       <div className="event-calendar-table">
         <Calendar />
       </div>
+
+
+     { isDisplay ? <div className="card-event-info">
+              <div className="demo-card-image mdl-card mdl-shadow--2dp">
+                <div className="mdl-card__title mdl-card--expand"></div>
+              </div>
+              <div className="demo-card-event mdl-card mdl-shadow--2dp">
+                <div className="mdl-card__title mdl-card--expand">
+                  <h4>
+                    Evénement: {eventInfos.title}<br />
+                    {moment(eventInfos.date).format('D MMM YYYY')}<br/>
+                    {eventInfos.place}<br />
+                    {eventInfos.content}
+
+                  </h4>
+                </div>
+              </div>
+            </div> : ""}
+
+
+
+
 
       <Map center={[coordinates[1], coordinates[0]]} zoom={zoom}>
         <TileLayer 

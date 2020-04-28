@@ -15,6 +15,7 @@ const initialState = {
     coordinates: [2.346715, 48.856805],
     zoom: 6,
     marker: false,
+    display: false,
     
 };
 
@@ -54,6 +55,7 @@ export default (state = initialState, action = {}) => {
                     adress: action.payload === undefined ? "paris+75015" : action.payload.place.replace(/ /gi, '+').replace(',',''),
                     zoom:  action.payload === undefined ? 6 : 12,
                     marker:  action.payload === undefined ? false : true,
+                    display: action.payload === undefined ? false : true,
                 };
         case FETCH_EVENTS_SUCCESS:
             return {

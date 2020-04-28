@@ -6,6 +6,8 @@ const mapStateToProps = (state) => ({
     coordinates: state.calendar.coordinates,
     zoom: state.calendar.zoom,  
     marker: state.calendar.marker,  
+    eventInfos: state.calendar.eventInfos,
+    isDisplay: state.calendar.display,
 });
 
 const mapDispatchToProps = {};
