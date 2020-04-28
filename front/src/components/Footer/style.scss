@@ -1,4 +1,7 @@
-
+@font-face {  
+    font-family: Cooper;
+    src: url(./../../assets/fonts/CooperHewitt-Book.otf);
+}
 footer p, footer strong, footer b, footer {
     color: #b0b0b0;
 }
@@ -8,7 +11,7 @@ footer p, footer strong, footer b, footer {
     background-size: cover;
     background-position: center;
     padding: 0 0 20px;
-    font-family: rubik;
+    font-family: Cooper;
     padding-top:30px;
     width: 100%;
     background-color: lightgrey;
@@ -29,7 +32,7 @@ footer p, footer strong, footer b, footer {
     border-top: 1px solid #313646;
     background-color: #181828 !important;
     color: #b0b0b0;
-    font-family: rubik;
+    font-family: Cooper;
 }
 
 .footer-container {
