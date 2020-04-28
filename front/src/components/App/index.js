@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // == Import
 import Home from '../../containers/Home';
 import Presentation from '../../containers/Presentation';
-import News from '../News';
+import News from '../../containers/News';
 import Article from '../Article';
 import Events from '../../containers/Events';
 import Contact from '../Contact';
@@ -72,6 +72,7 @@ App.propTypes = {
   fetchUser: PropTypes.func.isRequired,
   fetchEvents: PropTypes.func.isRequired,
   fetchPresentation: PropTypes.func.isRequired,
+  fetchArticle: PropTypes.func.isRequired,
 }
 
 // == Export
