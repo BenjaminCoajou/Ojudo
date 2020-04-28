@@ -1,11 +1,9 @@
 <?php
-
-
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Controller\Admin\CreateMediaObjectAction;
+use App\Controller\CreateMediaObjectAction;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -17,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ApiResource(
  *     iri="http://schema.org/MediaObject",
  *     normalizationContext={
- *         "groups"={"media_object_read"}
+ *         "groups"={"media_object_read","article_read", "post" }
  *     },
  *     collectionOperations={
  *         "post"={
@@ -58,7 +56,6 @@ class MediaObject
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      * @ORM\Id
-     * @Groups({"media_object_read"})
      */
     protected $id;
 
@@ -66,14 +63,14 @@ class MediaObject
      * @var string|null
      *
      * @ApiProperty(iri="http://schema.org/contentUrl")
-     * @Groups({"media_object_read"})
+     * @Groups({"media_object_read", "article_read"})
      */
     public $contentUrl;
 
     /**
      * @var File|null
-     *  @Groups({"media_object_read"})
-     * @Assert\NotNull(groups={"media_object_create"})
+     *
+     * @Assert\NotNull(groups={"media_object_create","article_read"})
      * @Vich\UploadableField(mapping="article_img", fileNameProperty="filePath")
      */
     public $file;
@@ -82,7 +79,7 @@ class MediaObject
      * @var string|null
      *
      * @ORM\Column(nullable=true)
-     * @Groups({"media_object_read"})
+     * @Groups({"media_object_read", "article_read"})
      */
     public $filePath;
 
