@@ -5,8 +5,9 @@ const initialState = {
     newArticle: {
       title:'',
       content: '',
+      file: '',
     },
-    picture: {},
+    filePath: {},
     articleToDelete: '',
     articleToEdit: {},
     edit: false,

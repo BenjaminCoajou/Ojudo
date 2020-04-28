@@ -43,12 +43,13 @@ export default (store) => (next) => (action) => {
                 console.log('erreur de l\'envoie de l\'article',error )
             });
             
-          
+            var bodyFormData = new FormData();
+            bodyFormData.append('file', store.getState().articles.picture.file);
             axios({
                 url:'http://54.166.4.90/projet-judo/back/public/index.php/api/media_objects',
                 method: 'post',
                 withCredentials: false,
-                data: {file: store.getState().articles.picture},
+                data: bodyFormData,
                 headers: {
                     'Content-Type': 'multipart/form-data',
                   },

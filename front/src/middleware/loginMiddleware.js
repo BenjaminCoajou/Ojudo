@@ -14,11 +14,11 @@ const loginMiddleware = (store) => (next) => (action) => {
                 }                
             })
             .then((response) => {
-                console.log('coucou', response);
+                //console.log('coucou', response);
                 store.dispatch(loginSuccess(response.data.token));
             })
             .catch((error) => {
-                console.log(error);
+                //console.log(error);
                 store.dispatch(loginError())
             });
             break;
