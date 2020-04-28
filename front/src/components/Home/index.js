@@ -5,11 +5,11 @@ import moment from "moment";
 import Calendar from "../../containers/Calendar";
 import Header from "../Header";
 import Footer from "../Footer";
-import Sponsors from "../Sponsors";
+import Sponsors from "../../containers/Sponsors";
 
 import "./style.scss";
 
-const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles, articlesIsLoaded }) => {
+const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles, articlesIsLoaded, sponsorsIsLoaded }) => {
   const today = dateObject.format();
   const allEvents = events.map((evt) => moment(evt.date).format());
   allEvents.push(today);
@@ -24,7 +24,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
   return (
     <div>
       <Header />
-      {isLoading && presIsLoaded && articlesIsLoaded ? <div className="home-page">
+      {isLoading && presIsLoaded && articlesIsLoaded && sponsorsIsLoaded? <div className="home-page">
         <div className="up">
 
           <div className="presandarticle">
@@ -89,6 +89,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
             </div>
 
           </div>
+        <Sponsors />
 
         </div>
       </div> : 
@@ -98,7 +99,6 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
         </div>
       </div> }
       
-      <Sponsors />
       
       <Footer />
     </div>
