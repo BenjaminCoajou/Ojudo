@@ -5,7 +5,7 @@ import { inputChange, submitArticle, fileChange } from '../../actions/Admin/arti
 const mapStateToProps = (state) => ({
     title: state.articles.newArticle.title,
     content: state.articles.newArticle.content,
-    picture: state.articles.newArticle.picture,
+    file: state.articles.newArticle.file,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -16,11 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(submitArticle());
     },
     fileChange: (payload) => {
-        dispatch(fileChange({
-            name: payload.name,
-            size: payload.size,
-            type: payload.type,
-        }));
+        dispatch(fileChange({file :payload}));
     }
 });
 

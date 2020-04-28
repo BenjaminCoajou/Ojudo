@@ -6,11 +6,11 @@ const calendarMiddleware = (store) => (next) => (action) => {
         case FETCH_EVENTS:
             axios.get('http://54.166.4.90/projet-judo/back/public/index.php/api/events')
             .then((response) => {
-                console.log('events', response.data['hydra:member']);
+                //console.log('events', response.data['hydra:member']);
                 store.dispatch(fetchEventsSuccess(response.data['hydra:member']));
             })
             .catch((error) => {
-                console.log('erreur lors de la connexion à l\'api');
+                //console.log('erreur lors de la connexion à l\'api');
                 store.dispatch(fetchRecipesError());
             })
             break;
@@ -18,11 +18,11 @@ const calendarMiddleware = (store) => (next) => (action) => {
             setTimeout(() => {
                 axios.get(`https://api-adresse.data.gouv.fr/search/?q=${store.getState().calendar.adress}`)
                     .then((response) => {
-                        console.log('map', response.data.features[0].geometry.coordinates);
+                        //console.log('map', response.data.features[0].geometry.coordinates);
                         store.dispatch(displayEventMap(response.data.features[0].geometry.coordinates))
                     })
                     .catch((error) => {
-                        console.log('erreur map', error)
+                        //console.log('erreur map', error)
                     })
             }, 500);    
             

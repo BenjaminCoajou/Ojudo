@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.scss';
 
-import './style.scss'; 
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddArticle = ({ title, content, picture, inputChange, handleSubmit, fileChange }) => {
+const AddArticle = ({ title, content, file, inputChange, handleSubmit, fileChange }) => {
     const classes = useStyles();
     
     return (
@@ -34,7 +34,7 @@ const AddArticle = ({ title, content, picture, inputChange, handleSubmit, fileCh
                     ajouter une image
                 </span>
 
-                <input type="file" name="picture" id="upload" className="upload-box"  onChange={(evt) => {fileChange( evt.target.files[0], console.log(evt.target.files[0]))}} required placeholder="Upload File" accept="image/png, image/jpeg" />
+                <input type="file" name="file" id="upload" className="upload-box"  onChange={(evt) => {fileChange( evt.target.files[0], )}} required placeholder="Upload File" accept="image/png, image/jpeg" />
   
             </div>
             <button type="submit"
@@ -52,7 +52,7 @@ const AddArticle = ({ title, content, picture, inputChange, handleSubmit, fileCh
 AddArticle.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    //picture: PropTypes.string.isRequired,
+    file: PropTypes.string.isRequired,
     inputChange: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
 }

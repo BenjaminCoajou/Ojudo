@@ -10,11 +10,11 @@ const presentationMiddleware = (store) => (next) => (action) => {
               withCredentials: false,               
           })
           .then((response) => {
-              console.log('presentation', response);
+              //console.log('presentation', response);
               store.dispatch(fetchPresentationSuccess(response.data["hydra:member"]));
           })
           .catch((error) => {
-              console.log('erreur api presentation', error);
+              //console.log('erreur api presentation', error);
           });
           break;
       default: 
