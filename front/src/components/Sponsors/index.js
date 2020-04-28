@@ -6,7 +6,7 @@ const Sponsors = ({ list }) => (
 
   <div className="row">
     {list.map((sponsor) => (
-      <div className="example-1 card_sponsor">
+      <div key={sponsor.id} className="example-1 card_sponsor">
         <div className="wrapper_sponsors">
           <div className="data">
             <div className="content">
