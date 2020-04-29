@@ -19,7 +19,7 @@ const loginMiddleware = (store) => (next) => (action) => {
             })
             .catch((error) => {
                 //console.log(error);
-                store.dispatch(loginError())
+                store.dispatch(loginError());
             });
             break;
         default: 

@@ -9,10 +9,11 @@ import Presentation from '../../containers/Presentation';
 import News from '../../containers/News';
 import Article from '../Article';
 import Events from '../../containers/Events';
-import Contact from '../Contact';
+import Contact from '../../containers/Contact';
 import Login from '../../containers/Login';
 import Register from '../Register';
 import Sponsors from '../Sponsors';
+import PageNotFound from '../NotFound';
 
 import './styles.css';
 
@@ -54,6 +55,7 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPic
       <Route exact path="/forgotten-password" component={ForgottenPassword}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
       <Route exact path="/developpeur" component={Developpeur}/>
+      <Route component={PageNotFound}/>
       <Admin/>
       <Route exact path="/admin" component={Dashboard} />
       <Route exact path="/admin/categorie" component={Categories} />

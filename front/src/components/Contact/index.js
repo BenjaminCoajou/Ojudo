@@ -1,34 +1,55 @@
 import React from 'react';
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa";
+import Proptypes from 'prop-types'
 import Header from '../Header';
 import Footer from '../Footer';
 
 import './style.css';
 
-const Contact = () => (
-    <div>
+const Contact = ({emailUser, title, content, inputChange, handleSubmit, message}) => (
+  <div>
         <Header />
         <section id="contact">
   <h1 className="section-header">CONTACT</h1>
+<div>{message ? message : ""}</div>
   <div className="contact-wrapper">
     {/*-------------- 
 
 CONTACT PAGE LEFT 
     
 ---------------*/} 
-    <form className="form-horizontal" role="form" method="post" action="ContactController.php">
+    <form onSubmit={(evt) => { evt.preventDefault(); handleSubmit()}} className="form-horizontal" role="form" method="post" action="ContactController.php">
       <div className="form-group">
         <div className="col-sm-12">
-          <input type="text" className="form-control" id="name" placeholder="Votre titre" name="name" defaultValue={""}  />
+          <input 
+          type="text" 
+          className="form-control" 
+          id="name" 
+          placeholder="Votre titre" 
+          name="title" 
+          value={title}
+          onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}}  />
         </div>
       </div>
       <div className="form-group">
         <div className="col-sm-12">
-          <input type="email" className="form-control" id="email" placeholder="Votre email" name="email" defaultValue={""}  />
+          <input 
+          type="email" 
+          className="form-control" 
+          id="email" 
+          placeholder="Votre email" 
+          name="email" 
+          value={emailUser}
+          onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}}  />
         </div>
       </div>
-      <textarea className="form-control" rows={10} placeholder="Votre message " name="conntent" defaultValue={""} />
-      <button className="btn_footer send-button" id="submit" type="submit" value="SEND">
+      <textarea 
+      className="form-control"
+      rows={10}
+      placeholder="Votre message "
+      name="content"
+      value={content}
+      onChange={(evt) => {inputChange({ [evt.target.name]: evt.target.value})}} />
+      <button onClick={(evt) => { evt.preventDefault(); handleSubmit()}} className="btn_footer send-button" id="submit" type="submit" value="SEND">
         <div className="button">
           <i className="fa fa-paper-plane"></i><span className="send-text">Envoyer</span>
         </div>
@@ -65,5 +86,14 @@ CONTACT PAGE RIGHT
 <Footer/>
     </div>
 );
+
+Contact.propTypes = {
+  emailUser: Proptypes.string.isRequired,
+  title: Proptypes.string.isRequired, 
+  content: Proptypes.string.isRequired,
+  inputChange: Proptypes.func.isRequired,
+  handleSubmit: Proptypes.func.isRequired,
+  message: Proptypes.string.isRequired,
+}
 
 export default Contact;
