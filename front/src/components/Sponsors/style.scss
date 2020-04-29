@@ -107,7 +107,7 @@ sans-serif;
 // First example styles
 .example-1 {
   .wrapper_sponsors {
-    background: url(https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80) 20% 1% / cover no-repeat;
+    background: url(https://www.leaderssl.com/assets/getwildcard_engine/partners/partnership_logo-c0959042f9db394cee51cea5296a69413e00da779c1dc1097885a72277fd0c52.png) 20% 1% / cover no-repeat;
   }
   .date {
     position: absolute;
@@ -134,13 +134,14 @@ sans-serif;
     }
   }
   .content {
-    background-color: $white;
+    
     box-shadow: 0 5px 30px 10px rgba($black, 0.3);
     color: white;
   }
 
   .content:hover {
-    color: lighten($black, 50%);
+    color: black;
+    
   }
 
   .menu-button {

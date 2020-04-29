@@ -107,47 +107,47 @@ const Footer = () => {
                                 <ul className="magnific-image">
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a className="magnific-anchor">
-                                            <img src="https://images.unsplash.com/photo-1477239439998-839196943351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80" alt="" />
+                                            <img src="https://www.judosavoie.com/wp-content/uploads/2019/02/IMAGE-JUDO-PROJECTION.jpg" alt="" />
                                         </a>
                                     </li>
                                 </ul>
