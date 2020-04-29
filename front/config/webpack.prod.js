@@ -22,7 +22,7 @@ module.exports = merge.smart(common, {
     new BundleStatsWebpackPlugin(),
   ],
   devServer: {
-    historyApiFallBack: true
+    historyApiFallback: true
   },
   module: {
     rules: [
