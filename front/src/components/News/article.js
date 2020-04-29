@@ -75,7 +75,7 @@ function animateCoverUp(card) {
   // update the content of the opened page
 
 
-  openContentText.innerHTML = '<h1>'+card.children[2].textContent+'</h1>'+paragraphText;
+  openContentText.innerHTML = '<h1>'+card.children[2].textContent+'</h1>'+card.children[3].textContent;
   openContentImage.src = card.children[1].src;
 
 
