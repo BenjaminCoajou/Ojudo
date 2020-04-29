@@ -9,7 +9,7 @@ import Presentation from '../../containers/Presentation';
 import News from '../../containers/News';
 import Article from '../Article';
 import Events from '../../containers/Events';
-import Contact from '../Contact';
+import Contact from '../../containers/Contact';
 import Login from '../../containers/Login';
 import Register from '../Register';
 import Sponsors from '../Sponsors';
