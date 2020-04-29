@@ -175,11 +175,9 @@ const Footer = () => {
                                         <Link className="nav-link" to="/mentions-legales">Mentions légales</Link>
                                     </li>
                                     <li id="menu-item-29" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-29">
-                                     
-
-                                    <Link color="inherit"  to="/developpeur">Nos développeurs</Link>
-
+                                        <Link className="nav-link"  to="/developpeur">Nos développeurs</Link>
                                     </li>
+
                                 </ul>
                             </nav>
                         </div>
