@@ -53,7 +53,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
                     <img src={article.picture} />
                     <div className="text">
                       <h1>{article.title}</h1>
-                      <h2 className="animate-text">{moment(article.date).format('D MMMM YYYY')}</h2>
+                      <h2 className="animate-text">{moment(article.createdAt).format('D MMMM YYYY')}</h2>
                       <p className="animate-text">{article.content.substring(0, 120) + '...'}</p>
                     </div>
                   </div>))}
