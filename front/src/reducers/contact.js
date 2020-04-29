@@ -1,4 +1,4 @@
-import {MAIL_CHANGE} from '../actions/contact';
+import { MAIL_CHANGE, MAIL_SUCCESS, MAIL_ERROR} from '../actions/contact';
 
 const initialState = {
     form: {
@@ -6,6 +6,7 @@ const initialState = {
         title: '',
         content: '',
     },
+    message: '',
 };
 
 export default (state = initialState, action = {}) => {
@@ -17,6 +18,16 @@ export default (state = initialState, action = {}) => {
                     ...state.form,
                     ...action.payload,
                 }
+            }
+        case MAIL_SUCCESS:
+            return {
+                ...state,
+                message: 'Votre email a bien été envoyé',
+            }
+        case MAIL_ERROR:
+            return {
+                ...state,
+                message: 'Erreur lors de l\'envoie de l\'email',
             }
             default:
                 return state;

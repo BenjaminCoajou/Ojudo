@@ -6,6 +6,7 @@ const mapStateToProps = ({contact}) => ({
     emailUser: contact.form.email,
     title: contact.form.title,
     content: contact.form.content,
+    message: contact.message,
 });
 
 const mapDispatchToProps = (dispatch) => ({

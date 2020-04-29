@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUBMIT_MAIL } from '../actions/contact';
+import { SUBMIT_MAIL, mailSuccess, mailError } from '../actions/contact';
 
 const contactMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
@@ -15,10 +15,12 @@ const contactMiddleware = (store) => (next) => (action) => {
                 }
             })
             .then((response) => {
-                console.log('mail bien envoyé')
+                console.log('mail bien envoyé');
+                store.dispatch(mailSuccess());
             })
             .then((error) => {
-                console.log('erreur lors de l\'envoi du mail')
+                console.log('erreur lors de l\'envoi du mail');
+                store.dispatch(mailError());
             });
             break;
             default:

@@ -21,9 +21,6 @@ module.exports = merge.smart(common, {
     // Stats bundle
     new BundleStatsWebpackPlugin(),
   ],
-  devServer: {
-    historyApiFallBack: true
-  },
   module: {
     rules: [
       {

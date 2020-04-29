@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_ERROR, SETTINGS_CHANGE, SUBMIT_LOGOUT } from '../actions/login';
+import { LOGIN_SUCCESS, LOGIN_ERROR, SETTINGS_CHANGE, SUBMIT_LOGOUT, DELETE_MESSAGE } from '../actions/login';
 
 const initialState = {
     isLogged: false,
@@ -49,6 +49,11 @@ export default (state = initialState, action = {}) => {
             error: '',
             loggedMessage: '',
         };
+        case DELETE_MESSAGE:
+            return {
+                state,
+                loggedMessage: '',
+            }
         default:
             return state;
     }

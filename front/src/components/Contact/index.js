@@ -4,11 +4,12 @@ import Footer from '../Footer';
 
 import './style.css';
 
-const Contact = ({emailUser, title, content, inputChange, handleSubmit}) => (
-    <div>
+const Contact = ({emailUser, title, content, inputChange, handleSubmit, message}) => (
+  <div>
         <Header />
         <section id="contact">
   <h1 className="section-header">CONTACT</h1>
+<div>{message ? message : ""}</div>
   <div className="contact-wrapper">
     {/*-------------- 
 

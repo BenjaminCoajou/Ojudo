@@ -5,7 +5,8 @@ export const SUBMIT_LOGOUT = 'SUBMIT_LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_ERROR = 'LOGOUT_ERROR';
 export const SETTINGS_CHANGE = 'SETTINGS_CHANGE';
-export const CHECK_lOGIN = 'CHECK_LOGIN';   
+export const CHECK_lOGIN = 'CHECK_LOGIN';
+export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 
 export const submitLogin = () => ({
     type: SUBMIT_LOGIN,
@@ -41,3 +42,7 @@ export const settingsChange = (payload) => ({
 export const checkLogin = () => ({
     type: CHECK_lOGIN,
 });
+
+export const deleteMessage = () => ({
+    type: DELETE_MESSAGE,
+})
