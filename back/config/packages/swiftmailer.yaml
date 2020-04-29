@@ -1,3 +1,9 @@
 swiftmailer:
     url: '%env(MAILER_URL)%'
     spool: { type: 'memory' }
+    transport:  gmail
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:   ojudo.club@gmail.com
+    password:   PromoAsgard2020!

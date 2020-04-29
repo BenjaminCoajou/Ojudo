@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Entity\MediaObject;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 final class CreateMediaObjectAction
 {
