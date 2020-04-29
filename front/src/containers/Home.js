@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
     presInfo: state.presentation.info,
     articles : state.articles.list,
     articlesIsLoaded: state.articles.isLoad,
+    sponsorsIsLoaded: state.sponsors.isLoaded,
 });
 
 const mapDispatchToProps = {};

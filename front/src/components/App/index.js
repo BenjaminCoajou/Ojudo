@@ -32,12 +32,13 @@ import ForgottenPassword from '../Login/ForgottenPassword';
 import Developpeur from '../Presentation/Developpeur';
 
 // == Composant
-const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPicture}) => {
+const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPicture, fetchSponsors}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
   useEffect(fetchPresentation, []);
   useEffect(fetchArticle, []);
   useEffect(fetchPicture, []);
+  useEffect(fetchSponsors, []);
    return (
   <div className="app">
     <Switch>

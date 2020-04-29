@@ -1,11 +1,16 @@
+@font-face {  
+  font-family: Cooper;
+  src: url(./../../assets/fonts/CooperHewitt-Book.otf);
+}
+
 html {
   height: 100%;
 }
 
 .login-text{
-  text-align: center;
-  
+  text-align: center;  
 }
+
 .button-header{
   width: 100px;
   height: 50px;
@@ -39,6 +44,7 @@ html {
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
+  font-family: Cooper;
 }
 
 .login-box h2 {
@@ -67,7 +73,7 @@ html {
   position: absolute;
   top:0;
   left: 0;
-  padding: 10px 0;
+  padding: 10px 0px;
   font-size: 16px;
   color: #fff;
   pointer-events: none;

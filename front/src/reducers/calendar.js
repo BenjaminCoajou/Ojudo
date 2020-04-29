@@ -15,6 +15,7 @@ const initialState = {
     coordinates: [2.346715, 48.856805],
     zoom: 6,
     marker: false,
+    display: false,
     
 };
 
@@ -50,8 +51,11 @@ export default (state = initialState, action = {}) => {
         case DISPLAY_EVENT:
                 return {
                     ...state,
-                    eventInfos: action.payload === undefined ? "" : action.payload,
-                    adress: action.payload.place.replace(/ /gi, '+').replace(',',''),
+                    eventInfos: action.payload === undefined ? {} : action.payload,
+                    adress: action.payload === undefined ? "paris+75015" : action.payload.place.replace(/ /gi, '+').replace(',',''),
+                    zoom:  action.payload === undefined ? 6 : 12,
+                    marker:  action.payload === undefined ? false : true,
+                    display: action.payload === undefined ? false : true,
                 };
         case FETCH_EVENTS_SUCCESS:
             return {
@@ -69,9 +73,7 @@ export default (state = initialState, action = {}) => {
         case DISPLAY_EVENT_MAP:
             return {
                 ...state,
-                zoom: 12,
                 coordinates: action.payload,
-                marker: true,
             };
         default:
             return state;

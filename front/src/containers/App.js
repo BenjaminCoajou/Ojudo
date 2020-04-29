@@ -7,6 +7,9 @@ import { fetchArticle, fetchPicture } from '../actions/Admin/articles';
 import { fetchEvents, displayEvent } from '../actions/calendar';
 import { fetchPresentation } from '../actions/presentation';
 
+
+import {fetchSponsors} from '../actions/sponsors';
+
 const mapStateToProps = null;
 
 const mapDispatchToProps = (dispatch) => ({
@@ -31,8 +34,13 @@ const mapDispatchToProps = (dispatch) => ({
     fetchPresentation: () => {
         dispatch(fetchPresentation());
     },
+
     displayEvent: () => {
         dispatch(displayEvent());
+    },  
+    
+    fetchSponsors: () => {
+        dispatch(fetchSponsors());
     }     
 });
 

@@ -5,6 +5,7 @@ import login from './login';
 import users from './Admin/users';
 import articles from './Admin/articles';
 import presentation from './presentation';
+import sponsors from './sponsors'
 
 
 export default combineReducers({
@@ -13,4 +14,5 @@ export default combineReducers({
   users,
   articles,
   presentation,
+  sponsors,
 });

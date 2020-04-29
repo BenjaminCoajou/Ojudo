@@ -1,12 +1,13 @@
-import { FETCH_ARTICLE_SUCCESS, INPUT_CHANGE, DELETE_ARTICLE, MODIFY_ARTICLE, MODIFY_ARTICLE_CHANGE, MODIFY_ARTICLE_SUCCESS, FETCH_PICTURE_SUCCESS } from '../../actions/Admin/articles';
+import { FETCH_ARTICLE_SUCCESS, INPUT_CHANGE, DELETE_ARTICLE, MODIFY_ARTICLE, MODIFY_ARTICLE_CHANGE, MODIFY_ARTICLE_SUCCESS, FETCH_PICTURE_SUCCESS, FILE_CHANGE } from '../../actions/Admin/articles';
 
 const initialState = {
     list: [],
     newArticle: {
       title:'',
       content: '',
-      picture: '',
+      file: '',
     },
+    filePath: {},
     articleToDelete: '',
     articleToEdit: {},
     edit: false,
@@ -35,6 +36,11 @@ const articles = (state = initialState, action = {}) => {
            ...action.payload,
          }
        }
+       case FILE_CHANGE:
+         return {
+           ...state,
+           picture: action.payload,
+         }
     case DELETE_ARTICLE:
       return {
         ...state,
