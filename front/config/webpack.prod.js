@@ -20,11 +20,6 @@ module.exports = merge.smart(common, {
     }),
     // Stats bundle
     new BundleStatsWebpackPlugin(),
-    
-    new webpack.ProvidePlugin({
-      jQuery: 'jquery',
-      $: 'jquery'
-    }),
   ],
   module: {
     rules: [
