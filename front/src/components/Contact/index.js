@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types'
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -85,5 +86,14 @@ CONTACT PAGE RIGHT
 <Footer/>
     </div>
 );
+
+Contact.propTypes = {
+  emailUser: Proptypes.string.isRequired,
+  title: Proptypes.string.isRequired, 
+  content: Proptypes.string.isRequired,
+  inputChange: Proptypes.func.isRequired,
+  handleSubmit: Proptypes.func.isRequired,
+  message: Proptypes.string.isRequired,
+}
 
 export default Contact;
