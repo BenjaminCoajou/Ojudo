@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Footer from '../Footer';
 
 import './style.scss';
 
 const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout, deleteMessage }) => (
+
     <div className="login-container">
     <Header />
     <div className="login-box">
@@ -54,8 +55,6 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                     <Link to="/forgotten-password">	<a className="passwordlost" >Mot de passe oublié ?</a></Link>
 
         </form>}
-        {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
-
     </div>
     <Footer />
     </div>
@@ -69,7 +68,6 @@ Login.propTypes = {
     error: PropTypes.string.isRequired,
     inputChange: PropTypes.func.isRequired,
     handleLogin: PropTypes.func.isRequired,
-    handleLogout: PropTypes.func.isRequired,
 }
 
 export default Login;
