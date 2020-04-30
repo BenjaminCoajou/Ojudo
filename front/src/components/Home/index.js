@@ -32,6 +32,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
           <div className="presandarticle">
 
             <div className="blog-card spring-fever">
+            <Link className="nav-link" to="/presentation">
               <div className="title-content">
                 <h3>Notre club</h3>
                 <hr />
@@ -40,6 +41,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               <div className="card-info">
                 {presInfo[0].content}
               </div>
+            </Link>  
             </div>
 
 
@@ -49,17 +51,21 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               <div className="articles-title-div">
                 <h2>Les derniers articles</h2>
               </div>
+              
               <div className="articles-content-div">
                 {articlesList.map((article) => (
                   <div key={article.id} className="tile">
+
                     <img src={article.picture} />
                     <div className="text">
                       <h1>{article.title}</h1>
                       <h2 className="animate-text">{moment(article.createdAt).format('D MMMM YYYY')}</h2>
                       <p className="animate-text">{article.content.substring(0, 120) + '...'}</p>
-                    </div>
-                  </div>))}
+                    </div>  
+  
+                </div>))}
               </div>
+              
             </div>
 
 
