@@ -10,7 +10,10 @@ import { fetchPresentation } from '../actions/presentation';
 
 import {fetchSponsors} from '../actions/sponsors';
 
-const mapStateToProps = null;
+const mapStateToProps = ({login, users}) => ({
+    email: login.email,
+    users: users.list,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     fetchUser: () => {

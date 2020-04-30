@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -23,13 +23,27 @@ import ForgottenPassword from '../Login/ForgottenPassword';
 import Developpeur from '../Presentation/Developpeur';
 
 // == Composant
-const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPicture, fetchSponsors}) => {
+const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPicture, fetchSponsors, email, users}) => {
   useEffect(fetchUser, []);
   useEffect(fetchEvents, []);
   useEffect(fetchPresentation, []);
   useEffect(fetchArticle, []);
   useEffect(fetchPicture, []);
   useEffect(fetchSponsors, []);
+
+  const check = users.find(user => user.email == email);
+  const verif = () => {if (check && check.role.name === 'Administrateur') {
+    return  true;
+  } else {
+    return false;
+  };}
+
+  const PrivateRoute = ({component: Component, ...rest}) => (
+    <Route {...rest} render={(props) => (
+      verif() === true ? <Component {...props} /> : <Redirect to='/connexion'/>
+    )}/>
+  )
+
    return (
   <div className="app">
     <Switch>
@@ -45,16 +59,17 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPic
       <Route exact path="/forgotten-password" component={ForgottenPassword}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
       <Route exact path="/developpeur" component={Developpeur}/>
-      <Route exact path="/admin" component={Admin} />
-      <Route exact path="/admin/categorie" component={Admin} />
-      <Route exact path="/admin/categorie/feminin" component={Admin} />
-      <Route exact path="/admin/categorie/masculin" component={Admin} />
-      <Route exact path="/admin/event" component={Admin} />
-      <Route exact path="/admin/article" component={Admin} />
-      <Route exact path="/admin/sponsors" component={Admin} />
-      <Route exact path="/admin/userlist" component={Admin} />
-      <Route exact path="/admin/user" component={Admin} />
-      <Route exact path="/admin/user/detail" component={Admin} />
+
+      <PrivateRoute exact path="/admin" component={Admin} />
+      <PrivateRoute exact path="/admin/categorie" component={Admin} />
+      <PrivateRoute exact path="/admin/categorie/feminin" component={Admin} />
+      <PrivateRoute exact path="/admin/categorie/masculin" component={Admin} />
+      <PrivateRoute exact path="/admin/event" component={Admin} />
+      <PrivateRoute exact path="/admin/article" component={Admin} />
+      <PrivateRoute exact path="/admin/sponsors" component={Admin} />
+      <PrivateRoute exact path="/admin/userlist" component={Admin} />
+      <PrivateRoute exact path="/admin/user" component={Admin} />
+      <PrivateRoute exact path="/admin/user/detail" component={Admin} />
       <Route component={PageNotFound}/>
     </Switch>
   </div>
