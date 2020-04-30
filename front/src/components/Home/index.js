@@ -43,43 +43,32 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               </div>
             </Link>  
             </div>
-
-
-
-
             <div className="wrap_articles">
               <div className="articles-title-div">
                 <h2>Les derniers articles</h2>
               </div>
-              
-              <div className="articles-content-div">
-                {articlesList.map((article) => (
-                  <div key={article.id} className="tile">
-
-                    <img src={article.picture} />
-                    <div className="text">
-                      <h1>{article.title}</h1>
-                      <h2 className="animate-text">{moment(article.createdAt).format('D MMMM YYYY')}</h2>
-                      <p className="animate-text">{article.content.substring(0, 120) + '...'}</p>
-                    </div>  
-  
-                </div>))}
-              </div>
-              
+                <div className="articles-content-div">
+                  {articlesList.map((article) => (                 
+                    <div key={article.id} className="tile">
+                      <Link className="nav-link" to="/actualite">
+                      <img src={article.picture} />
+                      <div className="text">
+                        <h1>{article.title}</h1>
+                        <h2 className="animate-text">{moment(article.createdAt).format('D MMMM YYYY')}</h2>
+                        <p className="animate-text">{article.content.substring(0, 120) + '...'}</p>
+                      </div>  
+                      </Link>
+                    </div>))
+                  }                
+                </div>
             </div>
-
-
-
           </div>
-
-
           <div className="eventsandnext">
             <div className="wrap_events">
               <div className="calendarContainer">
                 <Calendar />
               </div>
             </div>
-
             <div className="organizerContainer">
               <div className="demo-card-image mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title mdl-card--expand"></div>
