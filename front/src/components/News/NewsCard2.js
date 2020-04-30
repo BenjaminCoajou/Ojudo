@@ -8,7 +8,7 @@ const NewsCard2 = ({title, picture, content}) => {
     return(
         <div className="card card-color-1">
             <div className="border"></div>
-            <img src={picture.filePath} />
+            <img src={`http://54.166.4.90/projet-judo/back/public/uploads/articles/${picture.filePath}`} />
             <h1>{title}</h1>
             <p hidden id='text-content-article'>{content}</p>
         </div>
