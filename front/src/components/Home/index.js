@@ -5,7 +5,7 @@ import moment from "moment";
 import {Link} from 'react-router-dom';
 
 import Calendar from "../../containers/Calendar";
-import Header from "../Header";
+import Header from '../../containers/Header';
 import Footer from "../Footer";
 import Sponsors from "../../containers/Sponsors";
 
@@ -90,7 +90,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               </div>
             </div>
 
-          </div> */}
+          </div>
         <Sponsors />
 
         </div>

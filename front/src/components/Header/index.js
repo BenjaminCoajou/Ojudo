@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 //import ffjudo from "./logo-ffjudo.png";
 import "./style.scss";
@@ -9,8 +9,18 @@ import initLogo from "./logo.js";
 import logo from "./logo.png";
 
 
-const Header = ({isLogged, handleLogout}) => {
+const Header = ({isLogged, handleLogout, email, users}) => {
   useEffect ( () => {initLogo();initMenu();} );
+  const check = users.find(user => user.email == email);
+  const controlCheck = '';
+  const verif = () => {if (check && check.role.name === 'Administrateur') {
+    return  true;
+  } else {
+    return false;
+  };}
+  //check === !undefined  && check.role.name == 'Administrateur' ? true : false;
+  
+  console.log('email',verif());
   return ( 
   <header className="header">
     <div className="header__top">
@@ -52,14 +62,19 @@ const Header = ({isLogged, handleLogout}) => {
             </li>
             <li>
               {" "}
-              <NavLink className="nav-link" to="/connexion">
+              {isLogged ? <div className="nav-link" onClick={handleLogout}>Déconnexion</div> : <NavLink className="nav-link" to="/connexion">
                 Connexion
-              </NavLink>
+              </NavLink>}
+            </li>
+            <li>
+              {" "}
+              {verif() && <Link className="nav-link" to="/admin">
+                Admin
+              </Link>}
             </li>
           </ul>
 
         </div>
-        {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
       </div>
       
       <div className="body_logo">

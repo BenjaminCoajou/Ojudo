@@ -9,6 +9,7 @@ const initialState = {
         password: '',
     },
     token: '',
+    email: '',
 };
 
 export default (state = initialState, action = {}) => {
@@ -20,6 +21,7 @@ export default (state = initialState, action = {}) => {
                 isLogged : true,
                 error: '',
                 token: action.payload,
+                email: action.email,
             };
         
         case LOGIN_ERROR:
@@ -35,7 +37,8 @@ export default (state = initialState, action = {}) => {
                 form: {
                     ...state.form,
                     ...action.payload,
-                }
+                },
+                error: '',
             };
         case SUBMIT_LOGOUT: 
         return {

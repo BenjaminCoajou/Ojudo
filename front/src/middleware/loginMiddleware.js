@@ -14,8 +14,8 @@ const loginMiddleware = (store) => (next) => (action) => {
                 }                
             })
             .then((response) => {
-                //console.log('coucou', response);
-                store.dispatch(loginSuccess(response.data.token));
+                console.log('coucou', response.data);
+                store.dispatch(loginSuccess(response.data.token, store.getState().login.form.email));
             })
             .catch((error) => {
                 //console.log(error);

@@ -12,9 +12,10 @@ export const submitLogin = () => ({
     type: SUBMIT_LOGIN,
 });
 
-export const loginSuccess = (payload) => ({
+export const loginSuccess = (payload, email) => ({
     type: LOGIN_SUCCESS,
     payload,
+    email,
 });
 
 export const loginError = () => ({
