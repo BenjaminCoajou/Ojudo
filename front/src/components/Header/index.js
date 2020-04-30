@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 //import ffjudo from "./logo-ffjudo.png";
 import "./style.scss";
@@ -14,7 +15,9 @@ const Header = ({isLogged, handleLogout}) => {
   return ( 
   <header className="header">
     <div className="header__top">
+    <Link to="/">
       <img className="header__top__logo" src={logo} />
+    </Link>
       <div className="menuContainer">
         {" "}
         <span className="menuTitle">menu</span>
