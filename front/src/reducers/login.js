@@ -51,6 +51,7 @@ export default (state = initialState, action = {}) => {
             isLogged: false,
             error: '',
             loggedMessage: '',
+            email: '',
         };
         case DELETE_MESSAGE:
             return {

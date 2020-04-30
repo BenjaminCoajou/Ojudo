@@ -23,7 +23,7 @@ $menuTitle.style.color = "#e6243e";
       tl.to($menuContainer, 0.25, {css: {height: 225}});
       tl.to($menu, 0.25, {
         css: {
-          width: 1000,
+          width: '60%',
           height: 75,
           x: 0,
           y: 70,

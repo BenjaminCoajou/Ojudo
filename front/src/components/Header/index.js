@@ -60,18 +60,18 @@ const Header = ({isLogged, handleLogout, email, users}) => {
                 Contact
               </NavLink>
             </li>
-            <li>
+            <li className='456'>
               {" "}
               {isLogged ? <div className="nav-link" onClick={handleLogout}>Déconnexion</div> : <NavLink className="nav-link" to="/connexion">
                 Connexion
               </NavLink>}
             </li>
-            <li>
+            {verif() && <li className='123'>
               {" "}
-              {verif() && <Link className="nav-link" to="/admin">
+               <Link className="nav-link" to="/admin">
                 Admin
-              </Link>}
-            </li>
+              </Link>
+            </li>}
           </ul>
 
         </div>
