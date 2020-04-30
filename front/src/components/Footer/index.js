@@ -26,7 +26,7 @@ const Footer = () => {
                                 </div>
                                     <div className="gem-contacts-item gem-contacts-phone">
                                         <i className="fa fa-phone" aria-hidden="true"></i> Téléphone:
-                                    <a href="">0202020202</a>
+                                    <a href=""> 01 02 03 04 05 </a>
                                     </div>
                                   
                                    

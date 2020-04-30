@@ -24,7 +24,9 @@ const Header = ({isLogged, handleLogout, email, users}) => {
   return ( 
   <header className="header">
     <div className="header__top">
+    <Link to="/">
       <img className="header__top__logo" src={logo} />
+    </Link>
       <div className="menuContainer">
         {" "}
         <span className="menuTitle">menu</span>
