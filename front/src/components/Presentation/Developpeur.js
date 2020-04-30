@@ -3,6 +3,12 @@ import {Link} from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 
+
+import Avatar1 from "./Avatar1.png";
+import Avatar2 from "./Avatar2.png";
+import Avatar3 from "./Avatar3.png";
+import Avatar4 from "./Avatar4.png";
+
 import './style.scss';
 
 
@@ -16,7 +22,7 @@ const Developpeur = () => {
 
                 <header className="header_presentation">
         
-                    <img src=""/>
+                    <img src={Avatar1}/>
 
                     <h1>Lemarchand Johan</h1>
                     <br />
@@ -40,7 +46,7 @@ const Developpeur = () => {
 
                 <header className="header_presentation">
         
-                    <img src=""/>
+                    <img src={Avatar2}/>
 
                     <h1>Coajou Benjamin</h1>
                     <br />
@@ -62,7 +68,7 @@ const Developpeur = () => {
 
                 <header className="header_presentation">
         
-                    <img src=""/>
+                    <img src={Avatar3}/>
 
                     <h1>Serbin Freddy</h1>
                     <br />
@@ -84,7 +90,7 @@ const Developpeur = () => {
 
             <header className="header_presentation">
       
-                <img src=""/>
+                <img src={Avatar4}/>
 
                 <h1>Guechi Cyril</h1>
                 <br />
