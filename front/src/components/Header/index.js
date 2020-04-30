@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from "react-router-dom";
-import {Link} from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
 
 //import ffjudo from "./logo-ffjudo.png";
 import "./style.scss";
@@ -10,8 +9,18 @@ import initLogo from "./logo.js";
 import logo from "./logo.png";
 
 
-const Header = ({isLogged, handleLogout}) => {
+const Header = ({isLogged, handleLogout, email, users}) => {
   useEffect ( () => {initLogo();initMenu();} );
+  const check = users.find(user => user.email == email);
+  const controlCheck = '';
+  const verif = () => {if (check && check.role.name === 'Administrateur') {
+    return  true;
+  } else {
+    return false;
+  };}
+  //check === !undefined  && check.role.name == 'Administrateur' ? true : false;
+  
+  console.log('email',verif());
   return ( 
   <header className="header">
     <div className="header__top">
@@ -22,7 +31,7 @@ const Header = ({isLogged, handleLogout}) => {
         {" "}
         <span className="menuTitle">menu</span>
         <div className="menu">
-          <ul>
+          <ul className="meun_ul">
             <li>
               {" "}
               <NavLink className="nav-link" exact to="/">
@@ -53,16 +62,21 @@ const Header = ({isLogged, handleLogout}) => {
                 Contact
               </NavLink>
             </li>
-            <li>
+            <li className='456'>
               {" "}
-              <NavLink className="nav-link" to="/connexion">
+              {isLogged ? <div className="nav-link" onClick={handleLogout}>Déconnexion</div> : <NavLink className="nav-link" to="/connexion">
                 Connexion
-              </NavLink>
+              </NavLink>}
             </li>
+            {verif() && <li className='123'>
+              {" "}
+               <Link className="nav-link" to="/admin">
+                Admin
+              </Link>
+            </li>}
           </ul>
 
         </div>
-        {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
       </div>
       
       <div className="body_logo">

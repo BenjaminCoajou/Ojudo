@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import moment from 'moment'
 import { Map, Marker, TileLayer } from "react-leaflet";
 
-import Header from "../Header";
+import Header from '../../containers/Header';
 import Footer from "../Footer";
 import Calendar from "../../containers/Calendar";
 import "./style.scss";

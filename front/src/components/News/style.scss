@@ -24,9 +24,11 @@ p {
 }
 
 // À supprimer pour aligner les colonnes
+/*
 .column-1 {
   padding-top: 100px;
 }
+*/
 
 .card {
   width: 92%;
@@ -62,6 +64,7 @@ p {
   position: absolute;
   top: -6%;
   left: -6%;
+  height: 65%;
 }
 
 .card-color-0 {
@@ -100,18 +103,20 @@ p {
 
 .open-content img {
   position: relative;
-  width: 40%;
-  margin: 0 0 0 30%;
+  width: 10%;
+  margin: 0 0 0 45%;
   //margin-top: 20px;
   z-index: 5;
+  height: 35vh;
 }
 
 .open-content .text {
   background: #fff;
   margin-top: -58%;
   padding: 60% 5% 5% 5%;
-  width: 80%;
-  margin-left: 10%;
+  width: 50%;
+  margin-left:auto;
+  margin-right: auto;
   margin-bottom: 5%;
 }
 

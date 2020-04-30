@@ -52,7 +52,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
                 Se Connecter</button>
                 <br/>
 					<br/>
-                    <Link to="/forgotten-password">	<a className="passwordlost" >Mot de passe oublié ?</a></Link>
+                    <Link to="/forgotten-password" className="passwordlost">Mot de passe oublié ?</Link>
 
         </form>}
     </div>

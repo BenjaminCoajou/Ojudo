@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import NewsCard1 from './NewsCard1';
 import NewsCard2 from './NewsCard2';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Footer from '../Footer';
 
 import './style.scss';

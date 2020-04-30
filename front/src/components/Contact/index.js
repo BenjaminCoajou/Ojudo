@@ -1,6 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types'
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Footer from '../Footer';
 
 import './style.css';
