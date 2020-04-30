@@ -18,16 +18,6 @@ import PageNotFound from '../NotFound';
 import './styles.css';
 
 import Admin from '../Admin';
-import Dashboard from '../Admin/Dashboard';
-import Categories from '../Admin/Categories';
-import Woman from '../Admin/Categories/Woman';
-import Man from '../Admin/Categories/Man';
-import UsersList from '../Admin/Users/UsersList';
-import Users from '../Admin/Users';
-import UsersDetails from '../Admin/Users/UsersDetails';
-import EventAdmin from '../Admin/Event';
-import SponsorsAdmin from '../Admin/Sponsors';
-import ArticleAdmin from '../../containers/Admin/Articles';
 import Mentions from '../Mentions légales/mentions';
 import ForgottenPassword from '../Login/ForgottenPassword';
 import Developpeur from '../Presentation/Developpeur';
@@ -55,17 +45,16 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPic
       <Route exact path="/forgotten-password" component={ForgottenPassword}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
       <Route exact path="/developpeur" component={Developpeur}/>
-      <Admin/>
-      <Route exact path="/admin" component={Dashboard} />
-      <Route exact path="/admin/categorie" component={Categories} />
-      <Route exact path="/admin/categorie/feminin" component={Woman} />
-      <Route exact path="/admin/categorie/masculin" component={Man} />
-      <Route exact path="/admin/event" component={EventAdmin} />
-      <Route exact path="/admin/article" component={ArticleAdmin} />
-      <Route exact path="/admin/sponsors" component={SponsorsAdmin} />
-      <Route exact path="/admin/userlist" component={UsersList} />
-      <Route exact path="/admin/user" component={Users} />
-      <Route exact path="/admin/user/detail" component={UsersDetails} />
+      <Route exact path="/admin" component={Admin} />
+      <Route exact path="/admin/categorie" component={Admin} />
+      <Route exact path="/admin/categorie/feminin" component={Admin} />
+      <Route exact path="/admin/categorie/masculin" component={Admin} />
+      <Route exact path="/admin/event" component={Admin} />
+      <Route exact path="/admin/article" component={Admin} />
+      <Route exact path="/admin/sponsors" component={Admin} />
+      <Route exact path="/admin/userlist" component={Admin} />
+      <Route exact path="/admin/user" component={Admin} />
+      <Route exact path="/admin/user/detail" component={Admin} />
       <Route component={PageNotFound}/>
     </Switch>
   </div>

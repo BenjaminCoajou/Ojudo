@@ -18,8 +18,8 @@ export default () => (
 
         <h1 className="title-error">Oops! Page non trouvée</h1>
         <div class="btn-error">
-            <Link to="/">
-                <a className="link-error">Retourner à la page d'accueil</a>
+            <Link className="link-error" to="/">
+                Retourner à la page d'accueil
             </Link>
         </div>
     </div>
