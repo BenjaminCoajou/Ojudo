@@ -27,7 +27,7 @@ import Users from '../Admin/Users';
 import UsersDetails from '../Admin/Users/UsersDetails';
 import EventAdmin from '../Admin/Event';
 import SponsorsAdmin from '../Admin/Sponsors';
-import ArticleAdmin from '../Admin/Article';
+import ArticleAdmin from '../../containers/Admin/Articles';
 import Mentions from '../Mentions légales/mentions';
 import ForgottenPassword from '../Login/ForgottenPassword';
 import Developpeur from '../Presentation/Developpeur';

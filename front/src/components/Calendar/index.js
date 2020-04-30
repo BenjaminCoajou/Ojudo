@@ -3,6 +3,7 @@ import Proptypes from 'prop-types';
 import moment from 'moment';
 import {v4 as uuid} from 'uuid';
 import { MdEvent } from "react-icons/md";
+import  {Link} from 'react-router-dom';
 
 import Months from '../../containers/Months';
 import Years from '../../containers/Years';
@@ -106,13 +107,13 @@ const Calendar = ({ dateObject, monthIsDisplayed, showMonth, yearIsDisplayed, sh
                     </table>
                 </div>
             </div>
-            {eventInfos ? <div className="calendar-footer">
+            {eventInfos ? <Link to="/evenements"><div className="calendar-footer">
             <div className="calendar-footer-title">
                 <h4 className="calendar-footer-title-text">{eventInfos.title}</h4>
                 <p className="calendar-footer-text" >{eventInfos.place}</p>
                 <p className="calendar-footer-text" >{eventInfos.content}</p>
                 </div>
-            </div>
+            </div></Link>
                 : <div className="calendar-footer">
                     <div className="calendar-footer-title">
                         <h4 className="calendar-footer-title-text">Aucun événement à ce jour</h4>

@@ -54,7 +54,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               
               <div className="articles-content-div">
                 {articlesList.map((article) => (
-                  <div key={article.id} className="tile">
+                  <Link to="/actualite"><div key={article.id} className="tile">
 
                     <img src={`http://54.166.4.90/projet-judo/back/public/uploads/articles/${article.picture.filePath}`} />
                     <div className="text">
@@ -63,7 +63,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
                       <p className="animate-text">{article.content.substring(0, 120) + '...'}</p>
                     </div>  
   
-                </div>))}
+                </div></Link>))}
               </div>
               
             </div>
