@@ -29,7 +29,7 @@ const Header = ({isLogged, handleLogout, email, users}) => {
         {" "}
         <span className="menuTitle">menu</span>
         <div className="menu">
-          <ul>
+          <ul className="meun_ul">
             <li>
               {" "}
               <NavLink className="nav-link" exact to="/">
