@@ -13,8 +13,7 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { Switch, Route } from 'react-router-dom';
-
+import { Switch, Route, Link } from 'react-router-dom';
 import ListItems from './ListItems';
 import ImageAvatars from './Avatar';
 import Dashboard from './Dashboard';
@@ -146,6 +145,11 @@ const Admin = () => {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Tableau de bord
           </Typography>
+          <Link to="/">
+            <Typography component="p" variant="p" color="inherit" noWrap className={classes.title}>
+              Revenir sur le site
+            </Typography>
+          </Link>
           <ImageAvatars />
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
