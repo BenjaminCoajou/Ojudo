@@ -55,6 +55,7 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPic
       <Route exact path="/forgotten-password" component={ForgottenPassword}/>
       <Route exact path="/mentions-legales" component={Mentions}/>
       <Route exact path="/developpeur" component={Developpeur}/>
+      <Route component={PageNotFound}/>
       <Admin/>
       <Route exact path="/admin" component={Dashboard} />
       <Route exact path="/admin/categorie" component={Categories} />
@@ -66,7 +67,6 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPic
       <Route exact path="/admin/userlist" component={UsersList} />
       <Route exact path="/admin/user" component={Users} />
       <Route exact path="/admin/user/detail" component={UsersDetails} />
-      <Route component={PageNotFound}/>
     </Switch>
   </div>
 )};
