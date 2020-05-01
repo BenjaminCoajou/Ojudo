@@ -183,16 +183,16 @@ const Footer = () => {
                         <div className="col-md-3">
                             <div id="footer-socials">
                                 <div className="socials inline-inside socials-colored">
-                                    <a href="#" target="_blank" title="Facebook" className="socials-item">
+                                    <a href="#" title="Facebook" className="socials-item">
                                         <i className="fab fa-facebook-f facebook"></i>
                                     </a>
-                                    <a href="#" target="_blank" title="Twitter" className="socials-item">
+                                    <a href="#" title="Twitter" className="socials-item">
                                         <i className="fab fa-twitter twitter"></i>
                                     </a>
-                                    <a href="#" target="_blank" title="Instagram" className="socials-item">
+                                    <a href="#" title="Instagram" className="socials-item">
                                         <i className="fab fa-instagram instagram"></i>
                                     </a>
-                                    <a href="#" target="_blank" title="Telegram" className="socials-item">
+                                    <a href="#" title="Telegram" className="socials-item">
                                         <i className="fab fa-telegram telegram"></i>
                                     </a>
                                 </div>

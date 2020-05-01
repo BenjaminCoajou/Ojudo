@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Footer from '../Footer';
 import './style.scss';
+
+// relier le component à redux (container, action, reducer, api ...)
 
 const ForgottenPassword = ({  }) => (
     <div className="login-container">
@@ -26,7 +28,7 @@ const ForgottenPassword = ({  }) => (
                 <span></span>
                Confirmer</button>
             </div>
-            <Link to="/connexion">	<a className="passwordlost" >Revenir à la connexion</a></Link>
+            <Link className="passwordlost" to="/connexion">Revenir à la connexion</Link>
             </form>
     </div>
     <Footer />

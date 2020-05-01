@@ -32,7 +32,7 @@ const ArticleAdmin = () => {
   return (
     <div className={classes.root}>
         <Container maxWidth="xl" className={classes.container}>
-          <Link  to="/actualite/article/add"><Button
+          <Link  to="/admin/article/add"><Button
           variant="contained"
           color="secondary"
           className={classes.button}

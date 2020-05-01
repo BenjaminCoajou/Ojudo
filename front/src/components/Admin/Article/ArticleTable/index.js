@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
+import "./style.scss";
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -89,8 +90,8 @@ const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, art
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
                   <StyledTableCell>{articles.firstname}</StyledTableCell>
 
-                <StyledTableCell> <EditIcon onClick = {() => editArticle(articles)} /></StyledTableCell>
-                <StyledTableCell><DeleteIcon onClick={() => {deleteArticle(articles.id), submitDelete()}} /> </StyledTableCell>
+                <StyledTableCell> <EditIcon className="btn-hover" onClick = {() => editArticle(articles)} /></StyledTableCell>
+                <StyledTableCell><DeleteIcon className="btn-hover" onClick={() => {deleteArticle(articles.id), submitDelete()}} /> </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

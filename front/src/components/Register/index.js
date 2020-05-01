@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Footer from '../Footer';
 
 import './style.scss';
+
+// relier le component à redux (container, actions, reducer...)
 
 const Register = ({ email, password, firstname, lastname, isLogged, loggedMessage, error, inputChange, handleLogin, handleLogout }) => (
     <div className="login-container">
@@ -75,7 +77,7 @@ const Register = ({ email, password, firstname, lastname, isLogged, loggedMessag
                Confirmer</button>
                 <br/>
 					<br/>
-					<Link color="inherit"  to="/connexion"><a className="passwordlost" href="">Vous avez déjà un compte ?</a></Link>
+					<Link color="inherit" className="passwordlost" to="/connexion">Vous avez déjà un compte ?</Link>
 
         </form>}
         {isLogged && <button type="button" className="btn btn-primary" onClick={handleLogout}>Se Déconnecter</button>}
@@ -85,7 +87,7 @@ const Register = ({ email, password, firstname, lastname, isLogged, loggedMessag
     </div>
 );
 
-Register.propTypes = {
+/*Register.propTypes = {
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     isLogged: PropTypes.bool.isRequired,
@@ -94,6 +96,6 @@ Register.propTypes = {
     inputChange: PropTypes.func.isRequired,
     handleLogin: PropTypes.func.isRequired,
     handleLogout: PropTypes.func.isRequired,
-}
+}*/
 
 export default Register;

@@ -28,6 +28,7 @@ import UsersList from './Users/UsersList';
 import Users from './Users';
 import UsersDetails from './Users/UsersDetails';
 
+import "./style.css"
 
 
 
@@ -146,7 +147,7 @@ const Admin = () => {
             Tableau de bord
           </Typography>
           <Link to="/">
-            <Typography component="p" variant="p" color="inherit" noWrap className={classes.title}>
+            <Typography className="back-to-site" component="p" variant="p" color="inherit" noWrap className={classes.title}>
               Revenir sur le site
             </Typography>
           </Link>
@@ -189,7 +190,7 @@ const Admin = () => {
           <Route exact path="/admin/userlist" component={UsersList} />
           <Route exact path="/admin/user" component={Users} />
           <Route exact path="/admin/user/detail" component={UsersDetails} />
-          <Route exact path="/actualite/article/add" component={AddArticle} />
+          <Route exact path="/admin/article/add" component={AddArticle} />
         </Switch>
       </main>
 

@@ -70,6 +70,7 @@ const App = ({ fetchUser, fetchEvents, fetchPresentation, fetchArticle, fetchPic
       <PrivateRoute exact path="/admin/userlist" component={Admin} />
       <PrivateRoute exact path="/admin/user" component={Admin} />
       <PrivateRoute exact path="/admin/user/detail" component={Admin} />
+      <PrivateRoute exact path="/admin/article/add" component={Admin} />
       <Route component={PageNotFound}/>
     </Switch>
   </div>

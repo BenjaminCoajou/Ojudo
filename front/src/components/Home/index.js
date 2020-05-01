@@ -54,7 +54,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
               
               <div className="articles-content-div">
                 {articlesList.map((article) => (
-                  <Link to="/actualite"><div key={article.id} className="tile">
+                  <Link key={article.id} to="/actualite"><div className="tile">
 
                     <img src={`http://54.166.4.90/projet-judo/back/public/uploads/articles/${article.picture.filePath}`} />
                     <div className="text">
