@@ -85,7 +85,7 @@ const ArticleTable = ({list, deleteArticle, submitDelete, edit, editArticle, art
                     onChange={(evt) => editArticleChange({ [evt.target.name]: evt.target.value})} />
                   </form> : <p>{articles.content.length > 40 ? articles.content.substring(0, 40)+'...' : articles.content}</p>}
                   </StyledTableCell>
-                <StyledTableCell>{articles.picture.filePath}</StyledTableCell>
+                <StyledTableCell>images-2-5eaa8a6d8b1b7821556176.jpg</StyledTableCell>
                 <StyledTableCell>{articles.createdAt}</StyledTableCell>
                 <StyledTableCell>{articles.updatedAt}</StyledTableCell>
                   <StyledTableCell>{articles.firstname}</StyledTableCell>

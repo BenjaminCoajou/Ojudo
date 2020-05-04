@@ -22,6 +22,11 @@ const articles = (state = initialState, action = {}) => {
          ...state,
          list: [...action.payload],
          isLoad: true,
+         newArticle: {
+          title:'',
+          content: '',
+          file: '',
+        },
      }
     case FETCH_PICTURE_SUCCESS:
     return {

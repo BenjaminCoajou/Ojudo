@@ -23,6 +23,11 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 message: 'Votre email a bien été envoyé',
+                form: {
+                    email: '',
+                    title: '',
+                    content: '',
+                }
             }
         case MAIL_ERROR:
             return {

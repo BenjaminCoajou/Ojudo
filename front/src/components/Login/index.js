@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import Header from '../../containers/Header';
 import Footer from '../Footer';
@@ -22,6 +22,7 @@ const Login = ({ email, password, isLogged, loggedMessage, error, inputChange, h
         </div>}
         {loggedMessage && <div className="alert alert-success" role="alert">
             {loggedMessage}
+            <Redirect to="/" />
         </div>}
         {!isLogged && <form className="loginPage__form" onSubmit={(evt) => { evt.preventDefault(); handleLogin();}}>
 

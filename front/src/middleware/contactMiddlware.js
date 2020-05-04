@@ -18,10 +18,6 @@ const contactMiddleware = (store) => (next) => (action) => {
                 console.log('mail bien envoyé');
                 store.dispatch(mailSuccess());
             })
-            .then((error) => {
-                console.log('erreur lors de l\'envoi du mail');
-                store.dispatch(mailError());
-            });
             break;
             default:
                 return next(action);

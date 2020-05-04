@@ -56,7 +56,7 @@ const Home = ({ isLoading, events, dateObject, presIsLoaded, presInfo, articles,
                 {articlesList.map((article) => (
                   <Link key={article.id} to="/actualite"><div className="tile">
 
-                    <img src={`http://54.166.4.90/projet-judo/back/public/uploads/articles/${article.picture.filePath}`} />
+                    <img src="http://54.166.4.90/projet-judo/back/public/uploads/articles/images-2-5eaa8a6d8b1b7821556176.jpg" />
                     <div className="text">
                       <h1>{article.title}</h1>
                       <h2 className="animate-text">{moment(article.createdAt).format('D MMMM YYYY')}</h2>

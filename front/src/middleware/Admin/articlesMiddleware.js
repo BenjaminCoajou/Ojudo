@@ -43,7 +43,7 @@ export default (store) => (next) => (action) => {
                 console.log('erreur de l\'envoie de l\'article',error )
             });
             
-            var bodyFormData = new FormData();
+            /*var bodyFormData = new FormData();
             bodyFormData.append('file', store.getState().articles.picture.file);
             axios({
                 url:'http://54.166.4.90/projet-judo/back/public/index.php/api/media_objects',
@@ -60,7 +60,7 @@ export default (store) => (next) => (action) => {
             })
             .catch((error) => {
                 console.log('erreur de l\'envoie de l\'image',error )
-            });
+            });*/
             break;
             case DELETE_ARTICLE_SUBMIT:
                 axios({

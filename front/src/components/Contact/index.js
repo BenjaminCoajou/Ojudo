@@ -10,7 +10,7 @@ const Contact = ({emailUser, title, content, inputChange, handleSubmit, message}
         <Header />
         <section id="contact">
   <h1 className="section-header">CONTACT</h1>
-<div>{message ? message : ""}</div>
+  
   <div className="contact-wrapper">
     {/*-------------- 
 
@@ -54,6 +54,9 @@ CONTACT PAGE LEFT
           <i className="fa fa-paper-plane"></i><span className="send-text">Envoyer</span>
         </div>
       </button>
+      {message && <div className="alert alert-success alert-margin" role="alert">
+            {message}
+        </div>}
     </form>
     {/*-------------- 
 
