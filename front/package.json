@@ -71,7 +71,7 @@
     "material-table": "^1.57.2",
     "material-ui-search-bar": "^0.4.2",
     "materialize-css": "^1.0.0-rc.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mui-autocomplete": "^2.0.1",
     "path-to-regexp": "^6.1.0",
     "prop-types": "*",
